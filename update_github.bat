@@ -1,6 +1,6 @@
 @echo off
 REM ===============================
-REM Auto GitHub Update Script with Pull, Logging, and Auto-Add for New Files
+REM Auto GitHub Update Script
 REM ===============================
 
 REM Navigate to your project folder
@@ -12,7 +12,7 @@ echo ============================== >> %LOGFILE%
 echo %DATE% %TIME% - Starting Git Push >> %LOGFILE%
 
 REM Check if this is a git repository
-git status > nul 2>&1
+git status >nul 2>&1
 IF %ERRORLEVEL% NEQ 0 (
     echo Not a git repository. Please initialize first. >> %LOGFILE%
     echo Not a git repository. Please initialize first.
@@ -20,7 +20,7 @@ IF %ERRORLEVEL% NEQ 0 (
     exit /b
 )
 
-REM Pull remote changes first (handles unrelated histories)
+REM Pull remote changes first
 git pull origin main --allow-unrelated-histories
 IF %ERRORLEVEL% NEQ 0 (
     echo ERROR: git pull failed. Resolve conflicts manually. >> %LOGFILE%
@@ -29,10 +29,8 @@ IF %ERRORLEVEL% NEQ 0 (
     exit /b
 )
 
-REM Automatically add all new and modified files including subfolders
-REM (This will also pick up any new images added)
-for /R %%f in (*) do git add "%%f"
-
+REM Stage all changes (new, modified, deleted)
+git add .
 IF %ERRORLEVEL% NEQ 0 (
     echo ERROR: git add failed >> %LOGFILE%
     echo git add failed. See log at %LOGFILE%
@@ -50,9 +48,10 @@ IF %ERRORLEVEL% EQU 0 (
     git commit -m "Auto-update from local machine"
     IF %ERRORLEVEL% NEQ 0 (
         echo WARNING: git commit failed >> %LOGFILE%
-        echo git commit failed. >> %LOGFILE%
+        echo git commit failed.
     ) ELSE (
         echo Commit successful >> %LOGFILE%
+        echo Commit successful.
     )
 )
 
