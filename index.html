@@ -1,0 +1,990 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=400, initial-scale=1.0">
+<title>Northern Utah Youth Ensembles</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=EB+Garamond&family=Marcellus+SC&display=swap" rel="stylesheet">
+
+<!-- CSS -->
+<style>
+/* Global Styles */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'EB Garamond', serif;
+  line-height: 1.6;
+  background: #ddd;
+}
+.container {
+  width: 400px;
+  max-width: 400px;
+  min-width: 400px;
+  margin: auto;
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  text-align: center;
+  background-color: #015870;
+  /* background-color: #003366; */
+  color: white;
+  padding: 1rem;
+}
+header img { max-width: 100px; margin-bottom: 0.5rem; }
+
+/* Navigation / Table of Contents */
+nav {
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav a { margin: 0 0.3rem; text-decoration: none; color: #003366; font-weight: bold; }
+
+/* Sections */
+section { padding: 1.5rem 0; }
+section h2 { text-align: center; margin-bottom: 1rem; }
+
+/* Section Background Colors */
+.prep { background-color: #dcd495; }
+.chamber { background-color: #d7b377; }
+.wind { background-color: #825e2e; }
+.symphony { background-color: #015870; color: #acedff }
+.special1 { background-color: #000000; } /* solo instrument */
+.special2 { background: linear-gradient(to bottom, 844c65, #fff); } /* Goethe, Romantic Influencer */
+.special3 { background: linear-gradient(to bottom, 844c65, #fff); } /* Who was Egmont */
+.special4 { background: linear-gradient(to bottom, #c8e6c9, #fff); } /* end thank you */
+
+/* Banner */
+.banner {
+  background-size: cover;
+  padding: 80px 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.banner h2 {
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+/* Text-wrap for modular pieces */
+.text-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 1rem;
+}
+
+/* Piece Title, Composer, Pronunciation */
+.piece-title { 
+	font-family: 'EB Garamond', serif; 
+	font-size: 1.1rem; 
+	text-align: left; 
+	color: #acedff; 
+	font-weight: bold;
+	margin: 0 0 0.1rem 0; /* bottom margin reduced */
+}
+
+.composer-name {
+  font-size: 3rem;
+  color: #FFFFFF;
+  text-align: center;
+  width: 100%;
+  margin: 0 0 0.1rem 0; /* reduce bottom margin to pull pronunciation up */
+}
+/* Composer font by era */
+.composer-name.medieval { font-family: 'EB Garamond', serif; }
+.composer-name.baroque { font-family: 'EB Garamond', serif; }
+.composer-name.classical { font-family: 'EB Garamond', serif; }
+.composer-name.romantic { font-family: 'Allura', cursive; }
+.composer-name.modern { font-family: 'EB Garamond', serif; }
+.composer-name.postmodern { font-family: 'EB Garamond', serif; }
+.composer-name.contemporary { font-family: 'EB Garamond', serif; }
+
+.pronunciation {
+  font-family: 'Marcellus SC', serif;
+  font-size: 0.7rem;
+  display: block;
+  text-align: right;
+  color: #acedff;
+  margin-top: 0 0 025rem 0; /* keeps a little space before the timeline rectangle */
+}
+
+/* Timeline rectangle */
+.timeline-rect {
+  width: 100%;
+  height: 100px;
+  background-color: #eee;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timeline-rect img { max-width: 100%; max-height: 100%; display: block; }
+
+/* Biography & image */
+.biography {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+.shape.rectangle {
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #003366;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* Copyright text */
+.copyright { font-size: 0.7rem; color: #555; margin-top: 0.2rem; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header id="top">
+  <img src="images/logo_nuye_placeholder.png" alt="Orchestra Logo">
+  <h1>Northern Utah Youth Ensembles</h1>
+  <h2>Fall Concert Program Notes</h2>
+</header>
+
+<nav>
+  <a href="#prep">Preparatory</a> |
+  <a href="#chamber">Chamber</a> |
+  <a href="#wind">Wind</a> |
+  <a href="#symphony">Symphony</a> 
+
+</nav>
+
+<!-- =================== Preparatory =================== -->
+<section id="prep" class="prep">
+  <div class="banner" style="background-image: url('images/banner_prep.png');"><h2>Preparatory Ensemble</h2></div>
+  <div class="content">
+    <p>Preparatory Ensemble performs lively works for young musicians, introducing them to ensemble playing and musical expression.</p>
+    <p class="copyright">© Photographer Name</p>
+  </div>
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+<!-- =================== Chamber =================== -->
+<section id="chamber" class="chamber">
+  <div class="banner" style="background-image: url('images/banner_chamber.png');"><h2>Chamber Ensemble</h2></div>
+  <div class="content">
+    <p>Chamber Ensemble performs small-group repertoire with focus on musical dialogue, phrasing, and interpretation.</p>
+    <p class="copyright">© Photographer Name</p>
+  </div>
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+<!-- =================== Wind =================== -->
+<section id="wind" class="wind">
+  <div class="banner" style="background-image: url('images/banner_wind.png');"><h2>Wind Ensemble</h2></div>
+  <div class="content">
+    <p>Wind Ensemble features woodwinds, brass, and percussion in classic and contemporary works.</p>
+    <p class="copyright">© Photographer Name</p>
+  </div>
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+<!-- =================== Symphony =================== -->
+<section id="symphony" class="symphony">
+  <div class="banner" style="background-image: url('images/banner_symphony.png');"><h2>Youth Symphony</h2></div>
+
+
+
+  <!-- Piece 1: Beethoven -->
+  <div class="text-wrap">
+    <p class="piece-title">Egmont Overture</p>
+    <div class="composer-name romantic">Ludwig van Beethoven</div>
+    <span class="pronunciation">(BAY-toh-ven)</span>
+    <div class="timeline-rect">
+		<img src="images/timeline_sample.png" alt="Timeline sample">
+	</div>
+    <div class="biography">
+      <div class="shape rectangle" style="background-image: url('images/test_circle.png');"></div>
+      Beethoven’s Egmont Overture captures heroic spirit, blending tension with triumphant resolution. Pellentesque condimentum nulla eu lectus scelerisque, sed egestas arcu dapibus. Proin id sagittis nunc. Nam quis rhoncus odio. Aliquam in mattis augue. 
+      <p class="copyright">© Artist Name</p>
+    </div>
+  </div>
+  
+    <!-- Block: Egmont -->
+<section id="special1" class="special1">
+  <img src="images/block-egmont.png" alt="Egmont Info" style="width:100%; display:block;">
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+  <!-- Piece 2: Accolay -->
+  <div class="text-wrap">
+    <p class="piece-title">Violin Concerto No. 1 in A minor</p>
+    <div class="composer-name romantic">J.B. Accolay</div>
+    <span class="pronunciation">(AH-coh-lay)</span>
+    <div class="timeline-rect">
+		<img src="images/timeline_sample.png" alt="Timeline sample">
+	</div>
+    <div class="biography">
+      <div class="shape rectangle" style="background-image: url('images/test_circle.png');"></div>
+      Accolay’s violin concerto is a staple of student repertoire, with lyricism and elegance. Pellentesque condimentum nulla eu lectus scelerisque, sed egestas arcu dapibus. Proin id sagittis nunc. Nam quis rhoncus odio. Aliquam in mattis augue. Sed tempor nisi non massa blandit consequat. 
+      <p class="copyright">© Artist Name</p>
+    </div>
+  </div>
+  
+  <section id="special1" class="special1">
+  <img src="images/block-violin.png" alt="Violin Info" style="width:100%; display:block;">
+</section>
+  
+    <!-- Piece 3: Hector Berlioz -->
+  <div class="text-wrap">
+    <p class="piece-title">Hungarian March from <em>The Damnation of Faust</em></p>
+    <div class="composer-name romantic">Hector Berlioz</div>
+    <span class="pronunciation">(bear-lee-OHZ)</span>
+    <div class="timeline-rect">
+		<img src="images/timeline_sample.png" alt="Timeline sample">
+	</div>
+    <div class="biography">
+      <div class="shape rectangle" style="background-image: url('images/test_circle.png');"></div>
+      Berlioz’s “Hungarian March” from <em>The Damnation of Faust</em> showcases his dramatic orchestration and colorful use of the orchestra. Written in the early 1840s, this march illustrates his fascination with Hungarian musical styles and rhythmic vitality. The work features energetic rhythms, bold brass writing, and lively string passages.
+      <p class="copyright">© Artist Name</p>
+    </div>
+  </div>
+  
+      <!-- Block: Faust -->
+<section id="special1" class="special1">
+  <img src="images/block-faust.png" alt="Faust Info" style="width:100%; display:block;">
+</section>
+
+      <!-- Block: Goethe -->
+<section id="special1" class="special1">
+  <img src="images/block-goethe.png" alt="Goethe Info" style="width:100%; display:block;">
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+  
+
+  <!-- Piece 4: Bizet -->
+  <div class="text-wrap">
+    <p class="piece-title">Carmen Suite No. 1</p>
+    <div class="composer-name romantic">Georges Bizet</div>
+    <span class="pronunciation">(bee-ZAY)</span>
+    <div class="timeline-rect">
+		<img src="images/timeline_sample.png" alt="Timeline sample">
+	</div>
+    <div class="biography">
+      <div class="shape rectangle" style="background-image: url('images/bizet_portrait.png');"></div>
+      Bizet’s Carmen Suite captures Spanish passion and drama in orchestral color and rhythm. Pellentesque condimentum nulla eu lectus scelerisque, sed egestas arcu dapibus. Proin id sagittis nunc. Nam quis rhoncus odio. Aliquam in mattis augue. 
+      <p class="copyright">© Artist Name</p>
+    </div>
+  </div>
+  
+        <!-- Block: Opera-Comique -->
+  <section id="special1" class="special1">
+  <img src="images/block-comique.png" alt="Opera-Comique Info" style="width:100%; display:block;">
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+        <!-- Block: Prix de Rome -->
+  <section id="special1" class="special1">
+  <img src="images/block-prix.png" alt="Prix de Rome Info" style="width:100%; display:block;">
+</section>
+
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+<!-- =================== Special Sections =================== -->
+
+
+
+
+<section id="special3" class="special3">
+  <h2>Thank You / Cell Phones</h2>
+  <p>Please turn off cell phones. Thank you for joining us!</p>
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+</div>
+</body>
+</html>
+=======
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=400, initial-scale=1.0">
+<title>Northern Utah Youth Ensembles</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=EB+Garamond&family=Marcellus+SC&display=swap" rel="stylesheet">
+
+<!-- CSS -->
+<style>
+/* Global Styles */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'EB Garamond', serif;
+  line-height: 1.6;
+  background: #ddd;
+}
+.container {
+  width: 400px;
+  max-width: 400px;
+  min-width: 400px;
+  margin: auto;
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  text-align: center;
+  background-color: #015870;
+  /* background-color: #003366; */
+  color: white;
+  padding: 1rem;
+}
+header img { max-width: 100px; margin-bottom: 0.5rem; }
+
+/* Navigation / Table of Contents */
+nav {
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav a { margin: 0 0.3rem; text-decoration: none; color: #003366; font-weight: bold; }
+
+/* Sections */
+section { padding: 1.5rem 0; }
+section h2 { text-align: center; margin-bottom: 1rem; }
+
+/* Section Background Colors */
+.prep { background-color: #dcd495; }
+.chamber { background-color: #d7b377; }
+.wind { background-color: #825e2e; }
+.symphony { background-color: #015870; color: #acedff }
+.special1 { background-color: #000000; } /* solo instrument */
+.special2 { background: linear-gradient(to bottom, 844c65, #fff); } /* Goethe, Romantic Influencer */
+.special3 { background: linear-gradient(to bottom, 844c65, #fff); } /* Who was Egmont */
+.special4 { background: linear-gradient(to bottom, #c8e6c9, #fff); } /* end thank you */
+
+/* Banner */
+.banner {
+  background-size: cover;
+  padding: 80px 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.banner h2 {
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+/* Text-wrap for modular pieces */
+.text-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 1rem;
+}
+
+/* Piece Title, Composer, Pronunciation */
+.piece-title { 
+	font-family: 'EB Garamond', serif; 
+	font-size: 1.1rem; 
+	text-align: left; 
+	color: #acedff; 
+	font-weight: bold;
+	margin: 0 0 0.1rem 0; /* bottom margin reduced */
+}
+
+.composer-name {
+  font-size: 3rem;
+  color: #FFFFFF;
+  text-align: center;
+  width: 100%;
+  margin: 0 0 0.1rem 0; /* reduce bottom margin to pull pronunciation up */
+}
+/* Composer font by era */
+.composer-name.medieval { font-family: 'EB Garamond', serif; }
+.composer-name.baroque { font-family: 'EB Garamond', serif; }
+.composer-name.classical { font-family: 'EB Garamond', serif; }
+.composer-name.romantic { font-family: 'Allura', cursive; }
+.composer-name.modern { font-family: 'EB Garamond', serif; }
+.composer-name.postmodern { font-family: 'EB Garamond', serif; }
+.composer-name.contemporary { font-family: 'EB Garamond', serif; }
+
+.pronunciation {
+  font-family: 'Marcellus SC', serif;
+  font-size: 0.7rem;
+  display: block;
+  text-align: right;
+  color: #acedff;
+  margin-top: 0 0 025rem 0; /* keeps a little space before the timeline rectangle */
+}
+
+/* Timeline rectangle */
+.timeline-rect {
+  width: 100%;
+  height: 100px;
+  background-color: #eee;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timeline-rect img { max-width: 100%; max-height: 100%; display: block; }
+
+/* Biography & image */
+.biography {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+.shape.rectangle {
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #003366;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* Copyright text */
+.copyright { font-size: 0.7rem; color: #555; margin-top: 0.2rem; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header id="top">
+  <img src="images/logo_nuye_placeholder.png" alt="Orchestra Logo">
+  <h1>Northern Utah Youth Ensembles</h1>
+  <h2>Fall Concert Program Notes</h2>
+</header>
+
+<nav>
+  <a href="#prep">Preparatory</a> |
+  <a href="#chamber">Chamber</a> |
+  <a href="#wind">Wind</a> |
+  <a href="#symphony">Symphony</a> 
+
+</nav>
+
+<!-- =================== Preparatory =================== -->
+<section id="prep" class="prep">
+  <div class="banner" style="background-image: url('images/banner_prep.png');"><h2>Preparatory Ensemble</h2></div>
+  <div class="content">
+    <p>Preparatory Ensemble performs lively works for young musicians, introducing them to ensemble playing and musical expression.</p>
+    <p class="copyright">© Photographer Name</p>
+  </div>
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+<!-- =================== Chamber =================== -->
+<section id="chamber" class="chamber">
+  <div class="banner" style="background-image: url('images/banner_chamber.png');"><h2>Chamber Ensemble</h2></div>
+  <div class="content">
+    <p>Chamber Ensemble performs small-group repertoire with focus on musical dialogue, phrasing, and interpretation.</p>
+    <p class="copyright">© Photographer Name</p>
+  </div>
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+<!-- =================== Wind =================== -->
+<section id="wind" class="wind">
+  <div class="banner" style="background-image: url('images/banner_wind.png');"><h2>Wind Ensemble</h2></div>
+  <div class="content">
+    <p>Wind Ensemble features woodwinds, brass, and percussion in classic and contemporary works.</p>
+    <p class="copyright">© Photographer Name</p>
+  </div>
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+<!-- =================== Symphony =================== -->
+<section id="symphony" class="symphony">
+  <div class="banner" style="background-image: url('images/banner_symphony.png');"><h2>Youth Symphony</h2></div>
+
+
+
+  <!-- Piece 1: Beethoven -->
+  <div class="text-wrap">
+    <p class="piece-title">Egmont Overture</p>
+    <div class="composer-name romantic">Ludwig van Beethoven</div>
+    <span class="pronunciation">(BAY-toh-ven)</span>
+    <div class="timeline-rect">
+		<img src="images/timeline_sample.png" alt="Timeline sample">
+	</div>
+    <div class="biography">
+      <div class="shape rectangle" style="background-image: url('images/test_circle.png');"></div>
+      Beethoven’s Egmont Overture captures heroic spirit, blending tension with triumphant resolution. Pellentesque condimentum nulla eu lectus scelerisque, sed egestas arcu dapibus. Proin id sagittis nunc. Nam quis rhoncus odio. Aliquam in mattis augue. 
+      <p class="copyright">© Artist Name</p>
+    </div>
+  </div>
+  
+    <!-- Block: Egmont -->
+<section id="special1" class="special1">
+  <img src="images/block-egmont.png" alt="Egmont Info" style="width:100%; display:block;">
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+  <!-- Piece 2: Accolay -->
+  <div class="text-wrap">
+    <p class="piece-title">Violin Concerto No. 1 in A minor</p>
+    <div class="composer-name romantic">J.B. Accolay</div>
+    <span class="pronunciation">(AH-coh-lay)</span>
+    <div class="timeline-rect">
+		<img src="images/timeline_sample.png" alt="Timeline sample">
+	</div>
+    <div class="biography">
+      <div class="shape rectangle" style="background-image: url('images/test_circle.png');"></div>
+      Accolay’s violin concerto is a staple of student repertoire, with lyricism and elegance. Pellentesque condimentum nulla eu lectus scelerisque, sed egestas arcu dapibus. Proin id sagittis nunc. Nam quis rhoncus odio. Aliquam in mattis augue. Sed tempor nisi non massa blandit consequat. 
+      <p class="copyright">© Artist Name</p>
+    </div>
+  </div>
+  
+  <section id="special1" class="special1">
+  <img src="images/block-violin.png" alt="Violin Info" style="width:100%; display:block;">
+</section>
+  
+    <!-- Piece 3: Hector Berlioz -->
+  <div class="text-wrap">
+    <p class="piece-title">Hungarian March from <em>The Damnation of Faust</em></p>
+    <div class="composer-name romantic">Hector Berlioz</div>
+    <span class="pronunciation">(bear-lee-OHZ)</span>
+    <div class="timeline-rect">
+		<img src="images/timeline_sample.png" alt="Timeline sample">
+	</div>
+    <div class="biography">
+      <div class="shape rectangle" style="background-image: url('images/test_circle.png');"></div>
+      Berlioz’s “Hungarian March” from <em>The Damnation of Faust</em> showcases his dramatic orchestration and colorful use of the orchestra. Written in the early 1840s, this march illustrates his fascination with Hungarian musical styles and rhythmic vitality. The work features energetic rhythms, bold brass writing, and lively string passages.
+      <p class="copyright">© Artist Name</p>
+    </div>
+  </div>
+  
+      <!-- Block: Faust -->
+<section id="special1" class="special1">
+  <img src="images/block-faust.png" alt="Faust Info" style="width:100%; display:block;">
+</section>
+
+      <!-- Block: Goethe -->
+<section id="special1" class="special1">
+  <img src="images/block-goethe.png" alt="Goethe Info" style="width:100%; display:block;">
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+  
+
+  <!-- Piece 4: Bizet -->
+  <div class="text-wrap">
+    <p class="piece-title">Carmen Suite No. 1</p>
+    <div class="composer-name romantic">Georges Bizet</div>
+    <span class="pronunciation">(bee-ZAY)</span>
+    <div class="timeline-rect">
+		<img src="images/timeline_sample.png" alt="Timeline sample">
+	</div>
+    <div class="biography">
+      <div class="shape rectangle" style="background-image: url('images/bizet_portrait.png');"></div>
+      Bizet’s Carmen Suite captures Spanish passion and drama in orchestral color and rhythm. Pellentesque condimentum nulla eu lectus scelerisque, sed egestas arcu dapibus. Proin id sagittis nunc. Nam quis rhoncus odio. Aliquam in mattis augue. 
+      <p class="copyright">© Artist Name</p>
+    </div>
+  </div>
+  
+        <!-- Block: Opera-Comique -->
+  <section id="special1" class="special1">
+  <img src="images/block-comique.png" alt="Opera-Comique Info" style="width:100%; display:block;">
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+        <!-- Block: Prix de Rome -->
+  <section id="special1" class="special1">
+  <img src="images/block-prix.png" alt="Prix de Rome Info" style="width:100%; display:block;">
+</section>
+
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+<!-- =================== Special Sections =================== -->
+
+
+
+
+<section id="special3" class="special3">
+  <h2>Thank You / Cell Phones</h2>
+  <p>Please turn off cell phones. Thank you for joining us!</p>
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+</div>
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=400, initial-scale=1.0">
+<title>Northern Utah Youth Ensembles</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=EB+Garamond&family=Marcellus+SC&display=swap" rel="stylesheet">
+
+<!-- CSS -->
+<style>
+/* Global Styles */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'EB Garamond', serif;
+  line-height: 1.6;
+  background: #ddd;
+}
+.container {
+  width: 400px;
+  max-width: 400px;
+  min-width: 400px;
+  margin: auto;
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  text-align: center;
+  background-color: #015870;
+  /* background-color: #003366; */
+  color: white;
+  padding: 1rem;
+}
+header img { max-width: 100px; margin-bottom: 0.5rem; }
+
+/* Navigation / Table of Contents */
+nav {
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav a { margin: 0 0.3rem; text-decoration: none; color: #003366; font-weight: bold; }
+
+/* Sections */
+section { padding: 1.5rem 0; }
+section h2 { text-align: center; margin-bottom: 1rem; }
+
+/* Section Background Colors */
+.prep { background-color: #dcd495; }
+.chamber { background-color: #d7b377; }
+.wind { background-color: #825e2e; }
+.symphony { background-color: #015870; color: #acedff }
+.special1 { background-color: #000000; } /* solo instrument */
+.special2 { background: linear-gradient(to bottom, 844c65, #fff); } /* Goethe, Romantic Influencer */
+.special3 { background: linear-gradient(to bottom, 844c65, #fff); } /* Who was Egmont */
+.special4 { background: linear-gradient(to bottom, #c8e6c9, #fff); } /* end thank you */
+
+/* Banner */
+.banner {
+  background-size: cover;
+  padding: 80px 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.banner h2 {
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+/* Text-wrap for modular pieces */
+.text-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 1rem;
+}
+
+/* Piece Title, Composer, Pronunciation */
+.piece-title { 
+	font-family: 'EB Garamond', serif; 
+	font-size: 1.1rem; 
+	text-align: left; 
+	color: #acedff; 
+	font-weight: bold;
+	margin: 0 0 0.1rem 0; /* bottom margin reduced */
+}
+
+.composer-name {
+  font-size: 3rem;
+  color: #FFFFFF;
+  text-align: center;
+  width: 100%;
+  margin: 0 0 0.1rem 0; /* reduce bottom margin to pull pronunciation up */
+}
+/* Composer font by era */
+.composer-name.medieval { font-family: 'EB Garamond', serif; }
+.composer-name.baroque { font-family: 'EB Garamond', serif; }
+.composer-name.classical { font-family: 'EB Garamond', serif; }
+.composer-name.romantic { font-family: 'Allura', cursive; }
+.composer-name.modern { font-family: 'EB Garamond', serif; }
+.composer-name.postmodern { font-family: 'EB Garamond', serif; }
+.composer-name.contemporary { font-family: 'EB Garamond', serif; }
+
+.pronunciation {
+  font-family: 'Marcellus SC', serif;
+  font-size: 0.7rem;
+  display: block;
+  text-align: right;
+  color: #acedff;
+  margin-top: 0 0 025rem 0; /* keeps a little space before the timeline rectangle */
+}
+
+/* Timeline rectangle */
+.timeline-rect {
+  width: 100%;
+  height: 100px;
+  background-color: #eee;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timeline-rect img { max-width: 100%; max-height: 100%; display: block; }
+
+/* Biography & image */
+.biography {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+.shape.rectangle {
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #003366;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* Copyright text */
+.copyright { font-size: 0.7rem; color: #555; margin-top: 0.2rem; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header id="top">
+  <img src="images/logo_nuye_placeholder.png" alt="Orchestra Logo">
+  <h1>Northern Utah Youth Ensembles</h1>
+  <h2>Fall Concert Program Notes</h2>
+</header>
+
+<nav>
+  <a href="#prep">Preparatory</a> |
+  <a href="#chamber">Chamber</a> |
+  <a href="#wind">Wind</a> |
+  <a href="#symphony">Symphony</a> 
+
+</nav>
+
+<!-- =================== Preparatory =================== -->
+<section id="prep" class="prep">
+  <div class="banner" style="background-image: url('images/banner_prep.png');"><h2>Preparatory Ensemble</h2></div>
+  <div class="content">
+    <p>Preparatory Ensemble performs lively works for young musicians, introducing them to ensemble playing and musical expression.</p>
+    <p class="copyright">© Photographer Name</p>
+  </div>
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+<!-- =================== Chamber =================== -->
+<section id="chamber" class="chamber">
+  <div class="banner" style="background-image: url('images/banner_chamber.png');"><h2>Chamber Ensemble</h2></div>
+  <div class="content">
+    <p>Chamber Ensemble performs small-group repertoire with focus on musical dialogue, phrasing, and interpretation.</p>
+    <p class="copyright">© Photographer Name</p>
+  </div>
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+<!-- =================== Wind =================== -->
+<section id="wind" class="wind">
+  <div class="banner" style="background-image: url('images/banner_wind.png');"><h2>Wind Ensemble</h2></div>
+  <div class="content">
+    <p>Wind Ensemble features woodwinds, brass, and percussion in classic and contemporary works.</p>
+    <p class="copyright">© Photographer Name</p>
+  </div>
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+<!-- =================== Symphony =================== -->
+<section id="symphony" class="symphony">
+  <div class="banner" style="background-image: url('images/banner_symphony.png');"><h2>Youth Symphony</h2></div>
+
+
+
+  <!-- Piece 1: Beethoven -->
+  <div class="text-wrap">
+    <p class="piece-title">Egmont Overture</p>
+    <div class="composer-name romantic">Ludwig van Beethoven</div>
+    <span class="pronunciation">(BAY-toh-ven)</span>
+    <div class="timeline-rect">
+		<img src="images/timeline_sample.png" alt="Timeline sample">
+	</div>
+    <div class="biography">
+      <div class="shape rectangle" style="background-image: url('images/test_circle.png');"></div>
+      Beethoven’s Egmont Overture captures heroic spirit, blending tension with triumphant resolution. Pellentesque condimentum nulla eu lectus scelerisque, sed egestas arcu dapibus. Proin id sagittis nunc. Nam quis rhoncus odio. Aliquam in mattis augue. 
+      <p class="copyright">© Artist Name</p>
+    </div>
+  </div>
+  
+    <!-- Block: Egmont -->
+<section id="special1" class="special1">
+  <img src="images/block-egmont.png" alt="Egmont Info" style="width:100%; display:block;">
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+  <!-- Piece 2: Accolay -->
+  <div class="text-wrap">
+    <p class="piece-title">Violin Concerto No. 1 in A minor</p>
+    <div class="composer-name romantic">J.B. Accolay</div>
+    <span class="pronunciation">(AH-coh-lay)</span>
+    <div class="timeline-rect">
+		<img src="images/timeline_sample.png" alt="Timeline sample">
+	</div>
+    <div class="biography">
+      <div class="shape rectangle" style="background-image: url('images/test_circle.png');"></div>
+      Accolay’s violin concerto is a staple of student repertoire, with lyricism and elegance. Pellentesque condimentum nulla eu lectus scelerisque, sed egestas arcu dapibus. Proin id sagittis nunc. Nam quis rhoncus odio. Aliquam in mattis augue. Sed tempor nisi non massa blandit consequat. 
+      <p class="copyright">© Artist Name</p>
+    </div>
+  </div>
+  
+  <section id="special1" class="special1">
+  <img src="images/block-violin.png" alt="Violin Info" style="width:100%; display:block;">
+</section>
+  
+    <!-- Piece 3: Hector Berlioz -->
+  <div class="text-wrap">
+    <p class="piece-title">Hungarian March from <em>The Damnation of Faust</em></p>
+    <div class="composer-name romantic">Hector Berlioz</div>
+    <span class="pronunciation">(bear-lee-OHZ)</span>
+    <div class="timeline-rect">
+		<img src="images/timeline_sample.png" alt="Timeline sample">
+	</div>
+    <div class="biography">
+      <div class="shape rectangle" style="background-image: url('images/test_circle.png');"></div>
+      Berlioz’s “Hungarian March” from <em>The Damnation of Faust</em> showcases his dramatic orchestration and colorful use of the orchestra. Written in the early 1840s, this march illustrates his fascination with Hungarian musical styles and rhythmic vitality. The work features energetic rhythms, bold brass writing, and lively string passages.
+      <p class="copyright">© Artist Name</p>
+    </div>
+  </div>
+  
+      <!-- Block: Faust -->
+<section id="special1" class="special1">
+  <img src="images/block-faust.png" alt="Faust Info" style="width:100%; display:block;">
+</section>
+
+      <!-- Block: Goethe -->
+<section id="special1" class="special1">
+  <img src="images/block-goethe.png" alt="Goethe Info" style="width:100%; display:block;">
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+  
+
+  <!-- Piece 4: Bizet -->
+  <div class="text-wrap">
+    <p class="piece-title">Carmen Suite No. 1</p>
+    <div class="composer-name romantic">Georges Bizet</div>
+    <span class="pronunciation">(bee-ZAY)</span>
+    <div class="timeline-rect">
+		<img src="images/timeline_sample.png" alt="Timeline sample">
+	</div>
+    <div class="biography">
+      <div class="shape rectangle" style="background-image: url('images/bizet_portrait.png');"></div>
+      Bizet’s Carmen Suite captures Spanish passion and drama in orchestral color and rhythm. Pellentesque condimentum nulla eu lectus scelerisque, sed egestas arcu dapibus. Proin id sagittis nunc. Nam quis rhoncus odio. Aliquam in mattis augue. 
+      <p class="copyright">© Artist Name</p>
+    </div>
+  </div>
+  
+        <!-- Block: Opera-Comique -->
+  <section id="special1" class="special1">
+  <img src="images/block-comique.png" alt="Opera-Comique Info" style="width:100%; display:block;">
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+        <!-- Block: Prix de Rome -->
+  <section id="special1" class="special1">
+  <img src="images/block-prix.png" alt="Prix de Rome Info" style="width:100%; display:block;">
+</section>
+
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+<!-- =================== Special Sections =================== -->
+
+
+
+
+<section id="special3" class="special3">
+  <h2>Thank You / Cell Phones</h2>
+  <p>Please turn off cell phones. Thank you for joining us!</p>
+  <a href="#top" class="back-to-top">Back to Top</a>
+</section>
+
+</div>
+</body>
+</html>
+>>>>>>> 7bdb936a17b92f5fcd52a06d076c008f02756f2b
+>>>>>>> 9977f5174f38d6bbe69e90d455153edd6688abd8
