@@ -148,16 +148,22 @@ section h2 { text-align: center; margin-bottom: 1rem; }
   margin-bottom: 0.5rem;
 }
 
-/* Back to Top Button */
 .back-to-top {
   display: inline-block;
   margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #003366;
-  color: white;
   text-decoration: none;
-  border-radius: 4px;
+  background: none !important;      /* removes background color */
+  padding: 0 !important;    /* removes padding that made the rectangle bigger */
+  border: none !important;          /* removes any border */
 }
+
+.back-to-top img {
+  height: 40px;          /* control image size */
+  width: auto;           /* keep natural proportions */
+  display: block;
+}
+
+
 
 /* Copyright text */
 .copyright { font-size: 0.7rem; color: #555; margin-top: 0.2rem; }
@@ -223,7 +229,7 @@ section h2 { text-align: center; margin-bottom: 1rem; }
     <div class="composer-name romantic">Ludwig van Beethoven</div>
     <span class="pronunciation">(BAY-toh-ven)</span>
     <div class="timeline-rect">
-		<img src="images/timeline_sample.png" alt="Timeline sample">
+		<img src="images/timeline-beethoven.png" alt="Timeline Beethoven">
 	</div>
     <div class="biography">
       <div class="shape rectangle" style="background-image: url('images/test_circle.png');"></div>
@@ -244,7 +250,7 @@ section h2 { text-align: center; margin-bottom: 1rem; }
     <div class="composer-name romantic">J.B. Accolay</div>
     <span class="pronunciation">(AH-coh-lay)</span>
     <div class="timeline-rect">
-		<img src="images/timeline_sample.png" alt="Timeline sample">
+		<img src="images/timeline-accolay.png" alt="Timeline Accolay">
 	</div>
     <div class="biography">
       <div class="shape rectangle" style="background-image: url('images/test_circle.png');"></div>
@@ -261,9 +267,9 @@ section h2 { text-align: center; margin-bottom: 1rem; }
   <div class="text-wrap">
     <p class="piece-title">Hungarian March from <em>The Damnation of Faust</em></p>
     <div class="composer-name romantic">Hector Berlioz</div>
-    <span class="pronunciation">(bear-lee-OHZ)</span>
+    <span class="pronunciation">(BEHR-lee-ohz)</span>
     <div class="timeline-rect">
-		<img src="images/timeline_sample.png" alt="Timeline sample">
+		<img src="images/timeline-berlioz.png" alt="Timeline Berlioz">
 	</div>
     <div class="biography">
       <div class="shape rectangle" style="background-image: url('images/test_circle.png');"></div>
@@ -290,7 +296,7 @@ section h2 { text-align: center; margin-bottom: 1rem; }
     <div class="composer-name romantic">Georges Bizet</div>
     <span class="pronunciation">(bee-ZAY)</span>
     <div class="timeline-rect">
-		<img src="images/timeline_sample.png" alt="Timeline sample">
+		<img src="images/timeline-bizet.png" alt="Timeline Bizet">
 	</div>
     <div class="biography">
       <div class="shape rectangle" style="background-image: url('images/bizet_portrait.png');"></div>
@@ -920,7 +926,7 @@ section h2 { text-align: center; margin-bottom: 1rem; }
   <div class="text-wrap">
     <p class="piece-title">Hungarian March from <em>The Damnation of Faust</em></p>
     <div class="composer-name romantic">Hector Berlioz</div>
-    <span class="pronunciation">(bear-lee-OHZ)</span>
+    <span class="pronunciation">(BEHR-lee-ohz)</span>
     <div class="timeline-rect">
 		<img src="images/timeline_sample.png" alt="Timeline sample">
 	</div>
@@ -969,7 +975,10 @@ section h2 { text-align: center; margin-bottom: 1rem; }
   <img src="images/block-prix.png" alt="Prix de Rome Info" style="width:100%; display:block;">
 </section>
 
-  <a href="#top" class="back-to-top">Back to Top</a>
+  <!--a href="#top" class="back-to-top">Back to Top</a-->
+  <a href="#top" class="back-to-top">
+  <img src="images/logo_nuye_placeholder.png" alt="Back to Top">
+</a>
 </section>
 
 <!-- =================== Special Sections =================== -->
