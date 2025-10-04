@@ -37,6 +37,7 @@ IF %ERRORLEVEL% NEQ 0 (
 REM ---------------------------
 REM Add all new and modified files
 REM ---------------------------
+git add -u
 git add -A
 IF %ERRORLEVEL% NEQ 0 (
     echo ERROR: git add failed >> %LOGFILE%
