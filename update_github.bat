@@ -1,7 +1,8 @@
 @echo off
 REM ===============================
 REM Auto GitHub Update Script
-REM Includes pull, add, commit, push, logging
+REM Includes pull, add, commit, push, deletion tracking, logging,
+REM and auto-opening your GitHub Pages site.
 REM ===============================
 
 REM Set your project folder here
@@ -26,6 +27,7 @@ IF %ERRORLEVEL% NEQ 0 (
 REM ---------------------------
 REM Pull remote changes first
 REM ---------------------------
+echo Pulling latest changes from GitHub...
 git pull origin main --allow-unrelated-histories
 IF %ERRORLEVEL% NEQ 0 (
     echo ERROR: git pull failed. Resolve conflicts manually. >> %LOGFILE%
@@ -35,9 +37,9 @@ IF %ERRORLEVEL% NEQ 0 (
 )
 
 REM ---------------------------
-REM Add all new and modified files
+REM Add all new, modified, and deleted files
 REM ---------------------------
-git add -u
+echo Adding all new and changed files...
 git add -A
 IF %ERRORLEVEL% NEQ 0 (
     echo ERROR: git add failed >> %LOGFILE%
@@ -67,6 +69,7 @@ IF %ERRORLEVEL% EQU 0 (
 REM ---------------------------
 REM Push changes to GitHub
 REM ---------------------------
+echo Pushing updates to GitHub...
 git push origin main
 IF %ERRORLEVEL% NEQ 0 (
     echo ERROR: git push failed. Check credentials or repository status. >> %LOGFILE%
@@ -77,4 +80,11 @@ IF %ERRORLEVEL% NEQ 0 (
 
 echo SUCCESS: Git push completed >> %LOGFILE%
 echo Git push successful!
+
+REM ---------------------------
+REM Open GitHub Pages site automatically
+REM ---------------------------
+echo Opening GitHub Pages site...
+start "" "https://suluwmw.github.io/NUYE/"
+
 pause
