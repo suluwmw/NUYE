@@ -166,6 +166,111 @@ section h2 { text-align: center; margin-bottom: 1rem; }
   margin-bottom: 0.5rem;
 }
 
+/*Warning if Newer Version */
+<!-- Reminder-to-reload banner (animated version) -->
+<script>
+(function() {
+  const versionDate = "2025-10-09";  // Update this each time you re-publish
+  const lastVisit = localStorage.getItem("programVersion");
+
+  window.addEventListener("DOMContentLoaded", () => {
+    if (lastVisit && lastVisit !== versionDate) {
+      showUpdateBanner();
+    }
+    localStorage.setItem("programVersion", versionDate);
+  });
+
+  function showUpdateBanner() {
+    const banner = document.createElement("div");
+    banner.id = "updateBanner";
+    banner.innerHTML = `
+      <span style="font-family: 'EB Garamond', serif;">
+        🔄 A newer version of this program may be available.
+      </span>
+      <button id="reloadBtn">Reload</button>
+      <button id="dismissBtn" title="Dismiss">×</button>
+    `;
+
+    /* Banner style */
+    Object.assign(banner.style, {
+      position: "fixed",
+      top: "-100px",                // Start hidden above the screen
+      left: 0,
+      width: "100%",
+      background: "#015870",        // NUYS blue
+      color: "#fff",
+      textAlign: "center",
+      padding: "0.6rem",
+      fontSize: "1rem",
+      fontFamily: "'EB Garamond', serif",
+      zIndex: 120,
+      boxShadow: "0 2px 6px rgba(0,0,0,0.3)",
+      letterSpacing: "0.3px",
+      opacity: "0",
+      transition: "top 0.6s ease-out, opacity 0.6s ease-out",
+    });
+    document.body.appendChild(banner);
+
+    // Trigger animation after a tick
+    requestAnimationFrame(() => {
+      banner.style.top = "0";
+      banner.style.opacity = "1";
+    });
+
+    const reloadBtn = banner.querySelector("#reloadBtn");
+    const dismissBtn = banner.querySelector("#dismissBtn");
+
+    /* Reload button */
+    Object.assign(reloadBtn.style, {
+      marginLeft: "1em",
+      padding: "0.3em 0.8em",
+      fontSize: "0.95rem",
+      fontFamily: "'EB Garamond', serif",
+      border: "1px solid #acedff",
+      borderRadius: "4px",
+      cursor: "pointer",
+      background: "#acedff",
+      color: "#003366",
+      transition: "background 0.2s",
+    });
+    reloadBtn.addEventListener("mouseover", () => reloadBtn.style.background = "#dff4ff");
+    reloadBtn.addEventListener("mouseout", () => reloadBtn.style.background = "#acedff");
+    reloadBtn.addEventListener("click", tryReload);
+
+    /* Dismiss button */
+    Object.assign(dismissBtn.style, {
+      marginLeft: "0.5em",
+      border: "none",
+      background: "transparent",
+      color: "#fff",
+      fontSize: "1.3rem",
+      cursor: "pointer",
+      verticalAlign: "middle",
+      lineHeight: "1rem",
+    });
+    dismissBtn.addEventListener("click", hideBanner);
+  }
+
+  function tryReload() {
+    if (navigator.onLine) {
+      location.reload(true);
+    } else {
+      alert("You're currently offline. The new version will load once internet is available.");
+      hideBanner();
+    }
+  }
+
+  function hideBanner() {
+    const banner = document.getElementById("updateBanner");
+    if (banner) {
+      banner.style.opacity = "0";
+      banner.style.top = "-100px";
+      setTimeout(() => banner.remove(), 600); // match transition duration
+    }
+  }
+})();
+</script>
+
 /* Floating Buttons */
 .float-btn {
   position: fixed;
@@ -348,23 +453,150 @@ section h2 { text-align: center; margin-bottom: 1rem; }
 
 </div>
 
-<!-- Floating buttons -->
-<button id="btnTop" class="float-btn" onclick="location.href='#top'">Top</button>
-<button id="btnNUYS" class="float-btn" onclick="location.href='#symphony'">Return to NUYS</button>
+<!-- ===================== Floating Buttons ===================== -->
+<button id="btnTop"
+        onclick="location.href='#top'"
+        style="position:fixed; left:20px; bottom:20px; z-index:500;
+               padding:0.6rem 1rem; background-color:rgba(0,51,102,0.85);
+               color:white; border:none; border-radius:6px; cursor:pointer;
+               font-size:0.9rem; backdrop-filter:blur(2px);">
+  Top
+</button>
 
+<button id="btnNUYS"
+        onclick="location.href='#symphony'"
+        style="position:fixed; right:20px; bottom:20px; z-index:500;
+               display:none; padding:0.6rem 1rem; background-color:rgba(0,51,102,0.85);
+               color:white; border:none; border-radius:6px; cursor:pointer;
+               font-size:0.9rem; backdrop-filter:blur(2px);">
+  Return to NUYS
+</button>
+
+<!-- ===================== Reminder-to-Reload Banner ===================== -->
+<script>
+(function() {
+  const versionDate = "2025-10-09";  // Update this each time you re-publish
+  const lastVisit = localStorage.getItem("programVersion");
+
+  window.addEventListener("DOMContentLoaded", () => {
+    if (lastVisit && lastVisit !== versionDate) {
+      showUpdateBanner();
+    }
+    localStorage.setItem("programVersion", versionDate);
+  });
+
+  function showUpdateBanner() {
+    const banner = document.createElement("div");
+    banner.id = "updateBanner";
+    banner.innerHTML = `
+      <span style="font-family: 'EB Garamond', serif;">
+        🔄 A newer version of this program may be available.
+      </span>
+      <button id="reloadBtn">Reload</button>
+      <button id="dismissBtn" title="Dismiss">×</button>
+    `;
+
+    Object.assign(banner.style, {
+      position: "fixed",
+      top: "-100px",
+      left: 0,
+      width: "100%",
+      background: "#015870",
+      color: "#fff",
+      textAlign: "center",
+      padding: "0.6rem",
+      fontSize: "1rem",
+      fontFamily: "'EB Garamond', serif",
+      zIndex: 120,
+      boxShadow: "0 2px 6px rgba(0,0,0,0.3)",
+      letterSpacing: "0.3px",
+      opacity: "0",
+      transition: "top 0.6s ease-out, opacity 0.6s ease-out",
+    });
+    document.body.appendChild(banner);
+
+    const previousPaddingTop = document.body.style.paddingTop;
+    document.body.style.paddingTop = "2.8rem";
+
+    requestAnimationFrame(() => {
+      banner.style.top = "0";
+      banner.style.opacity = "1";
+    });
+
+    const reloadBtn = banner.querySelector("#reloadBtn");
+    const dismissBtn = banner.querySelector("#dismissBtn");
+
+    Object.assign(reloadBtn.style, {
+      marginLeft: "1em",
+      padding: "0.3em 0.8em",
+      fontSize: "0.95rem",
+      fontFamily: "'EB Garamond', serif",
+      border: "1px solid #acedff",
+      borderRadius: "4px",
+      cursor: "pointer",
+      background: "#acedff",
+      color: "#003366",
+      transition: "background 0.2s",
+    });
+    reloadBtn.addEventListener("mouseover", () => reloadBtn.style.background = "#dff4ff");
+    reloadBtn.addEventListener("mouseout", () => reloadBtn.style.background = "#acedff");
+    reloadBtn.addEventListener("click", tryReload);
+
+    Object.assign(dismissBtn.style, {
+      marginLeft: "0.5em",
+      border: "none",
+      background: "transparent",
+      color: "#fff",
+      fontSize: "1.3rem",
+      cursor: "pointer",
+      verticalAlign: "middle",
+      lineHeight: "1rem",
+    });
+    dismissBtn.addEventListener("click", () => hideBanner(previousPaddingTop));
+  }
+
+  function tryReload() {
+    if (navigator.onLine) {
+      location.reload(true);
+    } else {
+      alert("You're currently offline. The new version will load once internet is available.");
+      hideBanner();
+    }
+  }
+
+  function hideBanner(previousPaddingTop) {
+    const banner = document.getElementById("updateBanner");
+    if (banner) {
+      banner.style.opacity = "0";
+      banner.style.top = "-100px";
+      setTimeout(() => {
+        banner.remove();
+        document.body.style.paddingTop = previousPaddingTop || "0";
+      }, 600);
+    }
+  }
+})();
+</script>
+
+<!-- ===================== Floating Button Visibility Script ===================== -->
 <script>
   const btnNUYS = document.getElementById('btnNUYS');
   const symphony = document.getElementById('symphony');
 
-  window.addEventListener('scroll', () => {
+  function updateNUYS() {
     const rect = symphony.getBoundingClientRect();
     if (rect.top <= 100 && rect.bottom >= 100) {
       btnNUYS.style.display = 'block';
     } else {
       btnNUYS.style.display = 'none';
     }
-  });
+  }
+
+  window.addEventListener('scroll', updateNUYS);
+  window.addEventListener('DOMContentLoaded', updateNUYS);
 </script>
+
+
 
 </body>
 </html>
