@@ -38,6 +38,7 @@ header {
 }
 header img { max-width: 100px; margin-bottom: 0.5rem; }
 
+
 /* Navigation / Table of Contents */
 nav {
   background-color: #f0f0f0;
@@ -75,6 +76,7 @@ section { padding: 1.5rem 0; }
 section h2 { text-align: center; margin-bottom: 1rem; }
 
 /* Section Background Colors */
+.draftbanner { background-color: #ee4b2b; }
 .prep { background-color: #dcd495; }
 .chamber { background-color: #d7b377; }
 .wind { background-color: #825e2e; }
@@ -83,6 +85,17 @@ section h2 { text-align: center; margin-bottom: 1rem; }
 .special2 { background: linear-gradient(to bottom, 844c65, #fff); }
 .special3 { background: linear-gradient(to bottom, 844c65, #fff); }
 .special4 { background: linear-gradient(to bottom, #c8e6c9, #fff); }
+
+/* Draftbanner for work-in-progress alert*/
+.draftbanner {
+  background-color: #ee4b2b;
+  color: white;
+  text-align: center;
+  padding: 0.8rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
 
 /* Banner */
 .banner {
@@ -115,14 +128,39 @@ section h2 { text-align: center; margin-bottom: 1rem; }
 	color: #acedff; 
 	font-weight: bold;
 	margin: 0 0 0.1rem 0;
+	padding: 0 0.4rem;
+	letter-spacing: 0.3px;
 }
 
 .composer-name {
-  font-size: 3rem;
+  font-size: 2.8rem;
   color: #FFFFFF;
   text-align: center;
   width: 100%;
-  margin: 0 0 0.1rem 0;
+  margin: -0.2 0 0.5rem 0;
+  padding: 0 0.8rem;
+  line-height: 1.1;
+  position: relative;
+  z-index: 1;
+  tramsition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Default (light backgrounds: Prep, Chamber, Wind) */
+.prep .composer-name,
+.chamber .composer-name,
+.wind .composer-name {
+  color: #222;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6); /* faint white glow */
+}
+
+/* Dark background (Symphony and special sections) */
+.symphony .composer-name,
+.special1 .composer-name,
+.special2 .composer-name,
+.special3 .composer-name,
+.special4 .composer-name {
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);   /* subtle dark halo=offset: horiz, vert, and blur radius */
 }
 /* Composer font by era */
 .composer-name.medieval { font-family: 'EB Garamond', serif; }
@@ -139,24 +177,37 @@ section h2 { text-align: center; margin-bottom: 1rem; }
   display: block;
   text-align: right;
   color: #acedff;
+  padding: 0 0.4rem;
+  margin-top: -0.4rem;
+  margin-bottom: 1.4rem;
 }
+
 
 /* Timeline rectangle */
 .timeline-rect {
   width: 100%;
-  height: 100px;
+  height: auto;
   background-color: #eee;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
 }
-.timeline-rect img { max-width: 100%; max-height: 100%; display: block; }
+.timeline-rect img { max-width: 100%; max-height: auto; display: block; }
 
-/* Biography & image */
-.biography {
-  font-size: 0.9rem;
+/* Overview */
+.overview {
+  font-size: 1.2rem;
   line-height: 1.4;
+  padding: 0.4rem 0.6rem;    /*adds inner spacing so text doesn't touch edges */
+  margin-top: 0.4rem;      /* remove extra gap above */
+  margin-bottom: 0;  /* small space below */
+  box-sizing: border-box;     /*ensures padding doesn't change total width */
+  background-color: inherit; /* keeps section color consitent if used inside colored section */
+  text-align: center;   /* centered justification  */
+  text-justify: none;
+  width: 100%;
 }
 .shape.rectangle {
   width: 100%;
@@ -166,110 +217,83 @@ section h2 { text-align: center; margin-bottom: 1rem; }
   margin-bottom: 0.5rem;
 }
 
-/*Warning if Newer Version */
-<!-- Reminder-to-reload banner (animated version) -->
-<script>
-(function() {
-  const versionDate = "2025-10-09";  // Update this each time you re-publish
-  const lastVisit = localStorage.getItem("programVersion");
+/* =========================
+   Reminder-to-Reload Banner
+   ========================= */
+#updateBanner {
+  position: fixed;
+  top: -100px;               /* hidden before showing */
+  left: 0;
+  width: 100%;
+  background: #015870;       /* NUYS blue */
+  color: #fff;
+  text-align: center;
+  padding: 0.6rem;
+  font-size: 1rem;
+  font-family: 'EB Garamond', serif;
+  z-index: 120;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  letter-spacing: 0.3px;
+  opacity: 0;
+  transition: top 0.6s ease-out, opacity 0.6s ease-out;
 
-  window.addEventListener("DOMContentLoaded", () => {
-    if (lastVisit && lastVisit !== versionDate) {
-      showUpdateBanner();
-    }
-    localStorage.setItem("programVersion", versionDate);
-  });
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
 
-  function showUpdateBanner() {
-    const banner = document.createElement("div");
-    banner.id = "updateBanner";
-    banner.innerHTML = `
-      <span style="font-family: 'EB Garamond', serif;">
-        🔄 A newer version of this program may be available.
-      </span>
-      <button id="reloadBtn">Reload</button>
-      <button id="dismissBtn" title="Dismiss">×</button>
-    `;
+/* when banner is visible */
+#updateBanner.visible {
+  top: 0;
+  opacity: 1;
+}
 
-    /* Banner style */
-    Object.assign(banner.style, {
-      position: "fixed",
-      top: "-100px",                // Start hidden above the screen
-      left: 0,
-      width: "100%",
-      background: "#015870",        // NUYS blue
-      color: "#fff",
-      textAlign: "center",
-      padding: "0.6rem",
-      fontSize: "1rem",
-      fontFamily: "'EB Garamond', serif",
-      zIndex: 120,
-      boxShadow: "0 2px 6px rgba(0,0,0,0.3)",
-      letterSpacing: "0.3px",
-      opacity: "0",
-      transition: "top 0.6s ease-out, opacity 0.6s ease-out",
-    });
-    document.body.appendChild(banner);
+/* --- animations for smooth appearance/disappearance --- */
+@keyframes fadeInDown {
+  from { opacity: 0; top: -100px; }
+  to   { opacity: 1; top: 0; }
+}
+@keyframes fadeOutUp {
+  from { opacity: 1; top: 0; }
+  to   { opacity: 0; top: -100px; }
+}
+#updateBanner.showing { animation: fadeInDown 0.6s forwards ease-out; }
+#updateBanner.hiding  { animation: fadeOutUp  0.6s forwards ease-in; }
 
-    // Trigger animation after a tick
-    requestAnimationFrame(() => {
-      banner.style.top = "0";
-      banner.style.opacity = "1";
-    });
+/* --- unified button base --- */
+#updateBanner button {
+  margin-left: 0.4em;
+  padding: 0.3em 0.8em;
+  font-size: 0.95rem;
+  font-family: 'EB Garamond', serif;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
 
-    const reloadBtn = banner.querySelector("#reloadBtn");
-    const dismissBtn = banner.querySelector("#dismissBtn");
+/* --- primary button (blue solid) --- */
+#updateBanner button.primary {
+  background: #9FE2F9 !important;
+  color: #003366 !important;
+  border: 1px solid #9FE2F9 !important;
+}
+#updateBanner button.primary:hover {
+  background: #C7F5F7 !important;
+}
 
-    /* Reload button */
-    Object.assign(reloadBtn.style, {
-      marginLeft: "1em",
-      padding: "0.3em 0.8em",
-      fontSize: "0.95rem",
-      fontFamily: "'EB Garamond', serif",
-      border: "1px solid #acedff",
-      borderRadius: "4px",
-      cursor: "pointer",
-      background: "#acedff",
-      color: "#003366",
-      transition: "background 0.2s",
-    });
-    reloadBtn.addEventListener("mouseover", () => reloadBtn.style.background = "#dff4ff");
-    reloadBtn.addEventListener("mouseout", () => reloadBtn.style.background = "#acedff");
-    reloadBtn.addEventListener("click", tryReload);
+/* --- secondary button (white outline) --- */
+#updateBanner button.secondary {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+#updateBanner button.secondary:hover {
+  background: rgba(255,255,255,0.15);
+}
 
-    /* Dismiss button */
-    Object.assign(dismissBtn.style, {
-      marginLeft: "0.5em",
-      border: "none",
-      background: "transparent",
-      color: "#fff",
-      fontSize: "1.3rem",
-      cursor: "pointer",
-      verticalAlign: "middle",
-      lineHeight: "1rem",
-    });
-    dismissBtn.addEventListener("click", hideBanner);
-  }
 
-  function tryReload() {
-    if (navigator.onLine) {
-      location.reload(true);
-    } else {
-      alert("You're currently offline. The new version will load once internet is available.");
-      hideBanner();
-    }
-  }
-
-  function hideBanner() {
-    const banner = document.getElementById("updateBanner");
-    if (banner) {
-      banner.style.opacity = "0";
-      banner.style.top = "-100px";
-      setTimeout(() => banner.remove(), 600); // match transition duration
-    }
-  }
-})();
-</script>
 
 /* Floating Buttons */
 .float-btn {
@@ -289,6 +313,97 @@ section h2 { text-align: center; margin-bottom: 1rem; }
 
 /* Copyright text */
 .copyright { font-size: 0.7rem; color: #555; margin-top: 0.2rem; }
+
+/* Faust Carousel Script - has css, html, and javascript sections */
+.carousel {
+  width: 100%;
+  max-width: 360px;
+  margin: 1rem auto;
+}
+
+.carousel-frame {
+  position: relative;
+  border: 8px solid #003366;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  background-color: #f8f8f8;
+  overflow: hidden;
+}
+
+/* Caption band sits outside the image */
+.carousel-caption {
+  background: #015870;
+  color: #fff;
+  font-family: 'EB Garamond', serif;
+  text-align: center;
+  padding: 0.4rem;
+  font-size: 2.0rem;
+  letter-spacing: 0.3px;
+}
+
+/* Dedicated image area */
+.carousel-image-area {
+  position: relative;
+  background: #000;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Two overlapping images for true crossfade */
+.carousel-image-area {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+
+/* Stack the images, but let them define the height */
+.carousel-image-area img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* When one is active, it becomes visible and defines height */
+.carousel-image-area img.active {
+  opacity: 1;
+  position: relative;   /* bring it into normal flow so height adjusts */
+  z-index: 2;
+}
+
+/* Inactive one stays behind, invisible */
+.carousel-image-area img.inactive {
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+
+
+
+/* Navigation buttons */
+.carousel-btn {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  background-color: rgba(0,51,102,0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  font-size: 1.2rem;
+  z-index: 10;
+}
+
+.carousel-btn.left { left: 6px; }
+.carousel-btn.right { right: 6px; }
+.carousel-btn:hover { background-color: rgba(0,51,102,0.9); }
 </style>
 </head>
 <body>
@@ -300,6 +415,12 @@ section h2 { text-align: center; margin-bottom: 1rem; }
   <h1>Northern Utah Youth Ensembles</h1>
   <h2>Fall Concert Program Notes</h2>
 </header>
+
+<!-- Draft Banner, to mark when the program notes are up, but not yet complete -->
+<section id="draftbanner" class="draftbanner" style="display:none;">
+  <p><strong>⚠️ DRAFT VERSION:</strong> If you are seeing this, you are looking at a <strong>DRAFT</strong> of the program notes. 
+  You may see placeholders, snippets, or incorrect information and images. For final program notes, please check back 1 week before our next concert, which is 22 November 2025 at Ben Lomond High School, Ogden, at 3pm. Admission is free.</p>
+</section>
 
 <nav>
   <a href="#prep">Preparatory</a> |
@@ -355,9 +476,8 @@ section h2 { text-align: center; margin-bottom: 1rem; }
     <div class="timeline-rect">
 		<img src="images/timeline-beethoven.png" alt="Timeline Beethoven">
 	</div>
-    <div class="biography">
-      <div class="shape rectangle" style="background-image: url('images/test_circle.png');"></div>
-      Beethoven’s Egmont Overture captures heroic spirit, blending tension with triumphant resolution. Pellentesque condimentum nulla eu lectus scelerisque, sed egestas arcu dapibus. Proin id sagittis nunc. Nam quis rhoncus odio. Aliquam in mattis augue. 
+    <div class="overview">
+     The Egmont Overture has been called the "distilled essence of Beethoven." Written during his middle period, it still relies on classical structure but adds the narrative arc and powerful emotions of Romanticism. 
       <p class="copyright">© Artist Name</p>
     </div>
   </div>
@@ -376,36 +496,66 @@ section h2 { text-align: center; margin-bottom: 1rem; }
   <!-- Piece 2: Accolay -->
   <div id="violin" class="text-wrap">
     <p class="piece-title">Violin Concerto No. 1 in A minor</p>
-    <div class="composer-name romantic">J.B. Accolay</div>
+    <div class="composer-name romantic">Jean-Baptiste Accolay</div>
     <span class="pronunciation">(AH-coh-lay)</span>
     <div class="timeline-rect">
 		<img src="images/timeline-accolay.png" alt="Timeline Accolay">
 	</div>
-    <div class="biography">
-      <div class="shape rectangle" style="background-image: url('images/test_circle.png');"></div>
-      Accolay’s violin concerto is a staple of student repertoire, with lyricism and elegance. Pellentesque condimentum nulla eu lectus scelerisque, sed egestas arcu dapibus. Proin id sagittis nunc. Nam quis rhoncus odio. Aliquam in mattis augue. Sed tempor nisi non massa blandit consequat. 
+    <div class="overview">
+      The liner notes from famous violinist Itzhak Perlman's album <em>Concertos from my Childhood</em>  refers to Accolay as 'long-forgotten'. But this piece, his <em>Violin Concerto in A Minor</em>, hasn't been. It's a one-movement gem of lyric romanticism, frequently used to showcase multiple bowing techniques and left-hand dexterity. 
       <p class="copyright">© Artist Name</p>
     </div>
   </div>
-  
+    <!-- Block: Accolay -->  
+  <section class="special1">
+    <img src="images/block-accolay.png" alt="Accolay Info" style="width:100%; display:block;">
+  </section>
+    <!-- Block: Soloist Instrument Showcase -->  
   <section class="special1">
     <img src="images/block-violin.png" alt="Violin Info" style="width:100%; display:block;">
   </section>
   
   <!-- Piece 3: Hector Berlioz -->
   <div id="hungarian" class="text-wrap">
-    <p class="piece-title">Hungarian March from <em>The Damnation of Faust</em></p>
+    <p class="piece-title">"Hungarian March" from <em>The Damnation of Faust</em></p>
     <div class="composer-name romantic">Hector Berlioz</div>
     <span class="pronunciation">(BEHR-lee-ohz)</span>
     <div class="timeline-rect">
 		<img src="images/timeline-berlioz.png" alt="Timeline Berlioz">
 	</div>
+	<div class="overview">
+      The dramatic and exuberent "Hungarian March" occurs Act I of Berlioz's <em>The Damnation of Faust</em>. It's full of vitality and energy, in contrast to the title character. 
+      <p class="copyright">© Artist Name</p>
+    </div>
 
   
     <!-- Block: Berlioz -->
   <section class="special1">
     <img src="images/block-berlioz.png" alt="Berlioz Info" style="width:100%; display:block;">
   </section>
+  
+<!-- Faust Image Carousel has css, html, and javascript sections-->
+<div class="carousel">
+  <div class="carousel-frame">
+    <div class="carousel-caption">The Damnation of Faust</div>
+
+    <!-- Two stacked images for crossfade -->
+    <div class="carousel-image-area">
+      <img id="carousel-image1"
+           src="images/faust-carousel-1.png"
+           alt="Faust image 1"
+           class="active">
+      <img id="carousel-image2"
+           src="images/faust-carousel-1.png"
+           alt="Faust image 2"
+           class="inactive">
+    </div>
+
+    <button class="carousel-btn left" onclick="prevImage()">&#10094;</button>
+    <button class="carousel-btn right" onclick="nextImage()">&#10095;</button>
+  </div>
+</div>
+
   
   <!-- Block: Faust -->
   <section class="special1">
@@ -425,12 +575,16 @@ section h2 { text-align: center; margin-bottom: 1rem; }
     <div class="timeline-rect">
 		<img src="images/timeline-bizet.png" alt="Timeline Bizet">
 	</div>
-    <div class="biography">
-      <div class="shape rectangle" style="background-image: url('images/bizet_portrait.png');"></div>
-      Bizet’s Carmen Suite captures Spanish passion and drama in orchestral color and rhythm. Pellentesque condimentum nulla eu lectus scelerisque, sed egestas arcu dapibus. Proin id sagittis nunc. Nam quis rhoncus odio. Aliquam in mattis augue. 
+    <div class="overview">
+      Carmen was a shock to French opera-goers, and that was after it was toned down. They were perfectly used to seeing melodrama but they weren't used to seeing the actual death acted onstage. And the heroine is not at all conventional - instead she's from the working classes - and a flamboyant gypsy who does as she pleases. 
       <p class="copyright">© Artist Name</p>
     </div>
   </div>
+  
+    <!-- Block:Bizet -->
+  <section class="special1">
+    <img src="images/block-bizet.png" alt="Bizet Info" style="width:100%; display:block;">
+  </section>
   
   <!-- Block: Opera-Comique -->
   <section class="special1">
@@ -443,12 +597,9 @@ section h2 { text-align: center; margin-bottom: 1rem; }
   </section>
 
 
-<!-- =================== Special Sections =================== -->
-<section id="special3" class="special3">
-  <h2>Thank You / Cell Phones</h2>
-  <p>Beethoven, Bizet,and Berlioz walk into a concert hall. A cell phone rings. Beethoven - What? I don't hear anything. Bizet - neat, I should write a piece about cell phone tones! Berlioz -This is a man who is not amused. Not even a little bit. Please keep Berlioz happy and keep your cell phone quiet. 
-  
-  Thank you for joining us!</p>
+<!-- =================== Final Section =================== -->
+  <section class="special1">
+      <img src="images/block-final.png" alt="phones & thanks" style="width:100%; display:block;">
 </section>
 
 </div>
@@ -475,7 +626,7 @@ section h2 { text-align: center; margin-bottom: 1rem; }
 <!-- ===================== Reminder-to-Reload Banner ===================== -->
 <script>
 (function() {
-  const versionDate = "2025-10-09";  // Update this each time you re-publish
+  const versionDate = "2025-10-11";  // Update this when republishing
   const lastVisit = localStorage.getItem("programVersion");
 
   window.addEventListener("DOMContentLoaded", () => {
@@ -489,70 +640,28 @@ section h2 { text-align: center; margin-bottom: 1rem; }
     const banner = document.createElement("div");
     banner.id = "updateBanner";
     banner.innerHTML = `
-      <span style="font-family: 'EB Garamond', serif;">
-        🔄 A newer version of this program may be available.
-      </span>
-      <button id="reloadBtn">Reload</button>
-      <button id="dismissBtn" title="Dismiss">×</button>
-    `;
-
-    Object.assign(banner.style, {
-      position: "fixed",
-      top: "-100px",
-      left: 0,
-      width: "100%",
-      background: "#015870",
-      color: "#fff",
-      textAlign: "center",
-      padding: "0.6rem",
-      fontSize: "1rem",
-      fontFamily: "'EB Garamond', serif",
-      zIndex: 120,
-      boxShadow: "0 2px 6px rgba(0,0,0,0.3)",
-      letterSpacing: "0.3px",
-      opacity: "0",
-      transition: "top 0.6s ease-out, opacity 0.6s ease-out",
-    });
+      <span>Newer version available.</span>
+    <button id="reloadBtn" class="primary">Reload</button>
+    <button id="dismissBtn" class="secondary" title="Dismiss">Dismiss</button>
+`;
     document.body.appendChild(banner);
 
-    const previousPaddingTop = document.body.style.paddingTop;
-    document.body.style.paddingTop = "2.8rem";
+    // Animate in with a smooth drop-in
+  requestAnimationFrame(() => {
+  banner.classList.add("showing");
+  // After animation completes, switch to steady 'visible' state
+  setTimeout(() => {
+    banner.classList.remove("showing");
+    banner.classList.add("visible");
+  }, 600); // match CSS animation duration
+});
 
-    requestAnimationFrame(() => {
-      banner.style.top = "0";
-      banner.style.opacity = "1";
-    });
 
     const reloadBtn = banner.querySelector("#reloadBtn");
     const dismissBtn = banner.querySelector("#dismissBtn");
 
-    Object.assign(reloadBtn.style, {
-      marginLeft: "1em",
-      padding: "0.3em 0.8em",
-      fontSize: "0.95rem",
-      fontFamily: "'EB Garamond', serif",
-      border: "1px solid #acedff",
-      borderRadius: "4px",
-      cursor: "pointer",
-      background: "#acedff",
-      color: "#003366",
-      transition: "background 0.2s",
-    });
-    reloadBtn.addEventListener("mouseover", () => reloadBtn.style.background = "#dff4ff");
-    reloadBtn.addEventListener("mouseout", () => reloadBtn.style.background = "#acedff");
     reloadBtn.addEventListener("click", tryReload);
-
-    Object.assign(dismissBtn.style, {
-      marginLeft: "0.5em",
-      border: "none",
-      background: "transparent",
-      color: "#fff",
-      fontSize: "1.3rem",
-      cursor: "pointer",
-      verticalAlign: "middle",
-      lineHeight: "1rem",
-    });
-    dismissBtn.addEventListener("click", () => hideBanner(previousPaddingTop));
+    dismissBtn.addEventListener("click", () => hideBanner(banner));
   }
 
   function tryReload() {
@@ -560,25 +669,19 @@ section h2 { text-align: center; margin-bottom: 1rem; }
       location.reload(true);
     } else {
       alert("You're currently offline. The new version will load once internet is available.");
-      hideBanner();
     }
   }
 
-  function hideBanner(previousPaddingTop) {
-    const banner = document.getElementById("updateBanner");
-    if (banner) {
-      banner.style.opacity = "0";
-      banner.style.top = "-100px";
-      setTimeout(() => {
-        banner.remove();
-        document.body.style.paddingTop = previousPaddingTop || "0";
-      }, 600);
-    }
+  function hideBanner(banner) {
+    banner.classList.remove("visible");
+    banner.classList.add("hiding");
+    setTimeout(() => banner.remove(), 600);
   }
 })();
 </script>
 
-<!-- ===================== Floating Button Visibility Script ===================== -->
+
+<!-- Floating Button Visibility Script ===================== -->
 <script>
   const btnNUYS = document.getElementById('btnNUYS');
   const symphony = document.getElementById('symphony');
@@ -596,7 +699,74 @@ section h2 { text-align: center; margin-bottom: 1rem; }
   window.addEventListener('DOMContentLoaded', updateNUYS);
 </script>
 
+<!-- Faust Carousel Script -->
+<script>
+window.carouselImages = [
+  "images/faust-carousel-1.png",
+  "images/faust-carousel-2.png",
+  "images/faust-carousel-3.png",
+  "images/faust-carousel-4.png",
+  "images/faust-carousel-5.png"
+];
 
+window.currentIndex = 0;
+window.showingFirst = true;
+
+window.showImage = function(index) {
+  const img1 = document.getElementById("carousel-image1");
+  const img2 = document.getElementById("carousel-image2");
+  if (!img1 || !img2) return;
+
+  // Wrap around
+  window.currentIndex = (index + window.carouselImages.length) % window.carouselImages.length;
+
+  // Toggle classes for crossfade
+  if (window.showingFirst) {
+    img2.src = window.carouselImages[window.currentIndex];
+    img2.classList.add("active");
+    img2.classList.remove("inactive");
+    img1.classList.remove("active");
+    img1.classList.add("inactive");
+  } else {
+    img1.src = window.carouselImages[window.currentIndex];
+    img1.classList.add("active");
+    img1.classList.remove("inactive");
+    img2.classList.remove("active");
+    img2.classList.add("inactive");
+  }
+
+  window.showingFirst = !window.showingFirst;
+};
+
+window.nextImage = function() {
+  window.showImage(window.currentIndex + 1);
+};
+
+window.prevImage = function() {
+  window.showImage(window.currentIndex - 1);
+};
+
+// ✅ Make sure the first image is visible as soon as everything is loaded
+window.addEventListener("load", () => {
+  const img1 = document.getElementById("carousel-image1");
+  const img2 = document.getElementById("carousel-image2");
+
+  // reset to first image
+  window.currentIndex = 0;
+
+  img1.src = window.carouselImages[0];
+  img1.classList.add("active");
+
+  img2.src = window.carouselImages[0];
+  img2.classList.add("inactive");
+});
+</script>
+
+<!-- toggle to turn the draftbanner on as needed (default is off) -->
+<script>
+  // Uncomment this line to show the draft banner
+  document.getElementById('draftbanner').style.display = 'block';
+</script>
 
 </body>
 </html>
