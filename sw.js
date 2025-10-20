@@ -1,6 +1,6 @@
 const CACHE_NAME = 'nuye-program-v1';
 const ASSETS_TO_CACHE = [
-  '/',
+  '/NUYE/',
   '/NUYE/index.html',
   '/NUYE/manifest.json',
   '/NUYE/images/icon-192.png',
