@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=400, initial-scale=1.0">
   <title>Northern Utah Youth Ensembles</title>
 
-  <link rel="manifest" href="/NUYE/manifest.json">
-  <meta name="theme-color" content="#003366">
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=EB+Garamond&family=Marcellus+SC&display=swap" rel="stylesheet">
@@ -410,74 +408,9 @@ section h2 { text-align: center; margin-bottom: 1rem; }
 .carousel-btn:hover { background-color: rgba(0,51,102,0.9); }
 </style>
 
-<style>
-html { scroll-behavior: smooth; }   /* ← enables gentle scroll to “More info below” */
-
-/* Hide top install banner on larger screens */
-@media (min-width: 768px) {
-  #installBanner { display: none !important; }
-}
-
-/* Shared look for install buttons (optional, overrides inline defaults) */
-.install-btn {
-  background:#003366;
-  color:white;
-  border:none;
-  border-radius:8px;
-  padding:0.4em 1.2em;
-  font-size:0.9em;
-  font-family:'Marcellus SC', serif;
-  cursor:pointer;
-  transition:background 0.3s;
-}
-.install-btn:hover {
-  background:#224b8b;
-}
-</style>
 
 </head>
 <body>
-
-<!-- Mobile install banner (dark aqua to match bottom) -->
-<div id="installBanner" style="
-  opacity:0;
-  transition:opacity 1s ease-in;
-  max-width:380px;
-  margin:0.8em auto;
-  padding:0.8em 1.2em;
-  background:#004d5a;              /* dark aqua background */
-  border-radius:12px;
-  text-align:center;
-  font-family:'EB Garamond', serif;
-  line-height:1.4;
-  color:#b5d8e3;                   /* light aqua text */
-">
-  <p style="margin:0.3em 0;">
-    You can install these program notes for quick, offline access.
-  </p>
-
-  <button id="installButtonTop"
-          class="install-btn"
-          hidden
-          style="
-            background:#b5d8e3;
-            color:#003944;
-            border:none;
-            border-radius:8px;
-            padding:0.5em 1.3em;
-            font-size:0.9em;
-            font-family:'Marcellus SC', serif;
-            cursor:pointer;
-            transition:background 0.3s;">
-    Install App
-  </button>
-  <br>
-  <a href="#pwa-info"
-     style="display:inline-block; margin-top:0.3em; font-size:0.85em; color:#d1ecf5; text-decoration:none;">
-     More info below ↓
-  </a>
-</div>
-
 
 <div class="container">
 
@@ -489,8 +422,8 @@ html { scroll-behavior: smooth; }   /* ← enables gentle scroll to “More info
 
 <!-- Draft Banner, to mark when the program notes are up, but not yet complete -->
 <section id="draftbanner" class="draftbanner" style="display:none;">
-  <p><strong>⚠️ DRAFT VERSION:</strong> If you are seeing this, you are looking at a <strong>DRAFT</strong> of the program notes. 
-  You may see placeholders, snippets, or incorrect information and images. For final program notes, please check back 1 week before our next concert, which is 22 November 2025 at Ben Lomond High School, Ogden, at 3pm. Admission is free.</p>
+  <p><strong>⚠️ DRAFT VERSION:</strong> If you are seeing this, you are looking at a draft of the program notes. 
+  For final program notes, please check back 1 week before our next concert at 3pm Saturday November 22 2025. Admission is free.</p>
 </section>
 
 <nav>
@@ -518,7 +451,7 @@ html { scroll-behavior: smooth; }   /* ← enables gentle scroll to “More info
   </div>
 </section>
 
-<!-- =================== Wind =================== -->
+<!-- =================== Winds =================== -->
 <section id="winds" class="winds">
   <div class="banner" style="background-image: url('images/banner_wind.png');"><h2>Wind Ensemble</h2></div>
   <div class="content">
@@ -674,56 +607,6 @@ html { scroll-behavior: smooth; }   /* ← enables gentle scroll to “More info
 </section>
 
 </div>
-
-
-
-<!-- ========== Final Final PWA Buttons Section =========== -->
-<hr>
-<section id="pwa-info" style="
-  max-width: 380px;
-  margin: 1.5em auto;
-  padding: 1em 1.2em;
-  background: #004d5a;             /* dark aqua background */
-  font-family: 'EB Garamond', serif;
-  text-align: center;
-  line-height: 1.5;
-  color: #b5d8e3;                  /* light aqua text */
-">
-  <h3 style="margin-top:0; font-size:1.1em; color:#d1ecf5;">
-    Program Notes App (Optional)
-  </h3>
-
-  <p style="font-size:0.9em;">
-    You can install these program notes as a lightweight app on your phone or tablet.
-    Once installed, they open quickly and can be viewed offline — even in areas with poor reception.
-  </p>
-
-  <p style="font-size:0.9em;">
-    Installation is completely optional. You can keep reading this page normally, or tap the button below to install the app for offline access.  
-    To remove it later, press and hold its icon and choose
-    <strong>Uninstall</strong> or <strong>Remove</strong>.
-  </p>
-
-  <button id="installButtonBottom"
-          class="install-btn"
-          hidden
-          style="
-            background:#b5d8e3;     /* light button against dark background */
-            color:#003944;          /* dark text for contrast */
-            border:none;
-            border-radius:8px;
-            padding:0.5em 1.3em;
-            font-size:0.9em;
-            font-family:'Marcellus SC', serif;
-            cursor:pointer;
-            transition:background 0.3s;
-          "
-          onmouseover="this.style.background='#d1ecf5';"
-          onmouseout="this.style.background='#b5d8e3';">
-    Install Program Notes App
-  </button>
-</section>
-
 
 
 
@@ -894,16 +777,6 @@ window.addEventListener("load", () => {
 });
 </script>
 
-<!-- this is the service worker for the PWA from GitHub -->
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/NUYE/sw.js')
-        .then(reg => console.log('SW registered:', reg.scope))
-        .catch(err => console.error('SW registration failed:', err));
-    });
-  }
-</script>
 
 <!-- toggle to turn the draftbanner on as needed (default is off) -->
 <script>
