@@ -409,8 +409,63 @@ section h2 { text-align: center; margin-bottom: 1rem; }
 .carousel-btn.right { right: 6px; }
 .carousel-btn:hover { background-color: rgba(0,51,102,0.9); }
 </style>
+
+<style>
+html { scroll-behavior: smooth; }   /* ← enables gentle scroll to “More info below” */
+
+/* Hide top install banner on larger screens */
+@media (min-width: 768px) {
+  #installBanner { display: none !important; }
+}
+
+/* Shared look for install buttons (optional, overrides inline defaults) */
+.install-btn {
+  background:#003366;
+  color:white;
+  border:none;
+  border-radius:8px;
+  padding:0.4em 1.2em;
+  font-size:0.9em;
+  font-family:'Marcellus SC', serif;
+  cursor:pointer;
+  transition:background 0.3s;
+}
+.install-btn:hover {
+  background:#224b8b;
+}
+</style>
+
 </head>
 <body>
+
+<!-- Mobile install banner -->
+<div id="installBanner" style="
+  opacity:0;
+  transition:opacity 1s ease-in;
+  max-width:380px;
+  margin:0.8em auto;
+  padding:0.6em 1.2em;
+  background:#fff;
+  border:1px solid #ccd7e0;
+  border-radius:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+  text-align:center;
+  font-family:'EB Garamond', serif;
+  line-height:1.4;
+  color:#003366;
+">
+  <p style="margin:0.3em 0;">
+    You can install these program notes for quick, offline access.
+  </p>
+
+  <button id="installButtonTop" class="install-btn" hidden>Install App</button>
+  <br>
+  <a href="#pwa-info" 
+     style="display:inline-block; margin-top:0.3em; font-size:0.85em; color:#224b8b; text-decoration:none;">
+     More info below ↓
+  </a>
+</div>
+
 
 <div class="container">
 
@@ -608,6 +663,51 @@ section h2 { text-align: center; margin-bottom: 1rem; }
 
 </div>
 
+
+
+<!-- ========== Final Final PWA Buttons Section =========== -->
+<hr>
+<section id="pwa-info" style="
+  max-width: 380px;
+  margin: 1.5em auto;
+  padding: 1em 1.2em;
+  background: #fff;
+  border: 1px solid #ccd7e0;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  font-family: 'EB Garamond', serif;
+  text-align: center;
+  line-height: 1.4;
+">
+  <h3 style="margin-top:0; font-size:1.1em; color:#003366;">
+    Program Notes App (Optional)
+  </h3>
+
+  <p style="font-size:0.9em;">
+    You can install these program notes as a lightweight app on your phone or tablet.
+    Once installed, they open quickly and can be viewed offline — even in areas
+    with poor reception.
+  </p>
+
+  <p style="font-size:0.9em;">
+    Installation is completely optional. You can keep reading this page normally,
+    or tap the button below to install the app for offline access.  
+    To remove it later, press and hold its icon and choose
+    <strong>Uninstall</strong> or <strong>Remove</strong>.
+  </p>
+
+  <button id="installButtonBottom"
+          class="install-btn"
+          hidden>
+    Install Program Notes App
+  </button>
+</section>
+
+
+
+
+
+
 <!-- ===================== Floating Buttons ===================== -->
 <button id="btnTop"
         onclick="location.href='#top'"
@@ -626,6 +726,13 @@ section h2 { text-align: center; margin-bottom: 1rem; }
                font-size:0.9rem; backdrop-filter:blur(2px);">
   Return to NUYS
 </button>
+
+
+
+
+
+
+
 
 <!-- ===================== Reminder-to-Reload Banner ===================== -->
 <script>
