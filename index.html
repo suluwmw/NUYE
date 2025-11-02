@@ -1,194 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<!-- this links this html with the manifest needed for the PWA -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=400, initial-scale=1.0">
-  <title>Northern Utah Youth Ensembles</title>
-
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=EB+Garamond&family=Marcellus+SC&display=swap" rel="stylesheet">
-
-<!-- CSS -->
 <style>
-/* Global Styles */
+/* ──────────────────────────────
+   GLOBAL BASE
+────────────────────────────── */
 * { box-sizing: border-box; }
+
+:root {
+  --container-padding: 0.75rem;  /* side padding for outer frame */
+  --inner-inset: 0.25rem;        /* extra inset for text readability */
+}
+
 body {
   margin: 0;
   font-family: 'EB Garamond', serif;
   line-height: 1.6;
-  background: #ddd;
+  background: #f2f2f2;  /* light neutral frame background */
 }
+
+/* ──────────────────────────────
+   CONTAINER
+────────────────────────────── */
 .container {
   width: 400px;
-  max-width: 400px;
-  min-width: 400px;
   margin: auto;
-  background: white;
-  padding: 1rem;
+  padding: 1rem var(--container-padding);
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
-  overflow-x: hidden;
 }
 
-/* Header */
+/* Text-only inset (does NOT touch images or logos) */
+.container :is(p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote, figure,
+               .text-wrap, .overview, .pronunciation) {
+  padding-left: var(--inner-inset);
+  padding-right: var(--inner-inset);
+}
+
+/* ──────────────────────────────
+   HEADER
+────────────────────────────── */
 header {
   text-align: center;
-  background-color: #015870;
+  background: linear-gradient(to bottom, #000 0%, #000 65%, #015870 100%);
   color: white;
-  padding: 1rem;
+  padding: 1.5rem var(--inner-inset) 2rem;
 }
-header img { max-width: 100px; margin-bottom: 0.5rem; }
 
+header img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1.5rem; /* extra space below logo */
+}
 
-/* Navigation / Table of Contents */
-nav {
+header h2 {
+  font-family: 'Asul', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 300;
+  color: #acedff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  margin: 1rem 0 0.4rem;
+}
+
+header .concert-details {
+  font-family: 'Marcellus SC', serif;
+  font-size: 1rem;
+  color: #d0eaff;
+  margin: 0 0 2rem;
+}
+
+/* Fade effect below header text */
+header::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to bottom, rgba(1,88,112,1) 0%, rgba(1,88,112,0) 100%);
+  margin-top: 1rem;
+}
+
+/* ──────────────────────────────
+   NAVIGATION / TOC
+────────────────────────────── */
+nav, .sub-toc {
   background-color: #f0f0f0;
-  padding: 0.5rem;
   text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  padding: 0.5rem;
 }
-nav a { margin: 0 0.3rem; text-decoration: none; color: #003366; font-weight: bold; }
 
-/* Symphony Sub-TOC */
+nav a, .sub-toc a {
+  text-decoration: none;
+  color: #003366;
+  font-weight: bold;
+}
+
 .sub-toc {
   display: flex;
-  justify-content: space-between; /* spread links evenly across container */
-  flex-wrap: nowrap;               /* prevent items from wrapping onto another row */
-  background-color: #f0f0f0;
-  padding: 0.5rem;
+  justify-content: space-between;
+  flex-wrap: nowrap;
   margin-bottom: 1rem;
 }
 
 .sub-toc a {
-  flex: 1;                        /* each link gets equal space */
+  flex: 1;
   text-align: center;
-  text-decoration: none;
-  color: #003366;
-  font-weight: bold;
   font-size: 0.9rem;
-  word-wrap: break-word;           /* wrap long words inside the block */
-  margin: 0 0.2rem;                /* small spacing between links */
+  margin: 0 0.2rem;
+  word-wrap: break-word;
 }
 
-/* Sections */
-section { padding: 1.5rem 0; }
-section h2 { text-align: center; margin-bottom: 1rem; }
+/* ──────────────────────────────
+   SECTIONS
+────────────────────────────── */
+section {
+  padding: 1.5rem 0;
+}
 
-/* Section Background Colors */
-.draftbanner { background-color: #ee4b2b; }
-.prep { background-color: #dcd495; }
-.chamber { background-color: #d7b377; }
-.winds { background-color: #825e2e; }
-.symphony { background-color: #015870; color: #acedff }
-.special1 { background-color: #000000; }
-.special2 { background: linear-gradient(to bottom, 844c65, #fff); }
-.special3 { background: linear-gradient(to bottom, 844c65, #fff); }
-.special4 { background: linear-gradient(to bottom, #c8e6c9, #fff); }
-
-/* Draftbanner for work-in-progress alert*/
-.draftbanner {
-  background-color: #ee4b2b;
-  color: white;
+section h2 {
   text-align: center;
-  padding: 0.8rem;
-  font-weight: bold;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-/* Banner */
-.banner {
-  background-size: cover;
-  padding: 80px 20px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.banner h2 {
-  font-size: 2rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-}
-
-/* Text-wrap for modular pieces */
-.text-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
   margin-bottom: 1rem;
 }
 
-/* Piece Title, Composer, Pronunciation */
-.piece-title { 
-	font-family: 'EB Garamond', serif; 
-	font-size: 1.1rem; 
-	text-align: left; 
-	color: #acedff; 
-	font-weight: bold;
-	margin: 0 0 0.1rem 0;
-	padding: 0 0.4rem;
-	letter-spacing: 0.3px;
+/* Background colors */
+.draftbanner { background: #FF8C00; }
+.prep { background: #dcd495; }
+.chamber { background: #d7b377; }
+.winds { background: #825e2e; }
+.symphony { background: #015870; color: #acedff; }
+.special1 { background: #000; }
+.special2 { background: linear-gradient(to bottom, #844c65, #fff); }
+.special3 { background: linear-gradient(to bottom, #844c65, #fff); }
+.special4 { background: linear-gradient(to bottom, #c8e6c9, #fff); }
+
+/* ──────────────────────────────
+   SECTION LOGOS / IMAGES
+────────────────────────────── */
+.section-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
 }
 
-.composer-name {
-  font-size: 2.8rem;
-  color: #FFFFFF;
-  text-align: center;
+.section-logo img,
+.timeline-rect img,
+.symphony img,
+.carousel img {
   width: 100%;
-  margin: -0.2 0 0.5rem 0;
-  padding: 0 0.8rem;
-  line-height: 1.1;
-  position: relative;
-  z-index: 1;
-  tramsition: text-shadow 0.3s ease, color 0.3s ease;
-}
-
-/* Default (light backgrounds: Prep, Chamber, Wind) */
-.prep .composer-name,
-.chamber .composer-name,
-.winds .composer-name {
-  color: #222;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6); /* faint white glow */
-}
-
-/* Dark background (Symphony and special sections) */
-.symphony .composer-name,
-.special1 .composer-name,
-.special2 .composer-name,
-.special3 .composer-name,
-.special4 .composer-name {
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);   /* subtle dark halo=offset: horiz, vert, and blur radius */
-}
-/* Composer font by era */
-.composer-name.medieval { font-family: 'EB Garamond', serif; }
-.composer-name.baroque { font-family: 'EB Garamond', serif; }
-.composer-name.classical { font-family: 'EB Garamond', serif; }
-.composer-name.romantic { font-family: 'Allura', cursive; }
-.composer-name.modern { font-family: 'EB Garamond', serif; }
-.composer-name.postmodern { font-family: 'EB Garamond', serif; }
-.composer-name.contemporary { font-family: 'EB Garamond', serif; }
-
-.pronunciation {
-  font-family: 'Marcellus SC', serif;
-  font-size: 0.7rem;
+  max-width: none;
+  height: auto;
   display: block;
-  text-align: right;
-  color: #acedff;
-  padding: 0 0.4rem;
-  margin-top: -0.4rem;
-  margin-bottom: 1.4rem;
 }
 
-
-/* Timeline rectangle */
+/* Timeline background bar */
 .timeline-rect {
   width: 100%;
-  height: auto;
   background-color: #eee;
   margin-bottom: 0.25rem;
   display: flex;
@@ -196,131 +160,68 @@ section h2 { text-align: center; margin-bottom: 1rem; }
   justify-content: center;
   padding: 0;
 }
-.timeline-rect img { max-width: 100%; max-height: auto; display: block; }
 
-/* Overview */
+/* ──────────────────────────────
+   TEXT FORMATTING
+────────────────────────────── */
+.piece-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  text-align: left;
+  color: #acedff;
+  font-weight: bold;
+  margin: 0 0 0.1rem 0;
+  letter-spacing: 0.3px;
+}
+
+.composer-name {
+  font-family: 'Allura', cursive;
+  font-size: 2.8rem;
+  text-align: center;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);   /* subtle dark halo=offset: horiz, vert, and blur radius */
+}
+
+.prep .composer-name,
+.chamber .composer-name,
+.winds .composer-name {
+  color: #222;
+  text-shadow: 0 0 6px rgba(255,255,255,0.6);
+}
+
+.symphony .composer-name, {
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.pronunciation {
+  font-family: 'Marcellus SC', serif;
+  font-size: 0.7rem;
+  display: block;
+  text-align: right;
+  color: #acedff;
+  margin-top: -0.4rem;
+  margin-bottom: 1.4rem;
+}
+
+/* Overview blocks */
 .overview {
   font-size: 1.2rem;
   line-height: 1.4;
-  padding: 0.4rem 0.6rem;    /*adds inner spacing so text doesn't touch edges */
-  margin-top: 0.4rem;      /* remove extra gap above */
-  margin-bottom: 0;  /* small space below */
-  box-sizing: border-box;     /*ensures padding doesn't change total width */
-  background-color: inherit; /* keeps section color consitent if used inside colored section */
-  text-align: center;   /* centered justification  */
-  text-justify: none;
-  width: 100%;
-}
-.shape.rectangle {
-  width: 100%;
-  height: 100px;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 0.5rem;
-}
-
-/* =========================
-   Reminder-to-Reload Banner
-   ========================= */
-#updateBanner {
-  position: fixed;
-  top: -100px;               /* hidden before showing */
-  left: 0;
-  width: 100%;
-  background: #015870;       /* NUYS blue */
-  color: #fff;
+  padding: 0.4rem 0.6rem;
+  margin-top: 0.4rem;
+  background-color: inherit;
   text-align: center;
-  padding: 0.6rem;
-  font-size: 1rem;
-  font-family: 'EB Garamond', serif;
-  z-index: 120;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  letter-spacing: 0.3px;
-  opacity: 0;
-  transition: top 0.6s ease-out, opacity 0.6s ease-out;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.6rem;
-  flex-wrap: wrap;
 }
 
-/* when banner is visible */
-#updateBanner.visible {
-  top: 0;
-  opacity: 1;
-}
-
-/* --- animations for smooth appearance/disappearance --- */
-@keyframes fadeInDown {
-  from { opacity: 0; top: -100px; }
-  to   { opacity: 1; top: 0; }
-}
-@keyframes fadeOutUp {
-  from { opacity: 1; top: 0; }
-  to   { opacity: 0; top: -100px; }
-}
-#updateBanner.showing { animation: fadeInDown 0.6s forwards ease-out; }
-#updateBanner.hiding  { animation: fadeOutUp  0.6s forwards ease-in; }
-
-/* --- unified button base --- */
-#updateBanner button {
-  margin-left: 0.4em;
-  padding: 0.3em 0.8em;
-  font-size: 0.95rem;
-  font-family: 'EB Garamond', serif;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-}
-
-/* --- primary button (blue solid) --- */
-#updateBanner button.primary {
-  background: #9FE2F9 !important;
-  color: #003366 !important;
-  border: 1px solid #9FE2F9 !important;
-}
-#updateBanner button.primary:hover {
-  background: #C7F5F7 !important;
-}
-
-/* --- secondary button (white outline) --- */
-#updateBanner button.secondary {
-  background: transparent;
-  color: #fff;
-  border: 1px solid #fff;
-}
-#updateBanner button.secondary:hover {
-  background: rgba(255,255,255,0.15);
-}
-
-
-
-/* Floating Buttons */
-.float-btn {
-  position: fixed;
-  bottom: 20px;
-  padding: 0.6rem 1rem;
-  background-color: #003366;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  z-index: 200;
-}
-#btnTop { left: 20px; }
-#btnNUYS { right: 20px; display: none; }
-
-/* Copyright text */
-.copyright { font-size: 0.7rem; color: #555; margin-top: 0.2rem; }
-
-/* Faust Carousel Script - has css, html, and javascript sections */
+/* ──────────────────────────────
+   CAROUSEL
+────────────────────────────── */
 .carousel {
   width: 100%;
-  max-width: 360px;
-  margin: 1rem auto;
+  margin: 1rem 0;
 }
 
 .carousel-frame {
@@ -332,26 +233,16 @@ section h2 { text-align: center; margin-bottom: 1rem; }
   overflow: hidden;
 }
 
-/* Caption band sits outside the image */
 .carousel-caption {
   background: #015870;
   color: #fff;
   font-family: 'EB Garamond', serif;
   text-align: center;
   padding: 0.4rem;
-  font-size: 2.0rem;
+  font-size: 2rem;
   letter-spacing: 0.3px;
 }
 
-/* Dedicated image area */
-.carousel-image-area {
-  position: relative;
-  background: #000;
-  width: 100%;
-  overflow: hidden;
-}
-
-/* Two overlapping images for true crossfade */
 .carousel-image-area {
   position: relative;
   width: 100%;
@@ -359,53 +250,70 @@ section h2 { text-align: center; margin-bottom: 1rem; }
   background: #000;
 }
 
-
-/* Stack the images, but let them define the height */
 .carousel-image-area img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
 }
 
-/* When one is active, it becomes visible and defines height */
 .carousel-image-area img.active {
   opacity: 1;
-  position: relative;   /* bring it into normal flow so height adjusts */
+  position: relative;
   z-index: 2;
 }
 
-/* Inactive one stays behind, invisible */
-.carousel-image-area img.inactive {
-  opacity: 0;
-  position: absolute;
-  z-index: 1;
-}
-
-
-
-
-/* Navigation buttons */
-.carousel-btn {
-  position: absolute;
-  top: 55%;
-  transform: translateY(-50%);
-  background-color: rgba(0,51,102,0.6);
+/* ──────────────────────────────
+   FLOATING BUTTONS
+────────────────────────────── */
+.float-btn {
+  position: fixed;
+  bottom: 20px;
+  width: auto;
+  padding: 0.6rem 1rem;
+  background: #003366;
   color: white;
   border: none;
-  border-radius: 50%;
+  border-radius: 6px;
   cursor: pointer;
-  padding: 0.4rem 0.6rem;
-  font-size: 1.2rem;
-  z-index: 10;
+  font-size: 0.9rem;
+  z-index: 200;
+}
+#btnTop { left: 20px; }
+#btnNUYS { right: 20px; display: none; }
+
+/* Copyright */
+.copyright {
+  font-size: 0.7rem;
+  color: #555;
+  margin-top: 0.2rem;
+}
+/* === Full-width media (header, section logos, timeline bars) === */
+header img,
+.section-logo img,
+.timeline-rect img {
+  display: block;
+  width: calc(100% + (2 * var(--inner-inset)));
+  margin-left: calc(-1 * var(--inner-inset));
+  margin-right: calc(-1 * var(--inner-inset));
+  height: auto;
 }
 
-.carousel-btn.left { left: 6px; }
-.carousel-btn.right { right: 6px; }
-.carousel-btn:hover { background-color: rgba(0,51,102,0.9); }
+/* === Normal inline images (composer photos, piece images, etc.) === */
+.container img:not(header img):not(.section-logo img):not(.timeline-rect img) {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;  /* centers them */
+}
+</style>
+
+
+
+
 </style>
 
 
@@ -414,17 +322,22 @@ section h2 { text-align: center; margin-bottom: 1rem; }
 
 <div class="container">
 
+<!-- Intro Section -->
 <header id="top">
-  <img src="images/icon-512.png" alt="Orchestra Logo">
-  <h1>Northern Utah Youth Ensembles</h1>
-  <h2>Fall Concert Program Notes</h2>
+  <img src="images/logo-nuye-intro.png" alt="NUYE Logo">
+  <div class="concert-info">
+    <h2>Fall Concert</h2>
+    <p class="concert-details">3:00 pm&nbsp;&nbsp;November 22,&nbsp;2025</p>
+  </div>
 </header>
 
 <!-- Draft Banner, to mark when the program notes are up, but not yet complete -->
+<!--
 <section id="draftbanner" class="draftbanner" style="display:none;">
   <p><strong>⚠️ DRAFT VERSION:</strong> If you are seeing this, you are looking at a draft of the program notes. 
   For final program notes, please check back before our next concert. Fall Concert is at 3pm Saturday November 22 2025. Admission is free!</p>
 </section>
+-->
 
 <nav>
   <a href="#prep">Preparatory</a> |
@@ -435,47 +348,66 @@ section h2 { text-align: center; margin-bottom: 1rem; }
 
 <!-- =================== Preparatory =================== -->
 <section id="prep" class="prep">
-  <div class="banner" style="background-image: url('images/banner_prep.png');"><h2>Preparatory Strings</h2></div>
+  <div class="section-logo">
+    <img src="images/logo-nuyps.png" alt="NUYPS Logo">
+  </div>
   <div class="content">
-    <p>Preparatory Strings performs lively works for young musicians, introducing them to ensemble playing and musical expression.
-	Shiver is a great autumnal song that gives food imagery of a cold night. The students learn how to temolo in this piece and play back and forth with the melodies.
+    <p>Preparatory Strings performs lively works for young musicians, introducing them to ensemble playing and musical expression.</p>
+	<p>Shiver is a great autumnal song that gives good imagery of a cold night. The students learn how to tremolo in this piece and play back and forth with the melodies.</p>
 	
-	Nightmare On the Housetop is a take on the traditional piece Up On The Housetop. The composer says that children are excited for Santa to come but then they are surplrised with Halloween characters instead. This piece goes back and forth with bow (arco) and plucking (pizzicato). 
+	<p>Nightmare On the Housetop is a take on the traditional piece Up On The Housetop. The composer says that children are excited for Santa to come but then they are surprised with Halloween characters instead. This piece goes back and forth with bow (arco) and plucking (pizzicato). </p>
 	
-	Into the Midnight Forest has a "mysterious march trough the darkness" feel that the composer wants. It's a fun piece that bring in great dynamic and a lot of staccato (short) bowings. It also brings in a few legato (smooth) bowings as well to contrast.</p>
+	<p>Into the Midnight Forest has a "mysterious march through the darkness" feel that the composer wants. It's a fun piece that bring in great dynamics and a lot of staccato (short) bowings. It also brings in a few legato (smooth) bowings as well to contrast.</p>
     <p class="copyright">© Photographer Name</p>
   </div>
 </section>
 
 <!-- =================== Chamber =================== -->
 <section id="chamber" class="chamber">
-  <div class="banner" style="background-image: url('images/banner_chamber.png');"><h2>Chamber Orchestra</h2></div>
+  <div class="section-logo">
+    <img src="images/logo-nuyco.png" alt="NUYCO Logo">
+  </div>
   <div class="content">
-    <p>Chamber Ensemble performs small-group repertoire with focus on musical dialogue, phrasing, and interpretation.
+    <p>Chamber Orchestra performs small-group repertoire with focus on musical dialogue, phrasing, and interpretation.</p>
 	
-	Dance of the Tumblers from Snow Maiden - Nikolai Rimsky-Korsakov arr. by Sandra Dackow
-	Midnight Storm Erica Donahue
-	(combined piece): Shackelford Banks - Jay Bocook</p>
+	<p>Dance of the Tumblers from Snow Maiden - Nikolai Rimsky-Korsakov arr. by Sandra Dackow</p>
+	<p>Midnight Storm Erica Donahue</p>
+	<p>(combined piece): Shackelford Banks - Jay Bocook</p>
     <p class="copyright">© Photographer Name</p>
   </div>
 </section>
 
 <!-- =================== Winds =================== -->
 <section id="winds" class="winds">
-  <div class="banner" style="background-image: url('images/banner_wind.png');"><h2>Wind Ensemble</h2></div>
+  <div class="section-logo">
+    <img src="images/logo-nuywe.png" alt="NUYWE Logo">
+  </div>
   <div class="content">
     <p>Wind Ensemble features woodwinds, brass, and percussion in classic and contemporary works.</p>
+	
+	Shackelford Banks 
+
+    <p>Named for the uninhabited island off the North Carolina coast where wild horses still roam, this energetic original features a distinctive western flavor.</p>
+	March of the Shadows
+
+    <p>Paying homage to the traditional march form, this work steps outside the box in this delightfully dark and unique piece in minor form. </p>
+
+Pure Imagination 
+
+    <p>Originally sung by Gene Wilder in the 1971 movie classic "Willy Wonka the Chocolate Factory," this timeless song has remained a favorite ever since. This setting is based on the version sung by Timothée Chalamet for the movie "Wonka" and features lush harmonies and an appealing pop groove. Magical! </p>
+
     <p class="copyright">© Photographer Name</p>
   </div>
 </section>
 
 <!-- =================== Symphony =================== -->
 <section id="symphony" class="symphony">
-  <div class="banner" style="background-image: url('images/banner_symphony.png');"><h2>Youth Symphony</h2></div>
-    <div class="content">
+  <div class="section-logo">
+    <img src="images/logo-nuys.png" alt="NUYS Logo" class="fullwidth">
+  </div>
     <p>Youth Symphony plays original symphonic works...etc etc.
 	</p>
-	<p>Today, the Youth Symphony presents four works from the Romantic Period of Western Classical tradition.
+	<p>Today, the Youth Symphony presents four works from the Romantic Period of Western Classical tradition. Mention the Baroque, Classical, Romantic, Modern, Postmodern/Contemporary. Describe what make Romantic works different. 
 	</p>
 
   <!-- Symphony Sub-menu -->
@@ -506,9 +438,14 @@ section h2 { text-align: center; margin-bottom: 1rem; }
     <img src="images/block-beethoven.png" alt="Beethoven Info" style="width:100%; display:block;">
   </section>
   
-  <!-- Block: Egmont -->
+  <!-- Block: Egmont Play-->
   <section class="special1">
-    <img src="images/block-egmont.png" alt="Egmont Info" style="width:100%; display:block;">
+    <img src="images/block-egmont-play.png" alt="Egmont Play Info" style="width:100%; display:block;">
+  </section>
+  
+  <!-- Block: Egmont Man-->
+  <section class="special1">
+    <img src="images/block-egmont-man.png" alt="Egmont Info" style="width:100%; display:block;">
   </section>
 
   <!-- Piece 2: Accolay -->
@@ -520,7 +457,7 @@ section h2 { text-align: center; margin-bottom: 1rem; }
 		<img src="images/timeline-accolay.png" alt="Timeline Accolay">
 	</div>
     <div class="overview">
-      The liner notes from famous violinist Itzhak Perlman's album <em>Concertos from my Childhood</em>  refers to Accolay as 'long-forgotten'. But this piece, his <em>Violin Concerto in A Minor</em>, hasn't been. It's a one-movement gem of lyric romanticism, frequently used to showcase multiple bowing techniques and left-hand dexterity. 
+      The liner notes from famous violinist Itzhak Perlman's album <em>Concertos from my Childhood</em>  refers to Accolay as 'long-forgotten'.  But this piece hasn't been. It's a one-movement gem of lyric romanticism, frequently used to showcase multiple bowing techniques and left-hand dexterity. 
       <p class="copyright">© Artist Name</p>
     </div>
   </div>
@@ -622,7 +559,7 @@ section h2 { text-align: center; margin-bottom: 1rem; }
 
 <!-- =================== Final Section =================== -->
   <section class="special1">
-      <img src="images/block-final.png" alt="phones & thanks" style="width:100%; display:block;">
+      <img src="images/block-outro.png" alt="phones & thanks" style="width:100%; display:block;">
 </section>
 
 </div>
@@ -647,7 +584,7 @@ section h2 { text-align: center; margin-bottom: 1rem; }
                display:none; padding:0.6rem 1rem; background-color:rgba(0,51,102,0.85);
                color:white; border:none; border-radius:6px; cursor:pointer;
                font-size:0.9rem; backdrop-filter:blur(2px);">
-  Return to NUYS
+  Symphony
 </button>
 
 
