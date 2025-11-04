@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- this links this html with the manifest needed for the PWA -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=400, initial-scale=1.0">
+  <title>Northern Utah Youth Ensembles</title>
+
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Asul:wght@300;400&family=EB+Garamond&family=Marcellus+SC&display=swap" rel="stylesheet">
+
+
+
 <style>
 /* ──────────────────────────────
    GLOBAL BASE
@@ -6,15 +19,15 @@
 * { box-sizing: border-box; }
 
 :root {
-  --container-padding: 0.75rem;  /* side padding for outer frame */
-  --inner-inset: 0.25rem;        /* extra inset for text readability */
+  --container-padding: 0.75rem;  /* side padding inside frame */
+  --inner-inset: 0.25rem;        /* text inset */
 }
 
 body {
   margin: 0;
   font-family: 'EB Garamond', serif;
   line-height: 1.6;
-  background: #f2f2f2;  /* light neutral frame background */
+  background: #000; /* black background beyond container */
 }
 
 /* ──────────────────────────────
@@ -25,30 +38,34 @@ body {
   margin: auto;
   padding: 1rem var(--container-padding);
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  background: #f2f2f2; /* neutral outer border area */
 }
 
-/* Text-only inset (does NOT touch images or logos) */
-.container :is(p, h1, h2, h3, h4, h5, h6, ul, ol, blockquote, figure,
+/* Text-only inset */
+.container :is(p, h1, h2, h3, h4, h5, h6,
+               ul, ol, blockquote, figure,
                .text-wrap, .overview, .pronunciation) {
   padding-left: var(--inner-inset);
   padding-right: var(--inner-inset);
 }
 
 /* ──────────────────────────────
-   HEADER
+   HEADER (black → cyan)
 ────────────────────────────── */
 header {
   text-align: center;
-  background: linear-gradient(to bottom, #000 0%, #000 65%, #015870 100%);
+  background: linear-gradient(to bottom, #000 0%, #015870 100%);
   color: white;
   padding: 1.5rem var(--inner-inset) 2rem;
 }
 
 header img {
-  width: 100%;
+  width: calc(100% + (0.65 * var(--container-padding)));
+  margin-left: calc(-0.325 * var(--container-padding));
+  margin-right: calc(-0.50 * var(--container-padding));  /* slightly less negative */
+  margin-bottom: 1.5rem;
   height: auto;
   display: block;
-  margin-bottom: 1.5rem; /* extra space below logo */
 }
 
 header h2 {
@@ -67,18 +84,8 @@ header .concert-details {
   margin: 0 0 2rem;
 }
 
-/* Fade effect below header text */
-header::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 60px;
-  background: linear-gradient(to bottom, rgba(1,88,112,1) 0%, rgba(1,88,112,0) 100%);
-  margin-top: 1rem;
-}
-
 /* ──────────────────────────────
-   NAVIGATION / TOC
+   NAVIGATION
 ────────────────────────────── */
 nav, .sub-toc {
   background-color: #f0f0f0;
@@ -108,27 +115,23 @@ nav a, .sub-toc a {
 }
 
 /* ──────────────────────────────
-   SECTIONS
+   SECTION COLORS
 ────────────────────────────── */
-section {
-  padding: 1.5rem 0;
-}
+.draftbanner { background: #FF8C00; color: white; text-align: center; padding: 0.8rem; font-weight: bold; font-size: 0.9rem; }
 
-section h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
+.prep      { background: #dcd495; }
+.chamber   { background: #d7b377; }
+.winds     { background: #825e2e; color: #fff; }
+.symphony  { background: #015870; color: #acedff; position: relative; }
+.special1  { background: #000; color: #fff; }
 
-/* Background colors */
-.draftbanner { background: #FF8C00; }
-.prep { background: #dcd495; }
-.chamber { background: #d7b377; }
-.winds { background: #825e2e; }
-.symphony { background: #015870; color: #acedff; }
-.special1 { background: #000; }
-.special2 { background: linear-gradient(to bottom, #844c65, #fff); }
-.special3 { background: linear-gradient(to bottom, #844c65, #fff); }
-.special4 { background: linear-gradient(to bottom, #c8e6c9, #fff); }
+/* subtle fade at end of symphony section */
+.symphony::after {
+  content: "";
+  display: block;
+  height: 80px;
+  background: linear-gradient(to bottom, rgba(1,88,112,1) 0%, rgba(0,0,0,1) 100%);
+}
 
 /* ──────────────────────────────
    SECTION LOGOS / IMAGES
@@ -137,32 +140,64 @@ section h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem 0;
+  padding: 5rem 0 1.5rem 0;     /* balanced top/bottom spacing */
+  margin: 0;             /* no outward shift */
 }
 
-.section-logo img,
+.section-logo img {
+  width: 85%;
+  max-width: 340px;
+  height: auto;
+  display: block;
+  margin: 0 auto;        /* centers within section */
+}
+
 .timeline-rect img,
-.symphony img,
-.carousel img {
+.symphony img, 
+.carousel img,
+.special1 img {
   width: 100%;
   max-width: none;
   height: auto;
   display: block;
+  margin: 0;
 }
 
-/* Timeline background bar */
-.timeline-rect {
+.divider {
   width: 100%;
-  background-color: #eee;
-  margin-bottom: 0.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
+  height: 1.5rem;               /* thickness of the black bar */
+  background-color: #000;       /* pure black */
+  margin-top: 0;             /* spacing above */
+  margin-bottom: 0;
+}
+
+/* Timeline container */
+/* Let timeline images reach the inner container edges */
+.timeline-rect img {
+  width: calc(100% + (2 * var(--inner-inset)));
+  margin-left: calc(-1 * var(--inner-inset));
+  margin-right: calc(-1 * var(--inner-inset));
+}
+
+.symphony .text-wrap {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Add space above text blocks under timelines */
+.symphony .overview {
+  margin-top: 1.5rem;    /* space between timeline and overview text */
+}
+
+/* Override just the symphony section logo so it matches the others */
+.symphony .section-logo img {
+  width: 85%;
+  max-width: 340px;
+  margin: 0 auto;
 }
 
 /* ──────────────────────────────
-   TEXT FORMATTING
+   TEXT STYLES
 ────────────────────────────── */
 .piece-title {
   font-family: 'EB Garamond', serif;
@@ -181,68 +216,27 @@ section h2 {
   line-height: 1.1;
   margin: 0 0 0.5rem;
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);   /* subtle dark halo=offset: horiz, vert, and blur radius */
-}
-
-.prep .composer-name,
-.chamber .composer-name,
-.winds .composer-name {
-  color: #222;
-  text-shadow: 0 0 6px rgba(255,255,255,0.6);
-}
-
-.symphony .composer-name, {
-  color: #fff;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
 .pronunciation {
-  font-family: 'Marcellus SC', serif;
-  font-size: 0.7rem;
   display: block;
+  width: 100%;
   text-align: right;
+  font-family: 'Marcellus SC', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.6px;
   color: #acedff;
-  margin-top: -0.4rem;
-  margin-bottom: 1.4rem;
-}
-
-/* Overview blocks */
-.overview {
-  font-size: 1.2rem;
-  line-height: 1.4;
-  padding: 0.4rem 0.6rem;
-  margin-top: 0.4rem;
-  background-color: inherit;
-  text-align: center;
+  margin: -0.2rem 0 1.2rem 0;
+  padding-right: var(--inner-inset);
+  line-height: 1.1;
+  font-variant: small-caps;
 }
 
 /* ──────────────────────────────
-   CAROUSEL
+    CAROUSEL 
 ────────────────────────────── */
-.carousel {
-  width: 100%;
-  margin: 1rem 0;
-}
-
-.carousel-frame {
-  position: relative;
-  border: 8px solid #003366;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  background-color: #f8f8f8;
-  overflow: hidden;
-}
-
-.carousel-caption {
-  background: #015870;
-  color: #fff;
-  font-family: 'EB Garamond', serif;
-  text-align: center;
-  padding: 0.4rem;
-  font-size: 2rem;
-  letter-spacing: 0.3px;
-}
-
+/* Single-image carousel */
 .carousel-image-area {
   position: relative;
   width: 100%;
@@ -251,74 +245,16 @@ section h2 {
 }
 
 .carousel-image-area img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
-}
-
-.carousel-image-area img.active {
-  opacity: 1;
-  position: relative;
-  z-index: 2;
-}
-
-/* ──────────────────────────────
-   FLOATING BUTTONS
-────────────────────────────── */
-.float-btn {
-  position: fixed;
-  bottom: 20px;
-  width: auto;
-  padding: 0.6rem 1rem;
-  background: #003366;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  z-index: 200;
-}
-#btnTop { left: 20px; }
-#btnNUYS { right: 20px; display: none; }
-
-/* Copyright */
-.copyright {
-  font-size: 0.7rem;
-  color: #555;
-  margin-top: 0.2rem;
-}
-/* === Full-width media (header, section logos, timeline bars) === */
-header img,
-.section-logo img,
-.timeline-rect img {
   display: block;
-  width: calc(100% + (2 * var(--inner-inset)));
-  margin-left: calc(-1 * var(--inner-inset));
-  margin-right: calc(-1 * var(--inner-inset));
+  width: 100%;
   height: auto;
 }
 
-/* === Normal inline images (composer photos, piece images, etc.) === */
-.container img:not(header img):not(.section-logo img):not(.timeline-rect img) {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;  /* centers them */
-}
 </style>
-
-
-
-
-</style>
-
-
 </head>
 <body>
+
+
 
 <div class="container">
 
@@ -332,12 +268,12 @@ header img,
 </header>
 
 <!-- Draft Banner, to mark when the program notes are up, but not yet complete -->
-<!--
+
 <section id="draftbanner" class="draftbanner" style="display:none;">
   <p><strong>⚠️ DRAFT VERSION:</strong> If you are seeing this, you are looking at a draft of the program notes. 
-  For final program notes, please check back before our next concert. Fall Concert is at 3pm Saturday November 22 2025. Admission is free!</p>
+  For final program notes, please check back closer to our next concert. Fall Concert is at 3pm Saturday November 22 2025. Admission is free!</p>
 </section>
--->
+
 
 <nav>
   <a href="#prep">Preparatory</a> |
@@ -358,7 +294,6 @@ header img,
 	<p>Nightmare On the Housetop is a take on the traditional piece Up On The Housetop. The composer says that children are excited for Santa to come but then they are surprised with Halloween characters instead. This piece goes back and forth with bow (arco) and plucking (pizzicato). </p>
 	
 	<p>Into the Midnight Forest has a "mysterious march through the darkness" feel that the composer wants. It's a fun piece that bring in great dynamics and a lot of staccato (short) bowings. It also brings in a few legato (smooth) bowings as well to contrast.</p>
-    <p class="copyright">© Photographer Name</p>
   </div>
 </section>
 
@@ -373,7 +308,6 @@ header img,
 	<p>Dance of the Tumblers from Snow Maiden - Nikolai Rimsky-Korsakov arr. by Sandra Dackow</p>
 	<p>Midnight Storm Erica Donahue</p>
 	<p>(combined piece): Shackelford Banks - Jay Bocook</p>
-    <p class="copyright">© Photographer Name</p>
   </div>
 </section>
 
@@ -392,11 +326,10 @@ header img,
 
     <p>Paying homage to the traditional march form, this work steps outside the box in this delightfully dark and unique piece in minor form. </p>
 
-Pure Imagination 
+	Pure Imagination 
 
     <p>Originally sung by Gene Wilder in the 1971 movie classic "Willy Wonka the Chocolate Factory," this timeless song has remained a favorite ever since. This setting is based on the version sung by Timothée Chalamet for the movie "Wonka" and features lush harmonies and an appealing pop groove. Magical! </p>
 
-    <p class="copyright">© Photographer Name</p>
   </div>
 </section>
 
@@ -428,25 +361,37 @@ Pure Imagination
 	</div>
     <div class="overview">
      The Egmont Overture has been called the "distilled essence of Beethoven." Written during his middle period, it still relies on classical structure but adds the narrative arc and powerful emotions of Romanticism. 
-      <p class="copyright">© Artist Name</p>
     </div>
   </div>
   
   
     <!-- Block: Beethoven -->
-  <section class="special1">
+  <div>
     <img src="images/block-beethoven.png" alt="Beethoven Info" style="width:100%; display:block;">
-  </section>
+  </div>
+  
+  <div class="divider"></div>
+  
+    <!-- Block: Goethe -->
+  <div>
+    <img src="images/block-goethe.png" alt="Goethe Info" style="width:100%; display:block;">
+  </div>
+  
+  <div class="divider"></div>
   
   <!-- Block: Egmont Play-->
-  <section class="special1">
+  <div>
     <img src="images/block-egmont-play.png" alt="Egmont Play Info" style="width:100%; display:block;">
-  </section>
+  </div>
+  <div class="divider"></div>
   
   <!-- Block: Egmont Man-->
-  <section class="special1">
+  <div>
     <img src="images/block-egmont-man.png" alt="Egmont Info" style="width:100%; display:block;">
-  </section>
+  </div>
+  
+  <div class="divider"></div>
+  <div class="divider"></div>
 
   <!-- Piece 2: Accolay -->
   <div id="violin" class="text-wrap">
@@ -458,17 +403,17 @@ Pure Imagination
 	</div>
     <div class="overview">
       The liner notes from famous violinist Itzhak Perlman's album <em>Concertos from my Childhood</em>  refers to Accolay as 'long-forgotten'.  But this piece hasn't been. It's a one-movement gem of lyric romanticism, frequently used to showcase multiple bowing techniques and left-hand dexterity. 
-      <p class="copyright">© Artist Name</p>
     </div>
   </div>
     <!-- Block: Accolay -->  
-  <section class="special1">
+  <div>
     <img src="images/block-accolay.png" alt="Accolay Info" style="width:100%; display:block;">
-  </section>
+  </div>
     <!-- Block: Soloist Instrument Showcase -->  
-  <section class="special1">
+  <div>
     <img src="images/block-violin.png" alt="Violin Info" style="width:100%; display:block;">
-  </section>
+  </div>
+  
   
   <!-- Piece 3: Hector Berlioz -->
   <div id="hungarian" class="text-wrap">
@@ -480,30 +425,26 @@ Pure Imagination
 	</div>
 	<div class="overview">
       The dramatic and exuberent "Hungarian March" occurs Act I of Berlioz's <em>The Damnation of Faust</em>. It's full of vitality and energy, in contrast to the title character. 
-      <p class="copyright">© Artist Name</p>
     </div>
-
+  </div>
+  <div class="divider"></div>
   
     <!-- Block: Berlioz -->
-  <section class="special1">
+  <div>
     <img src="images/block-berlioz.png" alt="Berlioz Info" style="width:100%; display:block;">
-  </section>
+  </div>
+  <div class="divider"></div>
   
 <!-- Faust Image Carousel has css, html, and javascript sections-->
 <div class="carousel">
   <div class="carousel-frame">
-    <div class="carousel-caption">The Damnation of Faust</div>
+    <div class="carousel-caption">The Damnation of Faust
+	</div>
 
-    <!-- Two stacked images for crossfade -->
     <div class="carousel-image-area">
-      <img id="carousel-image1"
+      <img id="carousel-image"
            src="images/faust-carousel-1.png"
-           alt="Faust image 1"
-           class="active">
-      <img id="carousel-image2"
-           src="images/faust-carousel-1.png"
-           alt="Faust image 2"
-           class="inactive">
+           alt="Faust image">
     </div>
 
     <button class="carousel-btn left" onclick="prevImage()">&#10094;</button>
@@ -513,14 +454,12 @@ Pure Imagination
 
   
   <!-- Block: Faust -->
-  <section class="special1">
+  <div>
     <img src="images/block-faust.png" alt="Faust Info" style="width:100%; display:block;">
-  </section>
+  </div>
 
-  <!-- Block: Goethe -->
-  <section class="special1">
-    <img src="images/block-goethe.png" alt="Goethe Info" style="width:100%; display:block;">
-  </section>
+  <div class="divider"></div>
+  <div class="divider"></div>
   
   <!-- Piece 4: Bizet -->
   <div id="carmen" class="text-wrap">
@@ -532,30 +471,32 @@ Pure Imagination
 	</div>
     <div class="overview">
       Carmen was a shock to French opera-goers, and that was after it was toned down. They were perfectly used to seeing melodrama but they weren't used to seeing the actual death acted onstage. And the heroine is not at all conventional - instead she's from the working classes - and a flamboyant gypsy who does as she pleases. 
-      <p class="copyright">© Artist Name</p>
     </div>
   </div>
   
     <!-- Block:Bizet -->
-  <section class="special1">
+  <div>
     <img src="images/block-bizet.png" alt="Bizet Info" style="width:100%; display:block;">
-  </section>
+  </div>
+  <div class="divider"></div>
   
    <!-- Block:Carmen -->
-  <section class="special1">
+  <div>
     <img src="images/block-carmen.png" alt="Carmen Plot" style="width:100%; display:block;">
-  </section>
+  </div>
+  <div class="divider"></div>
   
   <!-- Block: Opera-Comique -->
-  <section class="special1">
+  <div> 
     <img src="images/block-comique.png" alt="Opera-Comique Info" style="width:100%; display:block;">
-  </section>
+  </div>
+  <div class="divider"></div>
 
   <!-- Block: Prix de Rome -->
-  <section class="special1">
+  <div> 
     <img src="images/block-prix.png" alt="Prix de Rome Info" style="width:100%; display:block;">
-  </section>
-
+  </div>
+</section>
 
 <!-- =================== Final Section =================== -->
   <section class="special1">
@@ -590,84 +531,25 @@ Pure Imagination
 
 
 
-
-
-
-
-<!-- ===================== Reminder-to-Reload Banner ===================== -->
-<script>
-(function() {
-  const versionDate = "2025-10-11";  // Update this when republishing
-  const lastVisit = localStorage.getItem("programVersion");
-
-  window.addEventListener("DOMContentLoaded", () => {
-    if (lastVisit && lastVisit !== versionDate) {
-      showUpdateBanner();
-    }
-    localStorage.setItem("programVersion", versionDate);
-  });
-
-  function showUpdateBanner() {
-    const banner = document.createElement("div");
-    banner.id = "updateBanner";
-    banner.innerHTML = `
-      <span>Newer version available.</span>
-    <button id="reloadBtn" class="primary">Reload</button>
-    <button id="dismissBtn" class="secondary" title="Dismiss">Dismiss</button>
-`;
-    document.body.appendChild(banner);
-
-    // Animate in with a smooth drop-in
-  requestAnimationFrame(() => {
-  banner.classList.add("showing");
-  // After animation completes, switch to steady 'visible' state
-  setTimeout(() => {
-    banner.classList.remove("showing");
-    banner.classList.add("visible");
-  }, 600); // match CSS animation duration
-});
-
-
-    const reloadBtn = banner.querySelector("#reloadBtn");
-    const dismissBtn = banner.querySelector("#dismissBtn");
-
-    reloadBtn.addEventListener("click", tryReload);
-    dismissBtn.addEventListener("click", () => hideBanner(banner));
-  }
-
-  function tryReload() {
-    if (navigator.onLine) {
-      location.reload(true);
-    } else {
-      alert("You're currently offline. The new version will load once internet is available.");
-    }
-  }
-
-  function hideBanner(banner) {
-    banner.classList.remove("visible");
-    banner.classList.add("hiding");
-    setTimeout(() => banner.remove(), 600);
-  }
-})();
-</script>
-
-
 <!-- Floating Button Visibility Script ===================== -->
 <script>
-  const btnNUYS = document.getElementById('btnNUYS');
-  const symphony = document.getElementById('symphony');
+const btnNUYS = document.getElementById('btnNUYS');
+const symphony = document.getElementById('symphony');
 
-  function updateNUYS() {
-    const rect = symphony.getBoundingClientRect();
-    if (rect.top <= 100 && rect.bottom >= 100) {
-      btnNUYS.style.display = 'block';
-    } else {
-      btnNUYS.style.display = 'none';
-    }
+function updateNUYS() {
+  const scrollY = window.scrollY || window.pageYOffset;
+  const symTop = symphony.offsetTop;
+
+  // once the page is scrolled down past the top of Symphony, show it
+  if (scrollY + 100 >= symTop) {
+    btnNUYS.style.display = 'block';
+  } else {
+    btnNUYS.style.display = 'none';
   }
+}
 
-  window.addEventListener('scroll', updateNUYS);
-  window.addEventListener('DOMContentLoaded', updateNUYS);
+window.addEventListener('scroll', updateNUYS);
+window.addEventListener('DOMContentLoaded', updateNUYS);
 </script>
 
 <!-- Faust Carousel Script -->
@@ -680,58 +562,27 @@ window.carouselImages = [
   "images/faust-carousel-5.png"
 ];
 
-window.currentIndex = 0;
-window.showingFirst = true;
+let currentIndex = 0;
 
-window.showImage = function(index) {
-  const img1 = document.getElementById("carousel-image1");
-  const img2 = document.getElementById("carousel-image2");
-  if (!img1 || !img2) return;
+function renderImage() {
+  const img = document.getElementById("carousel-image");
+  if (!img) return;
+  img.src = window.carouselImages[currentIndex];
+}
 
-  // Wrap around
-  window.currentIndex = (index + window.carouselImages.length) % window.carouselImages.length;
+function nextImage() {
+  currentIndex = (currentIndex + 1) % window.carouselImages.length;
+  renderImage();
+}
 
-  // Toggle classes for crossfade
-  if (window.showingFirst) {
-    img2.src = window.carouselImages[window.currentIndex];
-    img2.classList.add("active");
-    img2.classList.remove("inactive");
-    img1.classList.remove("active");
-    img1.classList.add("inactive");
-  } else {
-    img1.src = window.carouselImages[window.currentIndex];
-    img1.classList.add("active");
-    img1.classList.remove("inactive");
-    img2.classList.remove("active");
-    img2.classList.add("inactive");
-  }
+function prevImage() {
+  currentIndex = (currentIndex - 1 + window.carouselImages.length) % window.carouselImages.length;
+  renderImage();
+}
 
-  window.showingFirst = !window.showingFirst;
-};
-
-window.nextImage = function() {
-  window.showImage(window.currentIndex + 1);
-};
-
-window.prevImage = function() {
-  window.showImage(window.currentIndex - 1);
-};
-
-// ✅ Make sure the first image is visible as soon as everything is loaded
-window.addEventListener("load", () => {
-  const img1 = document.getElementById("carousel-image1");
-  const img2 = document.getElementById("carousel-image2");
-
-  // reset to first image
-  window.currentIndex = 0;
-
-  img1.src = window.carouselImages[0];
-  img1.classList.add("active");
-
-  img2.src = window.carouselImages[0];
-  img2.classList.add("inactive");
-});
+window.addEventListener("load", renderImage);
 </script>
+
 
 
 <!-- toggle to turn the draftbanner on as needed (default is off) -->
