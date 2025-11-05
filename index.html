@@ -8,7 +8,7 @@
 
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Asul:wght@300;400&family=EB+Garamond&family=Marcellus+SC&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Asul:wght@300;400&family=EB+Garamond&family=Marcellus+SC&display=swap&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 
 
 
@@ -63,7 +63,7 @@ header img {
   width: calc(100% + (0.65 * var(--container-padding)));
   margin-left: calc(-0.325 * var(--container-padding));
   margin-right: calc(-0.50 * var(--container-padding));  /* slightly less negative */
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   height: auto;
   display: block;
 }
@@ -74,14 +74,24 @@ header h2 {
   font-weight: 300;
   color: #acedff;
   text-shadow: 0 1px 4px rgba(0,0,0,0.4);
-  margin: 1rem 0 0.4rem;
+  margin-bottom: 0.0rem !important;
+}
+
+header h3 {
+  font-family: 'Asul', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #a4dffb;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  margin-top: -0.2rem !important;
+  margin-bottom: 0.5rem;
 }
 
 header .concert-details {
   font-family: 'Marcellus SC', serif;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #d0eaff;
-  margin: 0 0 2rem;
+  margin: 0 0 3rem;
 }
 
 /* ──────────────────────────────
@@ -121,6 +131,7 @@ nav a, .sub-toc a {
 
 .prep      { background: #dcd495; }
 .chamber   { background: #d7b377; }
+.co-we     { background: #ad8953; }
 .winds     { background: #825e2e; color: #fff; }
 .symphony  { background: #015870; color: #acedff; position: relative; }
 .special1  { background: #000; color: #fff; }
@@ -131,6 +142,11 @@ nav a, .sub-toc a {
   display: block;
   height: 80px;
   background: linear-gradient(to bottom, rgba(1,88,112,1) 0%, rgba(0,0,0,1) 100%);
+}
+.container > .special1:last-of-type {
+  margin-bottom: -0.75rem;   /* neutralize container's bottom padding visually */
+  padding-bottom: 1.5rem;    /* keep internal black breathing space */
+  background: #000;
 }
 
 /* ──────────────────────────────
@@ -197,7 +213,104 @@ nav a, .sub-toc a {
 }
 
 /* ──────────────────────────────
-   TEXT STYLES
+   SECTION LAYOUT FOR PREP, CHAMBER, WINDS (generic)
+────────────────────────────── */
+.piece-entry {
+  margin: 1.5rem 0;
+}
+
+/* Two-column header line */
+/* Piece header: title + composer, tighter connection */
+.piece-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;     /* allow wrapping to new line */
+  margin-bottom: 0rem; /* smaller gap before pronunciation */
+  padding-left: calc(1.2 * var(--inner-inset));
+  padding-right: calc(1.2 * var(--inner-inset));
+}
+
+/* Left: piece title */
+.piece-header .piece-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+  text-align: left;
+  flex: 1 1 48%; 
+  min-width: 150px;
+}
+
+/* Right: composer name */
+.piece-header .composer-nm {
+  font-family: 'Marcellus SC', serif;  /* or another you decide */
+  font-size: 1rem;
+  color: #333;
+  text-align: right;
+  font-weight: 400;
+  text-shadow: none;
+  flex: 1 1 48%;
+  min-width: 150px;
+}
+
+/* Pronunciation line below header */
+.pronunciation-line {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Marcellus SC', serif;
+  font-size: 0.7rem;
+  color: #555;
+  margin-top: -0.2rem;
+  margin-bottom: 0.4rem;
+  padding-left: calc(1.8 * var(--inner-inset));
+  padding-right: calc(1.8 * var(--inner-inset));
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15); /* subtle separator under pronunciation */
+  padding-bottom: 0.25rem; /* room above the line */
+}
+
+/* Inner pronunciation spans */
+.pronunciation-line span {
+  flex: 1;
+  padding: 0 0.3rem;
+  box-sizing: border-box;
+}
+
+.piece-pronunciation {
+  text-align: left;
+}
+
+.composer-pronunciation {
+  text-align: right;
+}
+
+/* Piece description paragraph */
+.piece-description {
+  font-size: 1rem;
+  line-height: 1.45;
+  margin-bottom: 0.6rem;
+  color: #222;
+  text-align: left;
+}
+
+/* Keep piece header, pronunciation, and description slightly inset from edges */
+.piece-header,
+.pronunciation-line, 
+.piece-description {
+  padding-left: var(--inner-inset);
+  padding-right: var(--inner-inset);
+}
+
+/* Image alignment */
+.piece-entry img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 0.4rem;
+}
+
+/* ──────────────────────────────
+   TEXT STYLES FOR NUYS ONLY
 ────────────────────────────── */
 .piece-title {
   font-family: 'EB Garamond', serif;
@@ -234,6 +347,18 @@ nav a, .sub-toc a {
 }
 
 /* ──────────────────────────────
+    TEXT STYLES FOR OTHER ENSEMBLES 
+────────────────────────────── */
+/* Adjust paragraph text size per ensemble */
+.prep p,
+.chamber p,
+.co-we p,
+.winds p {
+  font-size: 1.1rem;     /* slightly larger */
+  line-height: 1.55;      /* preserve readability */
+}
+
+/* ──────────────────────────────
     CAROUSEL 
 ────────────────────────────── */
 /* Single-image carousel */
@@ -250,6 +375,59 @@ nav a, .sub-toc a {
   height: auto;
 }
 
+
+
+
+
+/* ──────────────────────────────
+   DONATION BUTTONS 
+────────────────────────────── */
+.donate-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;           /* space between the two buttons */
+  margin: 2rem 0 4rem;   /* top/bottom spacing from the last image */
+}
+
+/* Individual square buttons */
+.donate-square {
+  background-color: #015870; /* same as symphony background */
+  color: #9ddfff;            /* light blue text */
+  width: 7rem;               /* roughly square */
+  height: 7rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Hover & click effects */
+.donate-square:hover {
+  background-color: #027191; /* brighter cyan */
+  color: #c8f2ff;            /* slightly lighter text */
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(1, 135, 165, 0.6);
+}
+
+.donate-square:active {
+  transform: translateY(0);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+
 </style>
 </head>
 <body>
@@ -263,6 +441,7 @@ nav a, .sub-toc a {
   <img src="images/logo-nuye-intro.png" alt="NUYE Logo">
   <div class="concert-info">
     <h2>Fall Concert</h2>
+	<h3> Ben Lomond HS</h3>
     <p class="concert-details">3:00 pm&nbsp;&nbsp;November 22,&nbsp;2025</p>
   </div>
 </header>
@@ -271,7 +450,8 @@ nav a, .sub-toc a {
 
 <section id="draftbanner" class="draftbanner" style="display:none;">
   <p><strong>⚠️ DRAFT VERSION:</strong> If you are seeing this, you are looking at a draft of the program notes. 
-  For final program notes, please check back closer to our next concert. Fall Concert is at 3pm Saturday November 22 2025. Admission is free!</p>
+  <p>For final program notes, please check back closer to our next concert.</p> 
+  <p>Fall Concert is at 3pm Saturday November 22 2025. Admission is free!</p>
 </section>
 
 
@@ -287,13 +467,47 @@ nav a, .sub-toc a {
   <div class="section-logo">
     <img src="images/logo-nuyps.png" alt="NUYPS Logo">
   </div>
-  <div class="content">
-    <p>Preparatory Strings performs lively works for young musicians, introducing them to ensemble playing and musical expression.</p>
-	<p>Shiver is a great autumnal song that gives good imagery of a cold night. The students learn how to tremolo in this piece and play back and forth with the melodies.</p>
-	
-	<p>Nightmare On the Housetop is a take on the traditional piece Up On The Housetop. The composer says that children are excited for Santa to come but then they are surprised with Halloween characters instead. This piece goes back and forth with bow (arco) and plucking (pizzicato). </p>
-	
-	<p>Into the Midnight Forest has a "mysterious march through the darkness" feel that the composer wants. It's a fun piece that bring in great dynamics and a lot of staccato (short) bowings. It also brings in a few legato (smooth) bowings as well to contrast.</p>
+  <div class="piece-entry">
+	  <div class="piece-header">
+		<span class="piece-title">Shiver</span>
+		<span class="composer-nm">John Doe</span>
+	  </div>
+	  <div class="pronunciation-line">
+		<span class="piece-pronunciation">(shi-ver)</span>
+		<span class="composer-pronunciation">(DOE)</span>
+	  </div>
+	  <p class="piece-description">
+		Shiver is a great autumnal song that gives good imagery of a cold night. The students learn how to tremolo in this piece and play back and forth with the melodies.
+	  </p>
+	  <img src="images/prep-shiver.png" alt="Shiver artwork">
+  </div>
+  <div class="piece-entry">
+	  <div class="piece-header">
+		<span class="piece-title">Nightmare On the Housetop</span>
+		<span class="composer-nm">John Doe</span>
+	  </div>
+	  <div class="pronunciation-line">
+		<span class="piece-pronunciation"></span>
+		<span class="composer-pronunciation">(DOE)</span>
+	  </div>
+	  <p class="piece-description">
+		Nightmare On the Housetop is a take on the traditional piece Up On The Housetop. The composer says that children are excited for Santa to come but then they are surprised with Halloween characters instead. This piece goes back and forth with bow (arco) and plucking (pizzicato).
+	  </p>
+	  <img src="images/prep-shiver.png" alt="Shiver artwork">
+  </div>
+  <div class="piece-entry">
+	  <div class="piece-header">
+		<span class="piece-title">Into the Midnight Forest</span>
+		<span class="composer-nm">Unknown</span>
+	  </div>
+	  <div class="pronunciation-line">
+		<span class="piece-pronunciation"></span>
+		<span class="composer-pronunciation"></span>
+	  </div>
+	  <p class="piece-description">
+		Into the Midnight Forest has a "mysterious march through the darkness" feel that the composer wants. It's a fun piece that bring in great dynamics and a lot of staccato (short) bowings. It also brings in a few legato (smooth) bowings as well to contrast.
+	  </p>
+	  <img src="images/prep-shiver.png" alt="Shiver artwork">
   </div>
 </section>
 
@@ -302,13 +516,56 @@ nav a, .sub-toc a {
   <div class="section-logo">
     <img src="images/logo-nuyco.png" alt="NUYCO Logo">
   </div>
-  <div class="content">
-    <p>Chamber Orchestra performs small-group repertoire with focus on musical dialogue, phrasing, and interpretation.</p>
-	
-	<p>Dance of the Tumblers from Snow Maiden - Nikolai Rimsky-Korsakov arr. by Sandra Dackow</p>
-	<p>Midnight Storm Erica Donahue</p>
-	<p>(combined piece): Shackelford Banks - Jay Bocook</p>
+    <div class="piece-entry">
+	  <div class="piece-header">
+		<span class="piece-title">Dance of the Tumblers from Snow Maiden</span>
+		<span class="composer-nm">Nikolai Rimsky-Korsakov arr. by Sandra Dackow</span>
+	  </div>
+	  <div class="pronunciation-line">
+		<span class="piece-pronunciation"></span>
+		<span class="composer-pronunciation"></span>
+	  </div>
+	  <p class="piece-description">
+		etc etc etc.
+	  </p>
+	  <img src="images/prep-shiver.png" alt="Shiver artwork">
+    </div>
+    <div class="piece-entry">
+	  <div class="piece-header">
+		<span class="piece-title">Midnight Storm</span>
+		<span class="composer-nm">Erica Donahue</span>
+	  </div>
+	  <div class="pronunciation-line">
+		<span class="piece-pronunciation"></span>
+		<span class="composer-pronunciation"></span>
+	  </div>
+	  <p class="piece-description">
+		etc etc etc.
+	  </p>
+	  <img src="images/prep-shiver.png" alt="Shiver artwork">
+    </div>
+
+</section>
+
+<!-- =================== CO-WE =================== -->
+<section id="co-we" class="co-we">
+  <div class="section-logo">
+    <img src="images/logo-nuyco&we.png" alt="CO-WE Logo">
   </div>
+    <div class="piece-entry">
+	  <div class="piece-header">
+		<span class="piece-title">Shackleford Banks</span>
+		<span class="composer-nm">Jay Bocook</span>
+	  </div>
+	  <div class="pronunciation-line">
+		<span class="piece-pronunciation"></span>
+		<span class="composer-pronunciation"></span>
+	  </div>
+	  <p class="piece-description">
+		Named for the uninhabited island off the North Carolina coast where wild horses still roam, this energetic original features a distinctive western flavor.
+	  </p>
+	  <img src="images/prep-shiver.png" alt="Shiver artwork">
+    </div>
 </section>
 
 <!-- =================== Winds =================== -->
@@ -316,21 +573,34 @@ nav a, .sub-toc a {
   <div class="section-logo">
     <img src="images/logo-nuywe.png" alt="NUYWE Logo">
   </div>
-  <div class="content">
-    <p>Wind Ensemble features woodwinds, brass, and percussion in classic and contemporary works.</p>
-	
-	Shackelford Banks 
-
-    <p>Named for the uninhabited island off the North Carolina coast where wild horses still roam, this energetic original features a distinctive western flavor.</p>
-	March of the Shadows
-
-    <p>Paying homage to the traditional march form, this work steps outside the box in this delightfully dark and unique piece in minor form. </p>
-
-	Pure Imagination 
-
-    <p>Originally sung by Gene Wilder in the 1971 movie classic "Willy Wonka the Chocolate Factory," this timeless song has remained a favorite ever since. This setting is based on the version sung by Timothée Chalamet for the movie "Wonka" and features lush harmonies and an appealing pop groove. Magical! </p>
-
-  </div>
+	<div class="piece-entry">
+	  <div class="piece-header">
+		<span class="piece-title">March of the Shadows</span>
+		<span class="composer-nm">Jay Bocook</span>
+	  </div>
+	  <div class="pronunciation-line">
+		<span class="piece-pronunciation"></span>
+		<span class="composer-pronunciation"></span>
+	  </div>
+	  <p class="piece-description">
+		Paying homage to the traditional march form, this work steps outside the box in this delightfully dark and unique piece in minor form.
+	  </p>
+	  <img src="images/prep-shiver.png" alt="Shiver artwork">
+	</div>
+	<div class="piece-entry">
+	  <div class="piece-header">
+		<span class="piece-title">Pure Imagination</span>
+		<span class="composer-nm">xxxxxxxxxx</span>
+	  </div>
+	  <div class="pronunciation-line">
+		<span class="piece-pronunciation"></span>
+		<span class="composer-pronunciation"></span>
+	  </div>
+	  <p class="piece-description">
+		Originally sung by Gene Wilder in the 1971 movie classic "Willy Wonka the Chocolate Factory," this timeless song has remained a favorite ever since. This setting is based on the version sung by Timothée Chalamet for the movie "Wonka" and features lush harmonies and an appealing pop groove. Magical!
+	  </p>
+	  <img src="images/prep-shiver.png" alt="Shiver artwork">
+	</div>
 </section>
 
 <!-- =================== Symphony =================== -->
@@ -405,6 +675,7 @@ nav a, .sub-toc a {
       The liner notes from famous violinist Itzhak Perlman's album <em>Concertos from my Childhood</em>  refers to Accolay as 'long-forgotten'.  But this piece hasn't been. It's a one-movement gem of lyric romanticism, frequently used to showcase multiple bowing techniques and left-hand dexterity. 
     </div>
   </div>
+  <div class="divider"></div>
     <!-- Block: Accolay -->  
   <div>
     <img src="images/block-accolay.png" alt="Accolay Info" style="width:100%; display:block;">
@@ -453,11 +724,6 @@ nav a, .sub-toc a {
 </div>
 
   
-  <!-- Block: Faust -->
-  <div>
-    <img src="images/block-faust.png" alt="Faust Info" style="width:100%; display:block;">
-  </div>
-
   <div class="divider"></div>
   <div class="divider"></div>
   
@@ -501,6 +767,17 @@ nav a, .sub-toc a {
 <!-- =================== Final Section =================== -->
   <section class="special1">
       <img src="images/block-outro.png" alt="phones & thanks" style="width:100%; display:block;">
+
+<!-- Donation buttons -->
+<div class="donate-buttons">
+  <button class="donate-square" onclick="window.open('https://www.zeffy.com/en-US/ticketing/purchase-grocery-cards', '_blank')">
+    BUY<br>GROCERY<br>CARDS
+  </button>
+
+  <button class="donate-square" onclick="window.open('https://www.zeffy.com/en-US/donation-form/donations-7', '_blank')">
+    DONATE<br>WITH<br>ZEFFY
+  </button>
+</div>
 </section>
 
 </div>
@@ -559,7 +836,8 @@ window.carouselImages = [
   "images/faust-carousel-2.png",
   "images/faust-carousel-3.png",
   "images/faust-carousel-4.png",
-  "images/faust-carousel-5.png"
+  "images/faust-carousel-5.png",
+  "images/faust-carousel-6.png"
 ];
 
 let currentIndex = 0;
