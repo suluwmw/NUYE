@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- this links this html with the manifest needed for the PWA -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=400, initial-scale=1.0">
   <title>Northern Utah Youth Ensembles</title>
 
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Asul:wght@300;400&family=EB+Garamond&family=Marcellus+SC&display=swap&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Asul:wght@300;400&family=EB+Garamond&family=Marcellus+SC&display=swap&family=Montserrat:wght@500;700&family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 
 
@@ -218,40 +218,38 @@ nav a, .sub-toc a {
 .piece-entry {
   margin: 1.5rem 0;
 }
-
+/* ---------------------------
+MODE A — Flex header layout (default) 
+------------------------------*/
 /* Two-column header line */
-/* Piece header: title + composer, tighter connection */
+/* Flex columns that grow naturally */
 .piece-header {
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
-  flex-wrap: wrap;     /* allow wrapping to new line */
-  margin-bottom: 0rem; /* smaller gap before pronunciation */
+  flex-wrap: wrap;          /* still allows fallback to two lines if needed */
+  gap: 0.15rem;
+  margin-bottom: 0.1rem;
   padding-left: calc(1.2 * var(--inner-inset));
   padding-right: calc(1.2 * var(--inner-inset));
 }
 
-/* Left: piece title */
+/* Title stays left */
 .piece-header .piece-title {
-  font-family: 'EB Garamond', serif;
+  white-space: nowrap;      /* keeps short titles on one line */
+  color: #222;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #222;
-  text-align: left;
-  flex: 1 1 48%; 
-  min-width: 150px;
 }
 
-/* Right: composer name */
+/* Composer snaps to the right */
 .piece-header .composer-nm {
-  font-family: 'Marcellus SC', serif;  /* or another you decide */
-  font-size: 1rem;
-  color: #333;
-  text-align: right;
+  margin-left: auto;        /*  pushes it to the far right */
+  white-space: nowrap;      /* don’t wrap when it fits */
+  font-family: "Noto Sans", sans-serif !important;  /* ensure font wins */
+  font-size: 0.9rem;
   font-weight: 400;
+  color: #333;
   text-shadow: none;
-  flex: 1 1 48%;
-  min-width: 150px;
 }
 
 /* Pronunciation line below header */
@@ -265,8 +263,7 @@ nav a, .sub-toc a {
   margin-bottom: 0.4rem;
   padding-left: calc(1.8 * var(--inner-inset));
   padding-right: calc(1.8 * var(--inner-inset));
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15); /* subtle separator under pronunciation */
-  padding-bottom: 0.25rem; /* room above the line */
+  padding-bottom: 0rem; /* room above the line */
 }
 
 /* Inner pronunciation spans */
@@ -284,13 +281,90 @@ nav a, .sub-toc a {
   text-align: right;
 }
 
-/* Piece description paragraph */
-.piece-description {
-  font-size: 1rem;
-  line-height: 1.45;
-  margin-bottom: 0.6rem;
+
+
+/* ---------------------------
+MODE B — Stacked layout (fallback) 
+------------------------------*/
+.piece-header-stacked {
+  padding-left: calc(1.2 * var(--inner-inset));
+  padding-right: calc(1.2 * var(--inner-inset));
+  margin-bottom: 0.4rem;
+}
+
+/* Title on its own line */
+.piece-header-stacked .piece-title {
+  display: block;
+  width: 100%;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: #222;
   text-align: left;
+  margin-bottom: 0rem;
+}
+
+/* Composer on its own line */
+.piece-header-stacked .composer-nm {
+  display: block;
+  width: 100%;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #333;
+  text-align: right;
+  font-weight: 400;
+  text-shadow: none;
+  margin-bottom: 0.15rem;
+}
+
+.piece-header-stacked .piece-title,
+.piece-header-stacked .composer-nm {
+  line-height: 0.8;   /* much tighter */
+}
+
+/* Pronunciation lines, separated */
+.piece-header-stacked .piece-pronunciation {
+  display: block;
+  width: 100%;
+  font-family: 'Marcellus SC', serif;
+  font-size: 0.7rem;
+  color: #555;
+  text-align: left;
+  margin-bottom: 0.1rem;
+}
+
+.piece-header-stacked .composer-pronunciation {
+  display: block;
+  width: 100%;
+  font-family: 'Marcellus SC', serif;
+  font-size: 0.7rem;
+  color: #555;
+  text-align: right;
+  margin-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding-bottom: 0.25rem;
+}
+
+/* Extra breathing room above the composer line in both modes */
+.piece-header .composer-nm,
+.piece-header-stacked .composer-nm {
+  margin-top: 1rem; /* adjust to taste: 0.4–0.8rem works well */
+}
+
+/* -----------------------------
+Piece Descriptions for Modes A & B  */
+/* Piece description paragraph */
+.piece-description {
+  font-size: 1.2rem;
+  line-height: 1.45;
+  margin-bottom: 0.5rem;
+  color: #222;
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.15);  /* ← thin neutral grey line */
+  /* NEW spacing */
+  margin-top: 0.25rem;    /* small space above the line */
+  padding-top: 2rem;    /* bigger space below line */
+}
 }
 
 /* Keep piece header, pronunciation, and description slightly inset from edges */
@@ -306,7 +380,20 @@ nav a, .sub-toc a {
   width: 100%;
   height: auto;
   display: block;
-  margin-top: 0.4rem;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+}
+
+/* ──────────────────────────────
+    TEXT STYLES FOR OTHER ENSEMBLES 
+────────────────────────────── */
+/* Adjust paragraph text size per ensemble */
+.prep p,
+.chamber p,
+.co-we p,
+.winds p {
+  font-size: 1.2rem;     /* slightly larger */
+  line-height: 1.55;      /* preserve readability */
 }
 
 /* ──────────────────────────────
@@ -346,17 +433,7 @@ nav a, .sub-toc a {
   font-variant: small-caps;
 }
 
-/* ──────────────────────────────
-    TEXT STYLES FOR OTHER ENSEMBLES 
-────────────────────────────── */
-/* Adjust paragraph text size per ensemble */
-.prep p,
-.chamber p,
-.co-we p,
-.winds p {
-  font-size: 1.1rem;     /* slightly larger */
-  line-height: 1.55;      /* preserve readability */
-}
+
 
 /* ──────────────────────────────
     CAROUSEL 
@@ -482,14 +559,12 @@ nav a, .sub-toc a {
 	  <img src="images/prep-shiver.png" alt="Shiver artwork">
   </div>
   <div class="piece-entry">
-	  <div class="piece-header">
+	  <div class="piece-header-stacked">
 		<span class="piece-title">Nightmare On the Housetop</span>
 		<span class="composer-nm">Traditional arr. John M. Pasternak</span>
 	  </div>
-	  <div class="pronunciation-line">
-		<!--<span class="piece-pronunciation">(shi-ver)</span>
-		<span class="composer-pronunciation">(DOE)</span>-->
-	  </div>
+	  <div class="piece-pronunciation"><!--(shi-ver)--></div>
+	  <div class="composer-pronunciation"><!--(composer pron.)--></div>
 	  <p class="piece-description">
 		Nightmare On the Housetop is a take on the traditional piece Up On The Housetop. The composer says that children are excited for Santa to come but then they are surprised with Halloween characters instead. This piece goes back and forth with bow (arco) and plucking (pizzicato).
 	  </p>
@@ -543,7 +618,7 @@ nav a, .sub-toc a {
 		<span class="composer-pronunciation"></span>
 	  </div>
 	  <p class="piece-description">
-		Dramatic eighth-note phrases and multiple volume shifts evoke the experience of a storm blowing in after dark. The piece begins with a vigorous driving rhythm, broken by pauses between gusts of wind. Thunder growls ominously in the distance before the violins lead with a soaring melody in the middle section, perhaps mimicking the brief calm before the storm. Then the finale hits and real energy of the storm arrives.  
+		Dramatic eighth-note phrases and multiple volume shifts evoke the experience of a storm blowing in after dark. The piece begins with a vigorous driving rhythm, broken by pauses between gusts of wind. Thunder growls ominously in the distance before the violins lead with a soaring melody in the middle section, perhaps mimicking the brief calm before the real energy of the storm arrives.  
 	  </p>
 	  <!--<img src="images/prep-shiver.png" alt="Shiver artwork">-->
     </div>
