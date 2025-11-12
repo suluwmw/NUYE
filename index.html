@@ -203,6 +203,9 @@ nav a, .sub-toc a {
 /* Add space above text blocks under timelines */
 .symphony .overview {
   margin-top: 1.5rem;    /* space between timeline and overview text */
+  font-size: 1.2rem;        /* increase text size */
+  line-height: 1.6;          /* improve readability */
+  text-align: center;        /* optional: match your usual layout */
 }
 
 /* Override just the symphony section logo so it matches the others */
@@ -286,70 +289,65 @@ MODE A — Flex header layout (default)
 /* ---------------------------
 MODE B — Stacked layout (fallback) 
 ------------------------------*/
-.piece-header-stacked {
+..piece-header-stacked {
   padding-left: calc(1.2 * var(--inner-inset));
   padding-right: calc(1.2 * var(--inner-inset));
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.25rem; /* tighter grouping */
 }
+
 
 /* Title on its own line */
 .piece-header-stacked .piece-title {
   display: block;
-  width: 100%;
   font-family: 'EB Garamond', serif;
   font-size: 1.2rem;
   font-weight: 600;
   color: #222;
   text-align: left;
-  margin-bottom: 0rem;
+  margin: 0 0 0.05rem 0; /* almost no gap below */
 }
 
 /* Composer on its own line */
 .piece-header-stacked .composer-nm {
   display: block;
-  width: 100%;
   font-family: 'Noto Sans', sans-serif;
   font-size: 0.9rem;
   color: #333;
   text-align: right;
   font-weight: 400;
   text-shadow: none;
-  margin-bottom: 0.15rem;
+  margin: 0 0 0.1rem 0;
 }
 
-.piece-header-stacked .piece-title,
-.piece-header-stacked .composer-nm {
-  line-height: 0.8;   /* much tighter */
-}
 
-/* Pronunciation lines, separated */
+/* pronunciation lines, separated */
 .piece-header-stacked .piece-pronunciation {
   display: block;
-  width: 100%;
   font-family: 'Marcellus SC', serif;
   font-size: 0.7rem;
   color: #555;
   text-align: left;
-  margin-bottom: 0.1rem;
+  margin: 0 0 0.05rem 0;
 }
 
 .piece-header-stacked .composer-pronunciation {
   display: block;
-  width: 100%;
   font-family: 'Marcellus SC', serif;
   font-size: 0.7rem;
   color: #555;
   text-align: right;
-  margin-bottom: 0.4rem;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
-  padding-bottom: 0.25rem;
+  margin: 0 0 0.3rem 0;
 }
 
-/* Extra breathing room above the composer line in both modes */
-.piece-header .composer-nm,
+/* Tighten spacing between stacked title and composer */
+.piece-header-stacked .piece-title,
 .piece-header-stacked .composer-nm {
-  margin-top: 1rem; /* adjust to taste: 0.4–0.8rem works well */
+  margin-top: -0.15;         /* eliminate default gaps */
+  margin-bottom: 0.05rem; /* minimal breathing space */
+  line-height: 1.0;      /* reduces vertical separation */
 }
+
+
 
 /* -----------------------------
 Piece Descriptions for Modes A & B  */
@@ -357,13 +355,13 @@ Piece Descriptions for Modes A & B  */
 .piece-description {
   font-size: 1.2rem;
   line-height: 1.45;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   color: #222;
   text-align: center;
   border-top: 1px solid rgba(0,0,0,0.15);  /* ← thin neutral grey line */
   /* NEW spacing */
-  margin-top: 0.25rem;    /* small space above the line */
-  padding-top: 2rem;    /* bigger space below line */
+  margin-top: 0.2rem; /* pull the line closer to the element above */
+  padding-top: 0.4rem;    /* bigger space below line */
 }
 }
 
@@ -382,6 +380,14 @@ Piece Descriptions for Modes A & B  */
   display: block;
   margin-top: 0rem;
   margin-bottom: 1rem;
+}
+
+/* extra breathing room after final piece in each ensemble section */
+.prep .piece-entry:last-of-type .piece-description {
+  margin-bottom: 1.5rem;  /* extra space at section end */
+}
+.section-end {
+  height: 1.5rem;
 }
 
 /* ──────────────────────────────
@@ -438,6 +444,28 @@ Piece Descriptions for Modes A & B  */
 /* ──────────────────────────────
     CAROUSEL 
 ────────────────────────────── */
+/* Outer frame for carousel — provides positioning context for buttons */
+.carousel-frame {
+  position: relative;      /* needed so buttons anchor to this box */
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  border: none;
+  z-index: 1;              /* ensure it sits below buttons but above background */
+}
+
+.carousel-caption {
+  background: #015870;             /* keep same cyan background */
+  color: #fff;
+  font-family: 'EB Garamond', serif;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 2.2rem;               /* ⬅ increase size from default 2rem to 2.2 or more */
+  letter-spacing: 0.3px;
+  font-weight: 500;                /* optional: slightly bolder */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4); /* adds subtle depth */
+}
+
 /* Single-image carousel */
 .carousel-image-area {
   position: relative;
@@ -452,6 +480,39 @@ Piece Descriptions for Modes A & B  */
   height: auto;
 }
 
+/* Carousel navigation buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 51, 102, 0.6);
+  color: #9ddfff;
+  border: none;
+  border-radius: 50%;
+  width: 2.4rem;              /* slightly larger */
+  height: 2.4rem;
+  font-size: 1.4rem;          /* larger arrow */
+  line-height: 2.4rem;
+  text-align: center;
+  cursor: pointer;
+  z-index: 20;                /* make sure they're above the image */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* hover and active effects */
+.carousel-btn:hover {
+  background-color: rgba(1, 88, 112, 0.9);
+  color: #c8f2ff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn:active {
+  background-color: rgba(1, 88, 112, 1);
+  transform: translateY(-50%) scale(1.0);
+}
+
+.carousel-btn.left  { left: -0.5rem; }
+.carousel-btn.right { right: -0.5rem; }
 
 
 
@@ -602,11 +663,11 @@ Piece Descriptions for Modes A & B  */
 	  </div>
 	  <!--<p class="piece-description">
 		Snow Maiden, daughter of Spring and Frost, goes to live with humans. But her heart is made of ice; she cannot really feel anything. She is granted emotions... but she must stay hidden from sunlight. Tragically, after Snow Maiden falls in love with a young man, a sunbeam hits her.  She melts, and her boyfriend dies of grief. The villagers are comforted as the 15-year-long winter is ended by the return of the sun.
-	  </p>
-	  <p class="piece-description">
-		This piece, <q>Dance of the Tumblers,</q> accompanies the energetic dancing of Russian travelling entertainers as the villagers wait for a contest to see who will win Snow Maiden's heart.
 	  </p>-->
 	  <img src="images/chamber-snow.png" alt="Shiver artwork">
+	  <p class="piece-description">
+		This piece, <q>Dance of the Tumblers,</q> accompanies the energetic dancing of Russian travelling entertainers as the villagers wait for a contest to see who will win Snow Maiden's heart.
+	  </p>
     </div>
     <div class="piece-entry">
 	  <div class="piece-header">
@@ -621,6 +682,7 @@ Piece Descriptions for Modes A & B  */
 		Dramatic eighth-note phrases and multiple volume shifts evoke the experience of a storm blowing in after dark. The piece begins with a vigorous driving rhythm, broken by pauses between gusts of wind. Thunder growls ominously in the distance before the violins lead with a soaring melody in the middle section, perhaps mimicking the brief calm before the real energy of the storm arrives.  
 	  </p>
 	  <!--<img src="images/prep-shiver.png" alt="Shiver artwork">-->
+	  <div class="section-end"></div>
     </div>
 
 </section>
@@ -677,7 +739,7 @@ Piece Descriptions for Modes A & B  */
 	  <p class="piece-description">
 		Originally sung by Gene Wilder in the 1971 movie classic "Willy Wonka the Chocolate Factory," this timeless song has remained a favorite ever since. This setting is based on the version sung by Timothée Chalamet for the movie "Wonka" and features lush harmonies and an appealing pop groove. Magical!
 	  </p>
-	  <img src="images/prep-shiver.png" alt="Shiver artwork">
+	  <img src="images/winds-wonka.png" alt="Shiver artwork">
 	</div>
 </section>
 
@@ -712,6 +774,7 @@ Piece Descriptions for Modes A & B  */
     </div>
   </div>
   
+    <div class="divider"></div>
   
     <!-- Block: Beethoven -->
   <div>
