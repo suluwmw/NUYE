@@ -16,35 +16,39 @@
 /* ──────────────────────────────
    GLOBAL BASE
 ────────────────────────────── */
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 :root {
   --container-padding: 0.75rem;  /* side padding inside frame */
-  --inner-inset: 0.25rem;        /* text inset */
+  --inner-inset: 0.25rem;        /* text inset for text blocks */
 }
 
 body {
   margin: 0;
   font-family: 'EB Garamond', serif;
   line-height: 1.6;
-  background: #000; /* black background beyond container */
+  background: #000;              /* black outside the frame */
 }
 
 /* ──────────────────────────────
-   CONTAINER
+   MAIN CONTAINER
 ────────────────────────────── */
 .container {
   width: 400px;
   margin: auto;
   padding: 1rem var(--container-padding);
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
-  background: #f2f2f2; /* neutral outer border area */
+  background: #f2f2f2;           /* neutral outer border */
 }
 
-/* Text-only inset */
-.container :is(p, h1, h2, h3, h4, h5, h6,
-               ul, ol, blockquote, figure,
-               .text-wrap, .overview, .pronunciation) {
+/* Text-only inset inside container */
+.container :is(
+  p, h1, h2, h3, h4, h5, h6,
+  ul, ol, blockquote, figure,
+  .text-wrap, .overview, .pronunciation
+) {
   padding-left: var(--inner-inset);
   padding-right: var(--inner-inset);
 }
@@ -62,7 +66,7 @@ header {
 header img {
   width: calc(100% + (0.65 * var(--container-padding)));
   margin-left: calc(-0.325 * var(--container-padding));
-  margin-right: calc(-0.50 * var(--container-padding));  /* slightly less negative */
+  margin-right: calc(-0.50 * var(--container-padding));
   margin-bottom: 2rem;
   height: auto;
   display: block;
@@ -74,7 +78,7 @@ header h2 {
   font-weight: 300;
   color: #acedff;
   text-shadow: 0 1px 4px rgba(0,0,0,0.4);
-  margin-bottom: 0.0rem !important;
+  margin-bottom: 0rem !important;
 }
 
 header h3 {
@@ -95,15 +99,17 @@ header .concert-details {
 }
 
 /* ──────────────────────────────
-   NAVIGATION
+   TOP NAVIGATION
 ────────────────────────────── */
-nav, .sub-toc {
+nav,
+.sub-toc {
   background-color: #f0f0f0;
   text-align: center;
   padding: 0.5rem;
 }
 
-nav a, .sub-toc a {
+nav a,
+.sub-toc a {
   text-decoration: none;
   color: #003366;
   font-weight: bold;
@@ -125,39 +131,48 @@ nav a, .sub-toc a {
 }
 
 /* ──────────────────────────────
-   SECTION COLORS
+   SECTION BACKGROUNDS
 ────────────────────────────── */
-.draftbanner { background: #FF8C00; color: white; text-align: center; padding: 0.8rem; font-weight: bold; font-size: 0.9rem; }
+.draftbanner {
+  background: #FF8C00;
+  color: white;
+  text-align: center;
+  padding: 0.8rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
 
 .prep      { background: #dcd495; }
 .chamber   { background: #d7b377; }
 .co-we     { background: #ad8953; }
-.winds     { background: #825e2e; color: #fff; }
+.winds     { background: #c98b3e;  }  /*#825e2e, color: #fff;*/
 .symphony  { background: #015870; color: #acedff; position: relative; }
-.special1  { background: #000; color: #fff; }
+.special1  { background: #000;    color: #fff; }
 
-/* subtle fade at end of symphony section */
+/* NUYS: subtle fade into black at end of symphony section */
 .symphony::after {
   content: "";
   display: block;
   height: 80px;
   background: linear-gradient(to bottom, rgba(1,88,112,1) 0%, rgba(0,0,0,1) 100%);
 }
+
+/* Last black section extends visually to bottom of container */
 .container > .special1:last-of-type {
-  margin-bottom: -0.75rem;   /* neutralize container's bottom padding visually */
-  padding-bottom: 1.5rem;    /* keep internal black breathing space */
+  margin-bottom: -0.75rem;  /* neutralize container bottom padding */
+  padding-bottom: 1.5rem;   /* internal breathing space in black */
   background: #000;
 }
 
 /* ──────────────────────────────
-   SECTION LOGOS / IMAGES
+   SECTION LOGOS & FULL-WIDTH IMAGES
 ────────────────────────────── */
 .section-logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5rem 0 1.5rem 0;     /* balanced top/bottom spacing */
-  margin: 0;             /* no outward shift */
+  padding: 5rem 0 1.5rem 0; /* lots of color above the logo */
+  margin: 0;
 }
 
 .section-logo img {
@@ -165,11 +180,12 @@ nav a, .sub-toc a {
   max-width: 340px;
   height: auto;
   display: block;
-  margin: 0 auto;        /* centers within section */
+  margin: 0 auto;
 }
 
+/* Full-width images inside special contexts */
 .timeline-rect img,
-.symphony img, 
+.symphony img,
 .carousel img,
 .special1 img {
   width: 100%;
@@ -179,36 +195,39 @@ nav a, .sub-toc a {
   margin: 0;
 }
 
+/* Black bar dividers in NUYS section */
 .divider {
   width: 100%;
-  height: 1.5rem;               /* thickness of the black bar */
-  background-color: #000;       /* pure black */
-  margin-top: 0;             /* spacing above */
+  height: 1.5rem;
+  background-color: #000;
+  margin-top: 0;
   margin-bottom: 0;
 }
 
-/* Timeline container */
-/* Let timeline images reach the inner container edges */
+/* Timeline container — let timeline images touch inner edges */
 .timeline-rect img {
   width: calc(100% + (2 * var(--inner-inset)));
   margin-left: calc(-1 * var(--inner-inset));
   margin-right: calc(-1 * var(--inner-inset));
 }
 
+/* ──────────────────────────────
+   NUYS (SYMPHONY) TEXT BLOCKS
+────────────────────────────── */
 .symphony .text-wrap {
   margin-top: 3rem;
   margin-bottom: 1.5rem;
 }
 
-/* Add space above text blocks under timelines */
+/* Space & size for descriptive paragraphs under timelines */
 .symphony .overview {
-  margin-top: 1.5rem;    /* space between timeline and overview text */
-  font-size: 1.2rem;        /* increase text size */
-  line-height: 1.6;          /* improve readability */
-  text-align: center;        /* optional: match your usual layout */
+  margin-top: 1.5rem;   /* space between timeline and overview text */
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: center;
 }
 
-/* Override just the symphony section logo so it matches the others */
+/* Ensure symphony logo behaves like other logos */
 .symphony .section-logo img {
   width: 85%;
   max-width: 340px;
@@ -216,196 +235,122 @@ nav a, .sub-toc a {
 }
 
 /* ──────────────────────────────
-   SECTION LAYOUT FOR PREP, CHAMBER, WINDS (generic)
+   PIECE BLOCK — PREP / CHAMBER / CO-WE / WINDS
+   Auto-stacking header + unified pronunciations + separator
 ────────────────────────────── */
+
+/* Each piece */
 .piece-entry {
   margin: 1.5rem 0;
 }
-/* ---------------------------
-MODE A — Flex header layout (default) 
-------------------------------*/
-/* Two-column header line */
-/* Flex columns that grow naturally */
+
+/* HEADER: title + composer (auto left/right, auto-wrap) */
 .piece-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  flex-wrap: wrap;          /* still allows fallback to two lines if needed */
-  gap: 0.15rem;
-  margin-bottom: 0.1rem;
-  padding-left: calc(1.2 * var(--inner-inset));
-  padding-right: calc(1.2 * var(--inner-inset));
-}
-
-/* Title stays left */
-.piece-header .piece-title {
-  white-space: nowrap;      /* keeps short titles on one line */
-  color: #222;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-/* Composer snaps to the right */
-.piece-header .composer-nm {
-  margin-left: auto;        /*  pushes it to the far right */
-  white-space: nowrap;      /* don’t wrap when it fits */
-  font-family: "Noto Sans", sans-serif !important;  /* ensure font wins */
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: #333;
-  text-shadow: none;
-}
-
-/* Pronunciation line below header */
-.pronunciation-line {
-  display: flex;
   justify-content: space-between;
-  font-family: 'Marcellus SC', serif;
-  font-size: 0.7rem;
-  color: #555;
-  margin-top: -0.2rem;
-  margin-bottom: 0.4rem;
-  padding-left: calc(1.8 * var(--inner-inset));
-  padding-right: calc(1.8 * var(--inner-inset));
-  padding-bottom: 0rem; /* room above the line */
-}
-
-/* Inner pronunciation spans */
-.pronunciation-line span {
-  flex: 1;
-  padding: 0 0.3rem;
-  box-sizing: border-box;
-}
-
-.piece-pronunciation {
-  text-align: left;
-}
-
-.composer-pronunciation {
-  text-align: right;
-}
-
-
-
-/* ---------------------------
-MODE B — Stacked layout (fallback) 
-------------------------------*/
-..piece-header-stacked {
+  gap: 0.2rem;
   padding-left: calc(1.2 * var(--inner-inset));
   padding-right: calc(1.2 * var(--inner-inset));
-  margin-bottom: 0.25rem; /* tighter grouping */
+  margin-bottom: 0.25rem;
 }
 
-
-/* Title on its own line */
-.piece-header-stacked .piece-title {
-  display: block;
+/* Title (left) */
+.piece-title {
   font-family: 'EB Garamond', serif;
   font-size: 1.2rem;
   font-weight: 600;
   color: #222;
-  text-align: left;
-  margin: 0 0 0.05rem 0; /* almost no gap below */
+  flex: 1 1 auto;
+  white-space: nowrap;   /* stays on one line when possible */
 }
 
-/* Composer on its own line */
-.piece-header-stacked .composer-nm {
-  display: block;
+/* Composer (right) */
+.piece-composer {
   font-family: 'Noto Sans', sans-serif;
   font-size: 0.9rem;
   color: #333;
-  text-align: right;
   font-weight: 400;
-  text-shadow: none;
-  margin: 0 0 0.1rem 0;
+  margin-left: auto;
+  white-space: nowrap;   /* stays on one line when possible */
 }
 
-
-/* pronunciation lines, separated */
-.piece-header-stacked .piece-pronunciation {
-  display: block;
+/* PRONUNCIATION line (unified, optional) */
+.piece-pronunciation-line {
+  display: flex;
+  justify-content: space-between;
   font-family: 'Marcellus SC', serif;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: #555;
+  padding-left: calc(1.5 * var(--inner-inset));
+  padding-right: calc(1.5 * var(--inner-inset));
+  margin-top: -0.1rem;
+  margin-bottom: 0.35rem;
+}
+
+/* Left/right pronunciations behave independently */
+.piece-pronunciation-left {
+  flex: 1;
   text-align: left;
-  margin: 0 0 0.05rem 0;
 }
 
-.piece-header-stacked .composer-pronunciation {
-  display: block;
-  font-family: 'Marcellus SC', serif;
-  font-size: 0.7rem;
-  color: #555;
+.piece-pronunciation-right {
+  flex: 1;
   text-align: right;
-  margin: 0 0 0.3rem 0;
 }
 
-/* Tighten spacing between stacked title and composer */
-.piece-header-stacked .piece-title,
-.piece-header-stacked .composer-nm {
-  margin-top: -0.15;         /* eliminate default gaps */
-  margin-bottom: 0.05rem; /* minimal breathing space */
-  line-height: 1.0;      /* reduces vertical separation */
+/* Thin separator line under header block (always present) */
+.piece-separator {
+  border-top: 1px solid rgba(0,0,0,0.15);
+  margin: 0.1rem calc(1.2 * var(--inner-inset)) 0.6rem;
 }
 
-
-
-/* -----------------------------
-Piece Descriptions for Modes A & B  */
-/* Piece description paragraph */
+/* DESCRIPTION paragraph */
 .piece-description {
-  font-size: 1.2rem;
-  line-height: 1.45;
-  margin-bottom: 0.75rem;
-  color: #222;
+  font-size: 1.15rem;
+  line-height: 1.55;
   text-align: center;
-  border-top: 1px solid rgba(0,0,0,0.15);  /* ← thin neutral grey line */
-  /* NEW spacing */
-  margin-top: 0.2rem; /* pull the line closer to the element above */
-  padding-top: 0.4rem;    /* bigger space below line */
-}
-}
-
-/* Keep piece header, pronunciation, and description slightly inset from edges */
-.piece-header,
-.pronunciation-line, 
-.piece-description {
+  margin-bottom: 1rem;
   padding-left: var(--inner-inset);
   padding-right: var(--inner-inset);
 }
 
-/* Image alignment */
+/* IMAGES within piece blocks */
 .piece-entry img {
   width: 100%;
-  height: auto;
   display: block;
-  margin-top: 0rem;
+  margin-top: 0.6rem;
   margin-bottom: 1rem;
 }
 
-/* extra breathing room after final piece in each ensemble section */
-.prep .piece-entry:last-of-type .piece-description {
-  margin-bottom: 1.5rem;  /* extra space at section end */
+/* Future-friendly: hide deliberate empty images if you ever use class="piece-image" */
+.piece-image[src=""] {
+  display: none;
 }
-.section-end {
-  height: 1.5rem;
+
+/* Extra spacing after final piece in each section */
+.piece-entry:last-of-type .piece-description {
+  margin-bottom: 1.6rem;
 }
 
 /* ──────────────────────────────
-    TEXT STYLES FOR OTHER ENSEMBLES 
+   BASE PARAGRAPH TEXT — NON-NUYS ENSEMBLES
 ────────────────────────────── */
-/* Adjust paragraph text size per ensemble */
 .prep p,
 .chamber p,
 .co-we p,
 .winds p {
-  font-size: 1.2rem;     /* slightly larger */
-  line-height: 1.55;      /* preserve readability */
+  font-size: 1.2rem;
+  line-height: 1.55;
 }
 
 /* ──────────────────────────────
-   TEXT STYLES FOR NUYS ONLY
+   NUYS (SYMPHONY) — TITLES & COMPOSER NAMES
 ────────────────────────────── */
-.piece-title {
+
+/* NUYS piece title (above timeline) */
+.symphony-piece-title {
   font-family: 'EB Garamond', serif;
   font-size: 1.1rem;
   text-align: left;
@@ -415,17 +360,57 @@ Piece Descriptions for Modes A & B  */
   letter-spacing: 0.3px;
 }
 
-.composer-name {
-  font-family: 'Allura', cursive;
-  font-size: 2.8rem;
+/* Shared base for NUYS composer names */
+.symphony-composer-name-base {
   text-align: center;
   line-height: 1.1;
   margin: 0 0 0.5rem;
-  color: #fff;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
-.pronunciation {
+/* Renaissance era */
+.symphony-composer-name-renaissance {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 2.2rem;
+  color: #d9f3ff;
+}
+
+/* Baroque era */
+.symphony-composer-name-baroque {
+  font-family: "Marcellus SC", serif;
+  font-size: 2.4rem;
+  color: #f2f2f2;
+  letter-spacing: 1px;
+}
+
+/* Classical era */
+.symphony-composer-name-classical {
+  font-family: "EB Garamond", serif;
+  font-size: 2.3rem;
+  font-weight: 600;
+  color: #e8f6ff;
+  letter-spacing: 0.5px;
+}
+
+/* Romantic era */
+.symphony-composer-name-romantic {
+  font-family: "Allura", cursive;
+  font-size: 2.8rem;
+  color: #fff;
+}
+
+/* Modern era */
+.symphony-composer-name-modern {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #bce9ff;
+  letter-spacing: 0.8px;
+}
+
+/* NUYS pronunciation line (stays as-is) */
+.symphony-pronunciation {
   display: block;
   width: 100%;
   text-align: right;
@@ -439,34 +424,31 @@ Piece Descriptions for Modes A & B  */
   font-variant: small-caps;
 }
 
-
-
 /* ──────────────────────────────
-    CAROUSEL 
+   CAROUSEL (FAUST)
 ────────────────────────────── */
-/* Outer frame for carousel — provides positioning context for buttons */
+/* Outer frame for carousel — for positioning buttons */
 .carousel-frame {
-  position: relative;      /* needed so buttons anchor to this box */
+  position: relative;
   width: 100%;
   overflow: hidden;
   background: #000;
   border: none;
-  z-index: 1;              /* ensure it sits below buttons but above background */
+  z-index: 1;
 }
 
 .carousel-caption {
-  background: #015870;             /* keep same cyan background */
+  background: #015870;
   color: #fff;
   font-family: 'EB Garamond', serif;
   text-align: center;
   padding: 0.5rem;
-  font-size: 2.2rem;               /* ⬅ increase size from default 2rem to 2.2 or more */
+  font-size: 2.2rem;
   letter-spacing: 0.3px;
-  font-weight: 500;                /* optional: slightly bolder */
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4); /* adds subtle depth */
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
 
-/* Single-image carousel */
 .carousel-image-area {
   position: relative;
   width: 100%;
@@ -489,17 +471,16 @@ Piece Descriptions for Modes A & B  */
   color: #9ddfff;
   border: none;
   border-radius: 50%;
-  width: 2.4rem;              /* slightly larger */
+  width: 2.4rem;
   height: 2.4rem;
-  font-size: 1.4rem;          /* larger arrow */
+  font-size: 1.4rem;
   line-height: 2.4rem;
   text-align: center;
   cursor: pointer;
-  z-index: 20;                /* make sure they're above the image */
+  z-index: 20;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* hover and active effects */
 .carousel-btn:hover {
   background-color: rgba(1, 88, 112, 0.9);
   color: #c8f2ff;
@@ -514,25 +495,22 @@ Piece Descriptions for Modes A & B  */
 .carousel-btn.left  { left: -0.5rem; }
 .carousel-btn.right { right: -0.5rem; }
 
-
-
-
 /* ──────────────────────────────
-   DONATION BUTTONS 
+   DONATION BUTTONS
 ────────────────────────────── */
 .donate-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3rem;           /* space between the two buttons */
-  margin: 2rem 0 4rem;   /* top/bottom spacing from the last image */
+  gap: 3rem;             /* space between buttons */
+  margin: 2rem 0 4rem;   /* space from last image and bottom */
 }
 
 /* Individual square buttons */
 .donate-square {
-  background-color: #015870; /* same as symphony background */
-  color: #9ddfff;            /* light blue text */
-  width: 7rem;               /* roughly square */
+  background-color: #015870;   /* symphony cyan */
+  color: #9ddfff;              /* light blue text */
+  width: 7rem;
   height: 7rem;
   border: none;
   border-radius: 0.5rem;
@@ -552,10 +530,9 @@ Piece Descriptions for Modes A & B  */
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Hover & click effects */
 .donate-square:hover {
-  background-color: #027191; /* brighter cyan */
-  color: #c8f2ff;            /* slightly lighter text */
+  background-color: #027191;
+  color: #c8f2ff;
   transform: translateY(-3px);
   box-shadow: 0 0 18px rgba(1, 135, 165, 0.6);
 }
@@ -564,6 +541,7 @@ Piece Descriptions for Modes A & B  */
   transform: translateY(0);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
+
 
 
 </style>
@@ -589,7 +567,7 @@ Piece Descriptions for Modes A & B  */
 <section id="draftbanner" class="draftbanner" style="display:none;">
   <p><strong>⚠️ DRAFT VERSION:</strong> If you are seeing this, you are looking at a draft of the program notes. 
   <p>For final program notes, please check back closer to our next concert.</p> 
-  <p>Fall Concert is at 3pm Saturday November 22 2025. Admission is free!</p>
+  <p>Fall Concert is at 3pm Saturday November 22 2025. Admission is FREE!</p>
 </section>
 
 
@@ -605,153 +583,203 @@ Piece Descriptions for Modes A & B  */
   <div class="section-logo">
     <img src="images/logo-nuyps.png" alt="NUYPS Logo">
   </div>
+
+  <!-- Shiver -->
   <div class="piece-entry">
-	  <div class="piece-header">
-		<span class="piece-title">Shiver</span>
-		<span class="composer-nm">Randall D. Standridge</span>
-	  </div>
-	  <div class="pronunciation-line">
-		<!--<span class="piece-pronunciation">(shi-ver)</span>
-		<span class="composer-pronunciation">(DOE)</span>-->
-	  </div>
-	  <p class="piece-description">
-		Shiver is a great autumnal song that gives good imagery of a cold night. The students learn how to tremolo in this piece and play back and forth with the melodies.
-	  </p>
-	  <img src="images/prep-shiver.png" alt="Shiver artwork">
+    <div class="piece-header">
+      <span class="piece-title">Shiver</span>
+      <span class="piece-composer">Randall D. Standridge</span>
+    </div>
+
+    <div class="piece-pronunciation-line">
+      <span class="piece-pronunciation-left"></span>
+      <span class="piece-pronunciation-right"></span>
+    </div>
+
+    <div class="piece-separator"></div>
+
+    <p class="piece-description">
+      Shiver is a great autumnal song with imagery of a cold night. The students learn how to tremolo in this piece and play back and forth with the melodies.
+    </p>
+    <img class="piece-image" src="images/prep-shiver.png" alt="Shiver artwork">
   </div>
+
+  <!-- Nightmare on the Housetop -->
   <div class="piece-entry">
-	  <div class="piece-header-stacked">
-		<span class="piece-title">Nightmare On the Housetop</span>
-		<span class="composer-nm">Traditional arr. John M. Pasternak</span>
-	  </div>
-	  <div class="piece-pronunciation"><!--(shi-ver)--></div>
-	  <div class="composer-pronunciation"><!--(composer pron.)--></div>
-	  <p class="piece-description">
-		Nightmare On the Housetop is a take on the traditional piece Up On The Housetop. The composer says that children are excited for Santa to come but then they are surprised with Halloween characters instead. This piece goes back and forth with bow (arco) and plucking (pizzicato).
-	  </p>
-	  <img src="images/prep-nightmare.png" alt="Shiver artwork">
+    <div class="piece-header">
+      <span class="piece-title">Nightmare On the Housetop</span>
+      <span class="piece-composer">Traditional arr. John M. Pasternak</span>
+    </div>
+
+    <div class="piece-pronunciation-line">
+      <span class="piece-pronunciation-left"></span>
+      <span class="piece-pronunciation-right"></span>
+    </div>
+
+    <div class="piece-separator"></div>
+
+    <p class="piece-description">
+      This piece is a take on the traditional piece <em>Up On The Housetop</em>. The composer says that children are excited for Santa to come but then they are surprised with Halloween characters instead. This piece goes back and forth with bow (arco) and plucking (pizzicato).
+    </p>
+    <img class="piece-image" src="images/prep-nightmare.png" alt="Nightmare on the Housetop artwork">
   </div>
+
+  <!-- Into the Midnight Forest -->
   <div class="piece-entry">
-	  <div class="piece-header">
-		<span class="piece-title">Into the Midnight Forest</span>
-		<span class="composer-nm">Mekel Rogers</span>
-	  </div>
-	  <div class="pronunciation-line">
-		<!--<span class="piece-pronunciation">(shi-ver)</span>
-		<span class="composer-pronunciation">(DOE)</span>-->
-	  </div>
-	  <p class="piece-description">
-		Into the Midnight Forest has a "mysterious march through the darkness" feel that the composer wants. It's a fun piece that bring in great dynamics and a lot of staccato (short) bowings. It also brings in a few legato (smooth) bowings as well to contrast.
-	  </p>
-	  <img src="images/prep-midnight.png" alt="Shiver artwork">
+    <div class="piece-header">
+      <span class="piece-title">Into the Midnight Forest</span>
+      <span class="piece-composer">Mekel Rogers</span>
+    </div>
+
+    <div class="piece-pronunciation-line">
+      <span class="piece-pronunciation-left"></span>
+      <span class="piece-pronunciation-right"></span>
+    </div>
+
+    <div class="piece-separator"></div>
+
+    <p class="piece-description">
+      Into the Midnight Forest has a "mysterious march through the darkness" feel. It's a fun piece that brings in great dynamics and a lot of staccato (short) bowings. It also brings in a few legato (smooth) bowings as well to contrast.
+    </p>
+    <img class="piece-image" src="images/prep-midnight.png" alt="Into the Midnight Forest artwork">
   </div>
 </section>
+
 
 <!-- =================== Chamber =================== -->
 <section id="chamber" class="chamber">
   <div class="section-logo">
     <img src="images/logo-nuyco.png" alt="NUYCO Logo">
   </div>
-    <div class="piece-entry">
-	  <div class="piece-header">
-		<span class="piece-title">Dance of the Tumblers from Snow Maiden</span>
-		<span class="composer-nm">Nikolai Rimsky-Korsakov arr. by Sandra Dackow</span>
-	  </div>
-	  <div class="pronunciation-line">
-		<span class="piece-pronunciation"></span>
-		<span class="composer-pronunciation"></span>
-	  </div>
-	  <!--<p class="piece-description">
-		Snow Maiden, daughter of Spring and Frost, goes to live with humans. But her heart is made of ice; she cannot really feel anything. She is granted emotions... but she must stay hidden from sunlight. Tragically, after Snow Maiden falls in love with a young man, a sunbeam hits her.  She melts, and her boyfriend dies of grief. The villagers are comforted as the 15-year-long winter is ended by the return of the sun.
-	  </p>-->
-	  <img src="images/chamber-snow.png" alt="Shiver artwork">
-	  <p class="piece-description">
-		This piece, <q>Dance of the Tumblers,</q> accompanies the energetic dancing of Russian travelling entertainers as the villagers wait for a contest to see who will win Snow Maiden's heart.
-	  </p>
-    </div>
-    <div class="piece-entry">
-	  <div class="piece-header">
-		<span class="piece-title">Midnight Storm</span>
-		<span class="composer-nm">Erica Donahoe</span>
-	  </div>
-	  <div class="pronunciation-line">
-		<span class="piece-pronunciation"></span>
-		<span class="composer-pronunciation"></span>
-	  </div>
-	  <p class="piece-description">
-		Dramatic eighth-note phrases and multiple volume shifts evoke the experience of a storm blowing in after dark. The piece begins with a vigorous driving rhythm, broken by pauses between gusts of wind. Thunder growls ominously in the distance before the violins lead with a soaring melody in the middle section, perhaps mimicking the brief calm before the real energy of the storm arrives.  
-	  </p>
-	  <!--<img src="images/prep-shiver.png" alt="Shiver artwork">-->
-	  <div class="section-end"></div>
+
+  <!-- Dance of the Tumblers -->
+  <div class="piece-entry">
+    <div class="piece-header">
+      <span class="piece-title">Dance of the Tumblers from Snow Maiden</span>
+      <span class="piece-composer">Nikolai Rimsky-Korsakov arr. Sandra Dackow</span>
     </div>
 
+    <div class="piece-pronunciation-line">
+      <span class="piece-pronunciation-left"></span>
+      <span class="piece-pronunciation-right"></span>
+    </div>
+
+    <div class="piece-separator"></div>
+
+    <img class="piece-image" src="images/chamber-snow.png" alt="Snow Maiden artwork">
+
+    <p class="piece-description">
+      This piece, <q>Dance of the Tumblers,</q> accompanies the energetic dancing of Russian travelling entertainers as the villagers wait for a contest to see who will win Snow Maiden's heart.
+    </p>
+  </div>
+
+  <!-- Midnight Storm -->
+  <div class="piece-entry">
+    <div class="piece-header">
+      <span class="piece-title">Midnight Storm</span>
+      <span class="piece-composer">Erica Donahoe</span>
+    </div>
+
+    <div class="piece-pronunciation-line">
+      <span class="piece-pronunciation-left"></span>
+      <span class="piece-pronunciation-right"></span>
+    </div>
+
+    <div class="piece-separator"></div>
+
+    <p class="piece-description">
+      In this contemporary piece, dramatic eighth-note phrases evoke the experience of a storm blowing in after dark. 
+    </p>
+    <!-- Optional image could go here -->
+    <div class="section-end"></div>
+  </div>
 </section>
+
 
 <!-- =================== CO-WE =================== -->
 <section id="co-we" class="co-we">
   <div class="section-logo">
     <img src="images/logo-nuyco&we.png" alt="CO-WE Logo">
   </div>
-    <div class="piece-entry">
-	  <div class="piece-header">
-		<span class="piece-title">Shackelford Banks</span>
-		<span class="composer-nm">Jay Bocook</span>
-	  </div>
-	  <div class="pronunciation-line">
-		<span class="piece-pronunciation"></span>
-		<span class="composer-pronunciation"></span>
-	  </div>
-	  <p class="piece-description">
-		Named for the uninhabited island off the North Carolina coast where wild horses still roam, this energetic original features a distinctive western flavor.
-	  </p>
-	  <img src="images/cowe-shackleford.png" alt="Shiver artwork">
+
+  <!-- Shackelford Banks -->
+  <div class="piece-entry">
+    <div class="piece-header">
+      <span class="piece-title">Shackelford Banks</span>
+      <span class="piece-composer">Jay Bocook</span>
     </div>
+
+    <div class="piece-pronunciation-line">
+      <span class="piece-pronunciation-left"></span>
+      <span class="piece-pronunciation-right"></span>
+    </div>
+
+    <div class="piece-separator"></div>
+
+    <p class="piece-description">
+      Named for the uninhabited island off the North Carolina coast where wild horses still roam, this energetic original features a distinctive western flavor. The tough "Banker Ponies" are descended from Spanish horses that probably swam to shore after shipwrecks in the 1500s. They eat dune grass and dig shallow pits to reach fresh water. 
+    </p>
+    <img class="piece-image" src="images/cowe-shackleford.png" alt="Shackelford Banks artwork">
+  </div>
 </section>
+
 
 <!-- =================== Winds =================== -->
 <section id="winds" class="winds">
   <div class="section-logo">
     <img src="images/logo-nuywe.png" alt="NUYWE Logo">
   </div>
-	<div class="piece-entry">
-	  <div class="piece-header">
-		<span class="piece-title">March of the Shadows</span>
-		<span class="composer-nm">Haley Woodrow</span>
-	  </div>
-	  <div class="pronunciation-line">
-		<span class="piece-pronunciation"></span>
-		<span class="composer-pronunciation"></span>
-	  </div>
-	  <p class="piece-description">
-		Paying homage to the traditional march form, this work steps outside the box in this delightfully dark and unique piece in minor form.
-	  </p>
-	  <img src="images/prep-shiver.png" alt="Shiver artwork">
-	</div>
-	<div class="piece-entry">
-	  <div class="piece-header">
-		<span class="piece-title">Pure Imagination</span>
-		<span class="composer-nm">Leslie Bricusse & Anthony Newley, arr. Paul Murtha</span>
-	  </div>
-	  <div class="pronunciation-line">
-		<span class="piece-pronunciation"></span>
-		<span class="composer-pronunciation"></span>
-	  </div>
-	  <p class="piece-description">
-		Originally sung by Gene Wilder in the 1971 movie classic "Willy Wonka the Chocolate Factory," this timeless song has remained a favorite ever since. This setting is based on the version sung by Timothée Chalamet for the movie "Wonka" and features lush harmonies and an appealing pop groove. Magical!
-	  </p>
-	  <img src="images/winds-wonka.png" alt="Shiver artwork">
-	</div>
+
+  <!-- March of the Shadows -->
+  <div class="piece-entry">
+    <div class="piece-header">
+      <span class="piece-title">March of the Shadows</span>
+      <span class="piece-composer">Haley Woodrow</span>
+    </div>
+
+    <div class="piece-pronunciation-line">
+      <span class="piece-pronunciation-left"></span>
+      <span class="piece-pronunciation-right"></span>
+    </div>
+
+    <div class="piece-separator"></div>
+    <!-- Optional image could go here -->
+    <p class="piece-description">
+      Paying homage to the traditional march form, this work steps outside the box in this delightfully dark and unique piece in a minor key.
+    </p>
+
+  </div>
+
+  <!-- Pure Imagination -->
+  <div class="piece-entry">
+    <div class="piece-header">
+      <span class="piece-title">Pure Imagination</span>
+      <span class="piece-composer">Leslie Bricusse &amp; Anthony Newley, arr. Paul Murtha</span>
+    </div>
+
+    <div class="piece-pronunciation-line">
+      <span class="piece-pronunciation-left"></span>
+      <span class="piece-pronunciation-right"></span>
+    </div>
+
+    <div class="piece-separator"></div>
+
+    <p class="piece-description">
+      Originally sung by Gene Wilder in the 1971 movie classic <em>Willy Wonka &amp; the Chocolate Factory</em>, this timeless song has remained a favorite ever since. This setting is based on the version sung by Timothée Chalamet for the movie <em>Wonka</em> and features lush harmonies and an appealing pop groove. Magical!
+    </p>
+    <img class="piece-image" src="images/winds-wonka.png" alt="Pure Imagination artwork">
+  </div>
 </section>
+
 
 <!-- =================== Symphony =================== -->
 <section id="symphony" class="symphony">
   <div class="section-logo">
     <img src="images/logo-nuys.png" alt="NUYS Logo" class="fullwidth">
   </div>
-    <p>Youth Symphony plays original symphonic works...etc etc.
-	</p>
-	<p>Today, the Youth Symphony presents four works from the Romantic Period of Western Classical tradition. Mention the Baroque, Classical, Romantic, Modern, Postmodern/Contemporary. Describe what make Romantic works different. 
-	</p>
+    <div class="overview">
+     NUYS presents four works from the Romantic Era (1820-1900). The Romantics overturned the formality and order of the Classical Era with their  dynamic, narrative-driven music. Romantics focused on the individual, the mystical, and the unusual. Today's featured composers were each influential in their own way. Beethoven ushered in the era, Berlioz continued it with a passion, Accolay wrote violin repertoire, and Bizet added a dash of realism near the end.
+    </div>
 
   <!-- Symphony Sub-menu -->
   <nav class="sub-toc">
@@ -763,9 +791,10 @@ Piece Descriptions for Modes A & B  */
 
   <!-- Piece 1: Beethoven -->
   <div id="egmont" class="text-wrap">
-    <p class="piece-title">Egmont Overture</p>
-    <div class="composer-name romantic">Ludwig van Beethoven</div>
-    <span class="pronunciation">(BAY-toh-ven)</span>
+    <p class="symphony-piece-title">Egmont Overture</p>
+    <div class="symphony-composer-name-base symphony-composer-name-romantic">
+  Ludwig van Beethoven</div>
+    <span class="symphony-pronunciation">(BAY-toh-ven)</span>
     <div class="timeline-rect">
 		<img src="images/timeline-beethoven.png" alt="Timeline Beethoven">
 	</div>
@@ -806,14 +835,15 @@ Piece Descriptions for Modes A & B  */
 
   <!-- Piece 2: Accolay -->
   <div id="violin" class="text-wrap">
-    <p class="piece-title">Violin Concerto No. 1 in A minor</p>
-    <div class="composer-name romantic">Jean-Baptiste Accolay</div>
-    <span class="pronunciation">(AH-coh-lay)</span>
+    <p class="symphony-piece-title">Violin Concerto No. 1 in A minor</p>
+    <div class="symphony-composer-name-base symphony-composer-name-romantic">
+  Jean-Baptiste Accolay</div>
+    <span class="symphony-pronunciation">(AH-coh-lay)</span>
     <div class="timeline-rect">
 		<img src="images/timeline-accolay.png" alt="Timeline Accolay">
 	</div>
     <div class="overview">
-      The liner notes from famous violinist Itzhak Perlman's album <em>Concertos from my Childhood</em>  refers to Accolay as 'long-forgotten'.  But this piece hasn't been. It's a one-movement gem of lyric romanticism, frequently used to showcase multiple bowing techniques and left-hand dexterity. 
+      The liner notes from famous violinist Itzhak Perlman's album <em>Concertos from my Childhood</em>  refers to Accolay as "long-forgotten."  But this piece hasn't been. It's a one-movement gem of lyric romanticism, frequently used to showcase multiple bowing techniques and left-hand dexterity. 
     </div>
   </div>
   <div class="divider"></div>
@@ -829,14 +859,14 @@ Piece Descriptions for Modes A & B  */
   
   <!-- Piece 3: Hector Berlioz -->
   <div id="hungarian" class="text-wrap">
-    <p class="piece-title">"Hungarian March" from <em>The Damnation of Faust</em></p>
-    <div class="composer-name romantic">Hector Berlioz</div>
-    <span class="pronunciation">(BEHR-lee-ohz)</span>
+    <p class="symphony-piece-title">"Hungarian March" from <em>The Damnation of Faust</em></p>
+    <div class="symphony-composer-name-base symphony-composer-name-romantic">Hector Berlioz</div>
+    <span class="symphony-pronunciation">(BEHR-lee-ohz)</span>
     <div class="timeline-rect">
 		<img src="images/timeline-berlioz.png" alt="Timeline Berlioz">
 	</div>
 	<div class="overview">
-      The dramatic and exuberent "Hungarian March" occurs Act I of Berlioz's <em>The Damnation of Faust</em>. It's full of vitality and energy, in contrast to the title character. 
+      This dramatic and exuberent march occurs Act I of Berlioz's <em>The Damnation of Faust</em>. It's full of vitality and energy, in contrast to the title character. When it was first played in Hungary during a conducting tour..... revolutionary fervor, cheering so loud it drowned out the music.
     </div>
   </div>
   <div class="divider"></div>
@@ -870,14 +900,14 @@ Piece Descriptions for Modes A & B  */
   
   <!-- Piece 4: Bizet -->
   <div id="carmen" class="text-wrap">
-    <p class="piece-title">Carmen Suite No. 1</p>
-    <div class="composer-name romantic">Georges Bizet</div>
-    <span class="pronunciation">(bee-ZAY)</span>
+    <p class="symphony-piece-title">Carmen Suite No. 1</p>
+    <div class="symphony-composer-name-base symphony-composer-name-romantic">Georges Bizet</div>
+    <span class="symphony-pronunciation">(bee-ZAY)</span>
     <div class="timeline-rect">
 		<img src="images/timeline-bizet.png" alt="Timeline Bizet">
 	</div>
     <div class="overview">
-      Carmen was a shock to French opera-goers, and that was after it was toned down. They were perfectly used to seeing melodrama but they weren't used to seeing the actual death acted onstage. And the heroine is not at all conventional - instead she's from the working classes - and a flamboyant gypsy who does as she pleases. 
+      Carmen was a shock to French opera-goers. They were perfectly used to the melodrama, but they weren't used to seeing the actual murder acted onstage. And the heroine wasn't conventional - she was a working-class woman who did as she pleased. 
     </div>
   </div>
     <div class="divider"></div>
