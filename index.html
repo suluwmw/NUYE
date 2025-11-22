@@ -376,6 +376,11 @@ nav a,
   padding-right: var(--inner-inset);
 }
 
+/* Add bottom space if a piece ends with text (no image after it) */
+.piece-entry:last-child > .section-end {
+  padding-bottom: 1rem;   /* use padding to avoid margin-collapse */
+}
+
 /* ---------------------------------------------------------------
    7.5 IMAGES within piece blocks
 ---------------------------------------------------------------- */
@@ -391,10 +396,7 @@ nav a,
   display: none;
 }
 
-/* 7.6 Extra spacing after final piece in each section (Prep/Chamber/CO-WE/Winds) */
-.piece-entry:last-of-type .piece-description {
-  margin-bottom: 1.6rem;
-}
+
 
 /* ******************************************************************
    8. BASE PARAGRAPH TEXT — NON-NUYS ENSEMBLES
@@ -406,6 +408,7 @@ nav a,
   font-size: 1.2rem;
   line-height: 1.55;
 }
+
 
 /* ******************************************************************
    9. NUYS (SYMPHONY) SECTION
@@ -526,12 +529,9 @@ nav a,
    - Does NOT add space when ending on an image or divider
 ────────────────────────────── */
 
-/* Prep/Chamber/CO-WE/Winds */
-section .piece-entry:last-of-type .piece-description:last-of-type {
-  margin-bottom: 1.6rem;
-}
-.symphony .text-wrap:last-of-type .overview:last-of-type {
-  margin-bottom: 1.6rem;
+/* Add top spacing before the sub-menu only when it follows overview text */
+.overview + nav.sub-toc {
+  margin-top: 1.5rem;
 }
 
 
@@ -891,7 +891,7 @@ section .piece-entry:last-of-type .piece-description:last-of-type {
     <img src="images/logo-nuys.png" alt="NUYS Logo" class="fullwidth">
   </div>
     <div class="overview">
-     NUYS presents four works from the Romantic Era.  
+     Today, NUYS presents four Romantic works.  
     </div>
 	
 		<img src="images/timeline-overall.png" alt="Timeline of Eras"
@@ -968,7 +968,7 @@ section .piece-entry:last-of-type .piece-description:last-of-type {
 		  <img src="images/timeline-accolay.png" alt="Timeline Accolay">
 	    </div>
         <div class="overview">
-        The liner notes from famous violinist Itzhak Perlman's album <em>Concertos from my Childhood</em> refer to Accolay as "long-forgotten."  But this piece hasn't been. It's a one-movement gem of lyric romanticism, frequently used to showcase multiple bowing techniques and left-hand dexterity. 
+        The liner notes from famous violinist Itzhak Perlman's album <em>Concertos from my Childhood</em> refer to Accolay as "long-forgotten."  But this piece hasn't been. It's a one-movement gem of lyric romanticism that showcases a violinist's phrasing and expression. 
         </div>
 	  </div>
   </div>
@@ -993,7 +993,7 @@ section .piece-entry:last-of-type .piece-description:last-of-type {
 		  <img src="images/timeline-berlioz.png" alt="Timeline Berlioz">
 	  </div>
 	  <div class="overview">
-      This dramatic and exuberent march occurs Act I of Berlioz's <em>The Damnation of Faust</em>. It's full of vitality and energy, in contrast to the title character. Berlioz based the march on a Hungarian melody, and when it was first played in that country during one of his conducting tours, audiences cheered so loudly they drowned out the music.
+      This dramatic and exuberent march occurs in Act I of Berlioz's <em>The Damnation of Faust</em>. It's full of vitality and energy, in contrast to the title character. Berlioz based the march on a Hungarian melody, and when it was first played in that country during one of his conducting tours, audiences cheered so loudly they drowned out the music.
       </div>
 	</div>
   </div>
