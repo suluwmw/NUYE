@@ -1,0 +1,10 @@
+# Deployment scripts
+update_github.bat
+
+# Push logs
+git_push_log.txt
+*.log
+
+# Windows clutter
+Thumbs.db
+Desktop.ini
