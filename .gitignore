@@ -1,7 +1,7 @@
-# Deployment scripts
+# Local deployment tools
 update_github.bat
 
-# Push logs
+# Local logs
 git_push_log.txt
 *.log
 
