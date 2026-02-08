@@ -1,6 +1,6 @@
 <!--
 NUYE Digital Program Notes
-BUILD: 22 November 2025 FINAL CONCERT VERSION
+BUILD: 05 February 2026 DRAFT VERSION
 (this must be updated manually as a version check
 to combat some browsers caching too aggressively. If they have, use CTRL+SHIFT+R to hard reset.
 -->
@@ -121,11 +121,11 @@ body {
 }
 
 /* ******************************************************************
-   3. HEADER (black → cyan gradient)
+   3. HEADER (black → dark blue gradient)
 ******************************************************************* */
 header {
   text-align: center;
-  background: linear-gradient(to bottom, #000 0%, #015870 100%);
+  background: linear-gradient(to bottom, #000 0%, #214478 100%);
   color: white;
   padding: 1.5rem var(--inner-inset) 2rem;
 }
@@ -212,11 +212,11 @@ nav a,
 }
 
 /* 5.2 Background colors per ensemble */
-.prep      { background: #dcd495; }
-.chamber   { background: #d7b377; }
-.co-we     { background: #ad8953; }
-.winds     { background: #c98b3e;  }  /* old: #825e2e with white text */
-.symphony  { background: #015870; color: #acedff; position: relative; }
+.prep      { background: #cdb9c3; }
+.chamber   { background: #b89caa; }
+.co-we     { background: #925e78; }
+.winds     { background: #6e4158;  }  /* old: #825e2e with white text */
+.symphony  { background: #214478; color: #acedff; position: relative; }
 .special1  { background: #000;    color: #fff; }
 
 /* 5.3 NUYS fade into black at end of Symphony section */
@@ -224,7 +224,7 @@ nav a,
   content: "";
   display: block;
   height: 80px;
-  background: linear-gradient(to bottom, rgba(1,88,112,1) 0%, rgba(0,0,0,1) 100%);
+  background: linear-gradient(to bottom, rgba(33,68,120,1) 0%, rgba(0,0,0,1) 100%);
 }
 
 /* 5.4 Last black section extends to bottom of container visually */
@@ -473,7 +473,7 @@ nav a,
 
 /* 9.4.2 Renaissance era */
 .symphony-composer-name-renaissance {
-  font-family: "EB Garamond", serif;
+  font-family: "Italianno", serif;
   font-style: italic;
   font-size: 2.2rem;
   color: #d9f3ff;
@@ -481,7 +481,7 @@ nav a,
 
 /* 9.4.3 Baroque era */
 .symphony-composer-name-baroque {
-  font-family: "Marcellus SC", serif;
+  font-family: "Pirata One", serif;
   font-size: 2.4rem;
   color: #f2f2f2;
   letter-spacing: 1px;
@@ -489,7 +489,7 @@ nav a,
 
 /* 9.4.4 Classical era */
 .symphony-composer-name-classical {
-  font-family: "EB Garamond", serif;
+  font-family: "Parisienne", cursive;
   font-size: 2.3rem;
   font-weight: 600;
   color: #e8f6ff;
@@ -505,7 +505,16 @@ nav a,
 
 /* 9.4.6 Modern era */
 .symphony-composer-name-modern {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #bce9ff;
+  letter-spacing: 0.8px;
+}
+
+/* 9.4.7 Postmodern era */
+.symphony-composer-name-modern {
+  font-family: "Rationale", sans-serif;
   font-size: 2.6rem;
   font-weight: 700;
   color: #bce9ff;
@@ -558,7 +567,7 @@ nav a,
 
 /* 10.2 Caption band above image */
 .carousel-caption {
-  background: #015870;
+  background: #6290d4;
   color: #fff;
   font-family: 'EB Garamond', serif;
   text-align: center;
@@ -588,8 +597,8 @@ nav a,
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 51, 102, 0.6);
-  color: #9ddfff;
+  background-color: rgba(33, 68, 120, 0.6);
+  color: #fff;
   border: none;
   border-radius: 50%;
   width: 2.4rem;
@@ -603,13 +612,13 @@ nav a,
 }
 
 .carousel-btn:hover {
-  background-color: rgba(1, 88, 112, 0.9);
+  background-color: rgba(98, 144, 212, 0.9);
   color: #c8f2ff;
   transform: translateY(-50%) scale(1.1);
 }
 
 .carousel-btn:active {
-  background-color: rgba(1, 88, 112, 1);
+  background-color: rgba(170, 238, 255, 1);
   transform: translateY(-50%) scale(1.0);
 }
 
@@ -629,7 +638,7 @@ nav a,
 
 /* 11.1 Individual square buttons */
 .donate-square {
-  background-color: #015870;   /* symphony cyan */
+  background-color: #214478;   /* symphony cyan */
   color: #9ddfff;              /* light blue text */
   width: 7rem;
   height: 7rem;
@@ -652,7 +661,7 @@ nav a,
 }
 
 .donate-square:hover {
-  background-color: #027191;
+  background-color: #6290d4;
   color: #c8f2ff;
   transform: translateY(-3px);
   box-shadow: 0 0 18px rgba(1, 135, 165, 0.6);
@@ -675,9 +684,9 @@ nav a,
 <header id="top">
   <img src="images/logo-nuye-intro.png" alt="NUYE Logo">
   <div class="concert-info">
-    <h2>Fall Concert</h2>
-	<h3> Ben Lomond HS</h3>
-    <p class="concert-details">3:00 pm&nbsp;&nbsp;November 22,&nbsp;2025</p>
+    <h2>Winter Concert</h2>
+	<h3> Bear River HS</h3>
+    <p class="concert-details">3:00 pm&nbsp;&nbsp;February 22,&nbsp;2026</p>
   </div>
 </header>
 
@@ -686,7 +695,7 @@ nav a,
 <section id="draftbanner" class="draftbanner" style="display:none;">
   <p><strong>⚠️ DRAFT VERSION:</strong> If you are seeing this, you are looking at a draft of the program notes. 
   <p>For final program notes, please check back closer to our next concert.</p> 
-  <p>Fall Concert is at 3pm Saturday November 22 2025. Admission is FREE!</p>
+  <p>Winter Concert is at 3pm Saturday February 21 2025. Admission is FREE!</p>
 </section>
 
 
@@ -703,11 +712,11 @@ nav a,
     <img src="images/logo-nuyps.png" alt="NUYPS Logo">
   </div>
 
-  <!-- Shiver -->
+  <!-- Prep piece 1 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">Shiver</span>
-      <span class="piece-composer">Randall D. Standridge</span>
+      <span class="piece-title">Rustic Dance</span>
+      <span class="piece-composer">Mark Williams</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -718,16 +727,16 @@ nav a,
     <div class="piece-separator"></div>
 
     <p class="piece-description">
-      "Shiver" is a great autumnal song with imagery of a cold night. The students learn how to tremolo and play back and forth with the melodies.
+      Rustic Dance draws inspiration from folk-style music, featuring simple melodies and rhythms. The piece has a light, energetic character that suggests a joyful village dance. Its straightforward style and strong pulse make it engaging and fun to listen to.
     </p>
-    <img class="piece-image" src="images/prep-shiver.png" alt="Shiver artwork">
+    <img class="piece-image" src="images/image-placeholder.png" alt="Shiver artwork">
   </div>
 
-  <!-- Nightmare on the Housetop -->
+  <!-- Prep piece 2 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">Nightmare On the Housetop</span>
-      <span class="piece-composer">Traditional arr. John M. Pasternak</span>
+      <span class="piece-title">Bits of Stardust</span>
+      <span class="piece-composer">Bruce W. Tippette</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -738,16 +747,16 @@ nav a,
     <div class="piece-separator"></div>
 
     <p class="piece-description">
-      This piece is a take on the traditional piece "Up On The Housetop." The composer says that children are excited for Santa to come but then they are surprised with Halloween characters instead. This piece goes back and forth between bow (arco) and plucking (pizzicato).
+      Bits of Stardust has a dark, mysterious sound, with a steady drum beat that gives the music a strong, serious feel. The piece builds tension as different parts come together, creating a sense of the unknown. It feels like a journey through something powerful and unexplained.
     </p>
-    <img class="piece-image" src="images/prep-nightmare.png" alt="Nightmare on the Housetop artwork">
+    <img class="piece-image" src="images/image-placeholder.png" alt="Nightmare on the Housetop artwork">
   </div>
 
-  <!-- Into the Midnight Forest -->
+  <!-- IPrep piece 3 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">Into the Midnight Forest</span>
-      <span class="piece-composer">Mekel Rogers</span>
+      <span class="piece-title">Canon Power</span>
+      <span class="piece-composer">Bob Lipton</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -758,9 +767,9 @@ nav a,
     <div class="piece-separator"></div>
 
     <p class="piece-description">
-      "Into the Midnight Forest" has a mysterious-march-through-the-darkness feel. It's a fun piece that brings in great dynamics and a lot of staccato (short) bowings. It also brings in a few legato (smooth) bowings as well for contrast.
+      Canon Power is built around the musical form of a canon, where melodies enter in succession and overlap with one another. Bob Lipton combines this traditional technique with a modern, energetic sound. The result is a lively and clever piece that highlights teamwork and musical independence within the ensemble. You'll hear some familiar folk melodies as well.
     </p>
-    <img class="piece-image" src="images/prep-midnight.png" alt="Into the Midnight Forest artwork">
+    <img class="piece-image" src="images/image-placeholder.png" alt="Into the Midnight Forest artwork">
   </div>
 </section>
 
@@ -771,11 +780,11 @@ nav a,
     <img src="images/logo-nuyco.png" alt="NUYCO Logo">
   </div>
 
-  <!-- Dance of the Tumblers -->
+  <!-- Chamber piece 1 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">Dance of the Tumblers from Snow Maiden</span>
-      <span class="piece-composer">Nikolai Rimsky-Korsakov arr. Sandra Dackow</span>
+      <span class="piece-title">Terra Nova</span>
+      <span class="piece-composer">Richard Meyer</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -785,18 +794,18 @@ nav a,
 
     <div class="piece-separator"></div>
 
-    <img class="piece-image" src="images/chamber-snow.png" alt="Snow Maiden artwork">
+    <img class="piece-image" src="images/image-placeholder.png" alt="Snow Maiden artwork">
 
     <p class="piece-description">
-      This piece, <q>Dance of the Tumblers,</q> accompanies the energetic dancing of Russian travelling entertainers as the villagers wait for a contest to see who will win Snow Maiden's heart.
+      Terra Nova means “new land,” and the music is about exploring somewhere unknown. Strong rhythms and bold melodies give the piece a feeling of adventure and movement. Quieter sections help show the mystery and challenge of discovering something new. The music often grows in volume and energy, showing confidence as the journey continues.
     </p>
   </div>
 
-  <!-- Midnight Storm -->
+  <!-- Chamber piece 2 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">Midnight Storm</span>
-      <span class="piece-composer">Erica Donahoe</span>
+      <span class="piece-title">The Cherry Tree Carol</span>
+      <span class="piece-composer">Traditional arr. Robert W. Smith</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -807,8 +816,28 @@ nav a,
     <div class="piece-separator"></div>
 
     <p class="piece-description">
-      In this contemporary piece, dramatic eighth-note phrases evoke the experience of a storm blowing in after dark. 
+      The Cherry Tree Carol is based on a traditional English carol that tells a gentle, symbolic story. The melody is calm and simple, while the harmonies add warmth and feeling. Robert W. Smith’s arrangement focuses on clear musical lines and expressive phrasing. Soft dynamics and smooth playing help create a peaceful mood. 
     </p>
+	<img class="piece-image" src="images/image-placeholder.png" alt="Nightmare on the Housetop artwork">
+	
+  <!-- Chamber piece 3 -->
+  <div class="piece-entry">
+    <div class="piece-header">
+      <span class="piece-title">Ukrainian Dance</span>
+      <span class="piece-composer">Modest Mussorgsky arr. Deborah Baker Monday</span>
+    </div>
+
+    <div class="piece-pronunciation-line">
+      <span class="piece-pronunciation-left"></span>
+      <span class="piece-pronunciation-right"></span>
+    </div>
+
+    <div class="piece-separator"></div>
+
+    <p class="piece-description">
+      Ukrainian Dance is fast and energetic, inspired by traditional folk dancing. Strong rhythms and repeating melodies give the music a lively feel. The arrangement highlights excitement and movement throughout the piece. Sudden changes and accents make the dance feel playful and bold. 
+    </p>
+    <img class="piece-image" src="images/image-placeholder.png" alt="Nightmare on the Housetop artwork">
     <!-- Optional image could go here -->
     <div class="section-end"></div>
   </div>
@@ -821,11 +850,11 @@ nav a,
     <img src="images/logo-nuyco&we.png" alt="CO-WE Logo">
   </div>
 
-  <!-- Shackelford Banks -->
+  <!-- CO-WE Piece 1 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">Shackelford Banks</span>
-      <span class="piece-composer">Jay Bocook</span>
+      <span class="piece-title">unknown</span>
+      <span class="piece-composer">unknown</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -836,9 +865,9 @@ nav a,
     <div class="piece-separator"></div>
 
     <p class="piece-description">
-      Named for the uninhabited island off the North Carolina coast where wild horses still roam, this energetic original features a distinctive western flavor. The tough "Banker Ponies" are descended from Spanish horses that probably swam to shore after shipwrecks in the 1500s. They eat dune grass and dig shallow pits to reach fresh water. 
+      This is some placeholder text. This is some placeholder text. This is some placeholder text. This is some placeholder text.
     </p>
-    <img class="piece-image" src="images/cowe-shackleford.png" alt="Shackelford Banks artwork">
+    <img class="piece-image" src="images/image-placeholder.png" alt="Shackelford Banks artwork">
   </div>
 </section>
 
@@ -849,11 +878,11 @@ nav a,
     <img src="images/logo-nuywe.png" alt="NUYWE Logo">
   </div>
 
-  <!-- March of the Shadows -->
+  <!-- Winds piece 1 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">March of the Shadows</span>
-      <span class="piece-composer">Haley Woodrow</span>
+      <span class="piece-title">The Mandalorian</span>
+      <span class="piece-composer">unknown</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -864,16 +893,16 @@ nav a,
     <div class="piece-separator"></div>
     <!-- Optional image could go here -->
     <p class="piece-description">
-      Paying homage to the traditional march form, this work steps outside the box in this delightfully dark and unique piece in a minor key.
+      This incredibly popular Star Wars series follows the daring exploits of a bounty hunter in the post-<em>Return of the Jedi</em> era. As with all the installments of this history-making saga, this film features a stunning and memorable soundtrack. The iconic main theme is featured here in a powerful setting for wind band.
     </p>
-
+	<img class="piece-image" src="images/image-placeholder.png" alt="Pure Imagination artwork">
   </div>
 
-  <!-- Pure Imagination -->
+  <!-- Winds piece 2 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">Pure Imagination</span>
-      <span class="piece-composer">Leslie Bricusse &amp; Anthony Newley arr. Paul Murtha</span>
+      <span class="piece-title">unknown</span>
+      <span class="piece-composer">unknown</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -884,10 +913,31 @@ nav a,
     <div class="piece-separator"></div>
 
     <p class="piece-description">
-      Originally sung by Gene Wilder in the 1971 movie classic <em>Willy Wonka &amp; the Chocolate Factory</em>, this timeless song has remained a favorite ever since. This setting is based on the version sung by Timothée Chalamet for the movie <em>Wonka</em> and features lush harmonies and an appealing pop groove. Magical!
+      This is some placeholder text. This is some placeholder text. This is some placeholder text. This is some placeholder text.
     </p>
-    <img class="piece-image" src="images/winds-wonka.png" alt="Pure Imagination artwork">
+    <img class="piece-image" src="images/image-placeholder.png" alt="Pure Imagination artwork">
   </div>
+  
+    <!-- Winds piece 3 -->
+  <div class="piece-entry">
+    <div class="piece-header">
+      <span class="piece-title">Tripwire</span>
+      <span class="piece-composer">JaRod Hall</span>
+    </div>
+
+    <div class="piece-pronunciation-line">
+      <span class="piece-pronunciation-left"></span>
+      <span class="piece-pronunciation-right"></span>
+    </div>
+
+    <div class="piece-separator"></div>
+
+    <p class="piece-description">
+      This clever work offers some extraordinary colors as a spy attempts to inflitrate enemy defenses. From the sneaky beginning melody to the loud and raucus rips that follow. Accompanied by stunning percussion.
+    </p>
+    <img class="piece-image" src="images/image-placeholder.png" alt="Pure Imagination artwork">
+  </div>
+  
 </section>
 
 
@@ -897,39 +947,39 @@ nav a,
     <img src="images/logo-nuys.png" alt="NUYS Logo" class="fullwidth">
   </div>
     <div class="overview">
-     Today, NUYS presents four Romantic works.  
+     Today, NUYS presents five works.  
     </div>
 	
 		<img src="images/timeline-overall.png" alt="Timeline of Eras"
 		style="width:100%; display:block; margin:1rem 0;">
 	
 	<div class="overview">
-     The Romantics overturned the formality and order of the Classical Era with their emotion-laden music. Romantics focused on the individual, the mystical, and the unusual. Today's composers were each influential in their own way: Beethoven ushered in the era, Berlioz continued it with a passion, Accolay built violin skills, and Bizet added a dash of realism near the end.
+     This is the overall NUYS summary - trends, similarities, differences, whatever strikes you at the end.
     </div>
 
   <!-- Symphony Sub-menu -->
   <nav class="sub-toc">
-    <a href="#egmont">Egmont<br>Overture</a>
-    <a href="#violin">Violin<br>Concerto</a>
-    <a href="#hungarian">Hungarian<br>March</a>
-    <a href="#carmen">Carmen<br>Suite</a>
+    <a href="#westside">West Side<br>Story</a>
+    <a href="#viola">Viola<br>Concerto</a>
+    <a href="#champions">Call of the<br>Champions</a>
+    <a href="#oboe">Oboe<br>Concerto</a>
+	<a href="#pictures">Pictures<br>Exhibition</a>
   </nav>
 
-  <!-- Piece 1: Beethoven -->
-<div id="egmont" class="text-wrap">
+  <!-- Piece 1 -->
+<div id="westside" class="text-wrap">
     <div class="symphony-header-block">
-        <p class="symphony-piece-title">Egmont Overture</p>
-        <div class="symphony-composer-name-base symphony-composer-name-romantic">Ludwig van Beethoven
+        <p class="symphony-piece-title">West Side Story Suite</p>
+        <div class="symphony-composer-name-base symphony-composer-name-romantic">Leonard Bernstein
 		</div>
-        <span class="symphony-pronunciation">(BAY-toh-ven)</span>
+        <span class="symphony-pronunciation"></span>
     </div>
     <div class="timeline-rect">
-        <img src="images/timeline-beethoven.png" alt="Timeline Beethoven">
+        <img src="images/timeline-bernstein.png" alt="Timeline Bernstein">
     </div>
     <div class="overview">
-        The Egmont Overture has been called the "distilled essence of Beethoven."
-        Written during his middle period, it still relies on classical structure
-        but adds the narrative arc and powerful emotions of Romanticism.
+        Bernstein's best-known composition is probably <em>West Side Story</em>, a 1950's re-imagining of Shakespeare's tragic <em>Romeo and Juliet</em>.
+        This time, the feud is between two rival NYC gangs: the Jets and the Sharks.
     </div>
 </div>
   
@@ -937,84 +987,87 @@ nav a,
   
     <!-- Block: Beethoven -->
   <div>
-    <img src="images/block-beethoven.png" alt="Beethoven Info" style="width:100%; display:block;">
+    <img src="images/block-bernstein.png" alt="Bernstein Info" style="width:100%; display:block;">
   </div>
   
   <div class="divider"></div>
   
-    <!-- Block: Goethe -->
+    <!-- Block: Piece = WSS -->
   <div>
-    <img src="images/block-goethe.png" alt="Goethe Info" style="width:100%; display:block;">
+    <img src="images/block-bernstein-westside.png" alt="West Side Story Info" style="width:100%; display:block;">
   </div>
   
-  <div class="divider"></div>
-  
-  <!-- Block: Egmont Play-->
-  <div>
-    <img src="images/block-egmont-play.png" alt="Egmont Play Info" style="width:100%; display:block;">
-  </div>
-  <div class="divider"></div>
-  
-  <!-- Block: Egmont Man-->
-  <div>
-    <img src="images/block-egmont-man.png" alt="Egmont Info" style="width:100%; display:block;">
-  </div>
-  
+
   <div class="divider"></div>
   <div class="divider"></div>
 
-  <!-- Piece 2: Accolay -->
-  <div id="violin" class="text-wrap">
+  <!-- Piece 2: Casadesus -->
+  <div id="viola" class="text-wrap">
       <div class="symphony-header-block">
-        <p class="symphony-piece-title">Violin Concerto No. 1 in A minor</p>
-	    <div class="symphony-composer-name-base symphony-composer-name-romantic">Jean-Baptiste Accolay
+        <p class="symphony-piece-title">Viola Concerto in the style of J.C. Bach</p>
+	    <div class="symphony-composer-name-base symphony-composer-name-romantic">Henri Casadesus
 	    </div>
-        <span class="symphony-pronunciation">(AH-coh-lay)</span>
+        <span class="symphony-pronunciation">(kah-suh-DAY-sus)</span>
         <div class="timeline-rect">
-		  <img src="images/timeline-accolay.png" alt="Timeline Accolay">
+		  <img src="images/timeline-casadesus.png" alt="Timeline Casadesus">
 	    </div>
         <div class="overview">
-        The liner notes from famous violinist Itzhak Perlman's album <em>Concertos from my Childhood</em> refer to Accolay as "long-forgotten."  But this piece hasn't been. It's a one-movement gem of lyric romanticism that showcases a violinist's phrasing and expression. 
+        This concerto, a staple of the viola repertoire, has a fascinating backstory (see below). Enjoy the Romantic melodies peeking out from under its Classical shell. 
         </div>
 	  </div>
   </div>
   <div class="divider"></div>
-    <!-- Block: Accolay -->  
+    <!-- Block: Casadesus -->  
   <div>
-    <img src="images/block-accolay.png" alt="Accolay Info" style="width:100%; display:block;">
+    <img src="images/block-casadesus.png" alt="Casadesus Info" style="width:100%; display:block;">
   </div>
-    <!-- Block: Soloist Instrument Showcase -->  
+    <!-- Block: Piece = Viola Concerto -->
   <div>
-    <img src="images/block-violin.png" alt="Violin Info" style="width:100%; display:block;">
+    <img src="images/block-casadesus-concerto.png" alt="Oboe Concerto" style="width:100%; display:block;">
+  </div>
+    <!-- Block: Viola Instrument Showcase -->  
+  <div>
+    <img src="images/block-casadesus-viola.png" alt="Viola Info" style="width:100%; display:block;">
+  </div>
+    <!-- Block: Ancient Instruments -->
+  <div>
+    <img src="images/block-casadesus-ancient.png" alt="Ancient Instruments" style="width:100%; display:block;">
   </div>
   
-  
-  <!-- Piece 3: Hector Berlioz -->
-  <div id="hungarian" class="text-wrap">
+    <div class="divider"></div>
+	<div class="divider"></div>
+  <!-- Piece 3: John Williams -->
+  <div id="champions" class="text-wrap">
     <div class="symphony-header-block">
-      <p class="symphony-piece-title">"Hungarian March" from <em>The Damnation of Faust</em></p>
-      <div class="symphony-composer-name-base symphony-composer-name-romantic">Hector Berlioz</div>
-      <span class="symphony-pronunciation">(BEHR-lee-ohz)</span>
+      <p class="symphony-piece-title">Call of the Champions</p>
+      <div class="symphony-composer-name-base symphony-composer-name-romantic">John Williams</div>
+      <span class="symphony-pronunciation"></span>
       <div class="timeline-rect">
-		  <img src="images/timeline-berlioz.png" alt="Timeline Berlioz">
+		  <img src="images/timeline-williams.png" alt="Timeline Williams">
 	  </div>
 	  <div class="overview">
-      This dramatic and exuberent march occurs in Act I of Berlioz's <em>The Damnation of Faust</em>. It's full of vitality and energy, in contrast to the title character. Berlioz based the march on a Hungarian melody, and when it was first played in that country during one of his conducting tours, audiences cheered so loudly they drowned out the music.
+      John Williams, the most successful film music composer ever, wrote this anthem for the 2002 Winter Games in Salt Lake City.
       </div>
 	</div>
   </div>
   <div class="divider"></div>
   
-    <!-- Block: Berlioz -->
-  <div>
-    <img src="images/block-berlioz.png" alt="Berlioz Info" style="width:100%; display:block;">
-  </div>
+    <!-- Block: Williams -->
+    <div>
+    <img src="images/block-williams.png" alt="Williams Info" style="width:100%; display:block;">
+    </div>
   <div class="divider"></div>
   
-<!-- Faust Image Carousel has css, html, and javascript sections-->
+    <!-- Block: Williams -->
+    <div>
+      <img src="images/block-williams-champions.png" alt="Champions Info" style="width:100%; display:block;">
+    </div>
+  <div class="divider"></div>
+  
+<!-- 2002 Olympic Buildings Image Carousel has css, html, and javascript sections-->
 <div class="carousel">
   <div class="carousel-frame">
-    <div class="carousel-caption">The Damnation of Faust
+    <div class="carousel-caption">Buildings of the 2002 Olympics
 	</div>
 
     <div class="carousel-image-area">
@@ -1032,44 +1085,68 @@ nav a,
   <div class="divider"></div>
   <div class="divider"></div>
   
-  <!-- Piece 4: Bizet -->
-  <div id="carmen" class="text-wrap">
+  <!-- Piece 4: Kalliwoda -->
+  <div id="oboe" class="text-wrap">
     <div class="symphony-header-block">
-      <p class="symphony-piece-title">Carmen Suite No. 1</p>
-      <div class="symphony-composer-name-base symphony-composer-name-romantic">Georges Bizet</div>
-      <span class="symphony-pronunciation">(bee-ZAY)</span>
+      <p class="symphony-piece-title">Concertino in F major for Oboe and Orchestra</p>
+      <div class="symphony-composer-name-base symphony-composer-name-romantic">Jan Kalliwoda</div>
+      <span class="symphony-pronunciation">(kah-lih-VOH-dah)</span>
       <div class="timeline-rect">
-		  <img src="images/timeline-bizet.png" alt="Timeline Bizet">
+		  <img src="images/timeline-kalliwoda.png" alt="Timeline Kalliwoda">
 	  </div>
       <div class="overview">
-      Carmen was a shock to French opera-goers. They were perfectly used to the melodrama, but they weren't used to seeing the actual murder acted onstage. And the heroine wasn't conventional - she was a working-class woman who did as she pleased. 
+      Kalliwoda was probably one of the last full-time court-musicians employed by the German princely houses. This concertino is a lively example of his style. 
       </div>
 	</div>
   </div>
     <div class="divider"></div>
-  
-    <!-- Block:Bizet -->
+	    <!-- Block:Kalliwoda -->
   <div>
-    <img src="images/block-bizet.png" alt="Bizet Info" style="width:100%; display:block;">
+     <img src="images/block-kalliwoda.png" alt="Kalliwoda Info" style="width:100%; display:block;">
   </div>
   <div class="divider"></div>
-  
-   <!-- Block:Carmen -->
-  <div>
-    <img src="images/block-carmen.png" alt="Carmen Plot" style="width:100%; display:block;">
-  </div>
+    <!-- Block: Oboe Concerto -->
+    <div>
+      <img src="images/block-kalliwoda-concertino.png" alt="Concertino" style="width:100%; display:block;">
+    </div>
+  <div class="divider"></div>
+    <!-- Block: Oboe Instrument Showcase -->
+    <div>
+      <img src="images/block-kalliwoda-oboe.png" alt="Oboe" style="width:100%; display:block;">
+    </div>
+  <div class="divider"></div>
   <div class="divider"></div>
   
-  <!-- Block: Opera-Comique -->
-  <div> 
-    <img src="images/block-comique.png" alt="Opera-Comique Info" style="width:100%; display:block;">
+  <!-- Piece 5: Pictures -->
+  <div id="pictures" class="text-wrap">
+    <div class="symphony-header-block">
+      <p class="symphony-piece-title">Pictures at an Exhibition: IX.The Hut on Chicken's Legs & X.The Great Gate of Kiev</p>
+      <div class="symphony-composer-name-base symphony-composer-name-romantic">Modest Mussorgsky</div>
+      <span class="symphony-pronunciation">(muss-ORG-skee)</span>
+      <div class="timeline-rect">
+		  <img src="images/timeline-mussorgsky.png" alt="Timeline Mussorgsky">
+	  </div>
+      <div class="overview">
+      Mussorgsky composed these pieces for solo piano in 1874. His original version is dynamic and evocative, but Ravel's powerful 1922 orchestration will sweep you away! 
+      </div>
+	</div>
+  </div>
+    <!-- Block:Mussorgsky -->
+  <div>
+    <img src="images/block-mussorgsky.png" alt="Mussorgsky Info" style="width:100%; display:block;">
+  </div>
+  <div class="divider"></div>
+    <!-- Block: Pictures -->
+  <div>
+    <img src="images/block-mussorgsky-pictures.png" alt="Pictures" style="width:100%; display:block;">
+  </div>
+  <div class="divider"></div>
+   <!-- Block:Mighty Handful -->
+  <div>
+    <img src="images/block-mussorgsky-handful.png" alt="Mighty Handful" style="width:100%; display:block;">
   </div>
   <div class="divider"></div>
 
-  <!-- Block: Prix de Rome -->
-  <div> 
-    <img src="images/block-prix.png" alt="Prix de Rome Info" style="width:100%; display:block;">
-  </div>
 </section>
 
 <!-- =================== Final Section =================== -->
@@ -1174,7 +1251,7 @@ window.addEventListener("load", renderImage);
 <!-- toggle to turn the draftbanner on as needed (default is off) -->
 <script>
   // Uncomment the line below to show the draft banner
-  //document.getElementById('draftbanner').style.display = 'block';
+  document.getElementById('draftbanner').style.display = 'block';
 </script>
 
 </body>
