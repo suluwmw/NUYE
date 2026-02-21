@@ -186,7 +186,7 @@ nav a,
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
-  margin-bottom: 1rem;
+  align-items: center;   /* ← add this */ /*margin-bottom: 1rem;*/
 }
 
 .sub-toc a {
@@ -195,6 +195,24 @@ nav a,
   font-size: 0.9rem;
   margin: 0 0.2rem;
   word-wrap: break-word;
+}
+/* ===== Added for Pictures at an Exhibition formatting ===== */
+
+.sub-toc a .toc-line-main {
+  font-size: 1em;
+  display: inline-block;
+}
+
+.sub-toc a.toc-stack {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.sub-toc a.toc-stack .toc-line-small {
+  font-size: 0.6em;
+  font-weight: normal;
+  line-height: 1;
 }
 
 /* ******************************************************************
@@ -672,6 +690,28 @@ nav a,
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
+/* ******************************************************************
+   12. PHOTO/IMAGE CREDITS
+******************************************************************* */
+.photo-credit-note {
+  font-family: "EB Garamond", Garamond, serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: #666;
+  text-align: center;
+  margin-top: 0.75rem;
+  line-height: 1.3;
+}
+
+.photo-credit-note a {
+  color: #6086bb;
+  text-decoration: none;
+}
+
+.photo-credit-note a:hover {
+  text-decoration: underline;
+}
+
 </style>
 </head>
 <body>
@@ -897,7 +937,7 @@ nav a,
     <div class="piece-separator"></div>
 
     <p class="piece-description">
-      This clever work offers some extraordinary colors as a spy attempts to inflitrate enemy defenses. From the sneaky beginning melody to the loud and raucus rips that follow. Accompanied by stunning percussion.
+      This clever work offers some extraordinary colors as a spy attempts to inflitrate enemy defenses. Accompanied by stunning percussion.
     </p>
     <img class="piece-image" src="images/image-winds-tripwire.png" alt="Tripwire artwork">
   </div>
@@ -918,7 +958,7 @@ nav a,
     <div class="piece-separator"></div>
 
     <p class="piece-description">
-      This is the first movement of the <em>Georgian Suite</em>, commissioned for the state of Georgia's Music Educators Association. It celebrates their festival concert...that was actually held on the first day of spring. The town of Kingsland is just barely on the Georgia side of the Florida border, close to the Okefenokee Swamp and Cumberland Island. It also boasts a Naval Submarine Base.   
+      This is the first movement of the <em>Georgian Suite</em>, commissioned for the state of Georgia's Music Educators Association. It celebrates their festival concert...that was actually held on the first day of spring.    
     </p>
     <img class="piece-image" src="images/image-winds-kingsland.png" alt="Kingsland artwork">
   </div>
@@ -938,7 +978,7 @@ nav a,
     <div class="piece-separator"></div>
     <!-- Optional image could go here -->
     <p class="piece-description">
-      This incredibly popular <em>Star Wars</em> series follows the daring exploits of a bounty hunter in the post-<em>Return of the Jedi</em> era. As with all the installments of this history-making saga, this film features a stunning and memorable soundtrack. The iconic main theme is featured here in a powerful setting for wind band.
+      This incredibly popular <em>Star Wars</em> series follows the daring exploits of a bounty hunter in the post-<em>Return of the Jedi</em> era. The iconic main theme is featured here in a powerful setting for wind ensemble.
     </p>
 	<img class="piece-image" src="images/image-winds-mandalorian.png" alt="Mandalorian artwork">
   </div>
@@ -959,16 +999,24 @@ nav a,
 		style="width:100%; display:block; margin:1rem 0;">
 	
 	<div class="overview">
-     These composers are (or were) a devoted court musician, a Romantic Russian nationalist, an antique instrument collector, a mid-century Broadway symphonist, and a successful film scorer.  
+     Today's composers are (or were) a devoted court musician, a Romantic Russian nationalist, an antique instrument collector, a mid-century Broadway symphonist, and a successful film scorer.  
     </div>
 
   <!-- Symphony Sub-menu -->
   <nav class="sub-toc">
-    <a href="#champions">Call of the<br>Champions</a>
+	<a href="#champions" class="toc-stack">
+      <span class="toc-line-main">Call</span>
+      <span class="toc-line-small">of the</span>
+      <span class="toc-line-main">Champions</span>
+    </a>
     <a href="#oboe">Oboe<br>Concertino</a>
     <a href="#westside">West Side<br>Story</a>
     <a href="#viola">Viola<br>Concerto</a>
-	<a href="#pictures">Pictures<br>Exhibition</a>
+	<a href="#pictures" class="toc-stack">
+      <span class="toc-line-main">Pictures</span>
+      <span class="toc-line-small">at an</span>
+      <span class="toc-line-main">Exhibition</span>
+    </a>
   </nav>
 
   <!-- Piece 1: John Williams -->
@@ -989,13 +1037,13 @@ nav a,
   
     <!-- Block: Williams -->
     <div>
-    <img src="images/block-williams.png" alt="Williams Info" style="width:100%; display:block;">
+    <img src="images/block-williams.webp" alt="Williams Info" style="width:100%; display:block;">
     </div>
   <div class="divider"></div>
   
     <!-- Block: Williams -->
     <div>
-      <img src="images/block-williams-champions.png" alt="Champions Info" style="width:100%; display:block;">
+      <img src="images/block-williams-champions.webp" alt="Champions Info" style="width:100%; display:block;">
     </div>
   <div class="divider"></div>
   
@@ -1007,7 +1055,7 @@ nav a,
 
     <div class="carousel-image-area">
       <img id="carousel-image"
-           src="images/olympics-carousel-1.png"
+           src="images/olympics-carousel-1.webp"
            alt="Faust image">
     </div>
 
@@ -1037,17 +1085,17 @@ nav a,
     <div class="divider"></div>
 	    <!-- Block:Kalliwoda -->
   <div>
-     <img src="images/block-kalliwoda.png" alt="Kalliwoda Info" style="width:100%; display:block;">
+     <img src="images/block-kalliwoda.webp" alt="Kalliwoda Info" style="width:100%; display:block;">
   </div>
   <div class="divider"></div>
     <!-- Block: Oboe Concertino -->
     <div>
-      <img src="images/block-kalliwoda-opus110.png" alt="Concertino" style="width:100%; display:block;">
+      <img src="images/block-kalliwoda-opus110.webp" alt="Concertino" style="width:100%; display:block;">
     </div>
   <div class="divider"></div>
     <!-- Block: Oboe Instrument Showcase -->
     <div>
-      <img src="images/block-kalliwoda-oboe.png" alt="Oboe" style="width:100%; display:block;">
+      <img src="images/block-kalliwoda-oboe.webp" alt="Oboe" style="width:100%; display:block;">
     </div>
   <div class="divider"></div>
   <div class="divider"></div>
@@ -1074,14 +1122,14 @@ nav a,
   
     <!-- Block: Bernstein -->
   <div>
-    <img src="images/block-bernstein.png" alt="Bernstein Info" style="width:100%; display:block;">
+    <img src="images/block-bernstein.webp" alt="Bernstein Info" style="width:100%; display:block;">
   </div>
   
   <div class="divider"></div>
   
     <!-- Block: Piece = WSS -->
   <div>
-    <img src="images/block-bernstein-westside.png" alt="West Side Story Info" style="width:100%; display:block;">
+    <img src="images/block-bernstein-westside.webp" alt="West Side Story Info" style="width:100%; display:block;">
   </div>
   
 
@@ -1106,22 +1154,22 @@ nav a,
   <div class="divider"></div>
     <!-- Block: Casadesus -->  
   <div>
-    <img src="images/block-casadesus.png" alt="Casadesus Info" style="width:100%; display:block;">
+    <img src="images/block-casadesus.webp" alt="Casadesus Info" style="width:100%; display:block;">
   </div>
   <div class="divider"></div>
     <!-- Block: Spurious Compositions -->  
   <div>
-    <img src="images/block-casadesus-spurious.png" alt="Viola Info" style="width:100%; display:block;">
+    <img src="images/block-casadesus-spurious.webp" alt="Viola Info" style="width:100%; display:block;">
   </div>
   <div class="divider"></div>
     <!-- Block: Viola Concerto -->  
   <div>
-    <img src="images/block-casadesus-concerto.png" alt="Concerto Info" style="width:100%; display:block;">
+    <img src="images/block-casadesus-concerto.webp" alt="Concerto Info" style="width:100%; display:block;">
   </div>
   <div class="divider"></div>
     <!-- Block: Viola Instrument Showcase -->
   <div>
-    <img src="images/block-casadesus-viola.png" alt="Viola Info" style="width:100%; display:block;">
+    <img src="images/block-casadesus-viola.webp" alt="Viola Info" style="width:100%; display:block;">
   </div>
   
     <div class="divider"></div>
@@ -1144,17 +1192,17 @@ nav a,
   </div>
     <!-- Block:Mussorgsky -->
   <div>
-    <img src="images/block-mussorgsky.png" alt="Mussorgsky Info" style="width:100%; display:block;">
+    <img src="images/block-mussorgsky.webp" alt="Mussorgsky Info" style="width:100%; display:block;">
   </div>
   <div class="divider"></div>
     <!-- Block: Pictures -->
   <div>
-    <img src="images/block-mussorgsky-pictures.png" alt="Pictures" style="width:100%; display:block;">
+    <img src="images/block-mussorgsky-pictures.webp" alt="Pictures" style="width:100%; display:block;">
   </div>
   <div class="divider"></div>
    <!-- Block:Mighty Handful -->
   <div>
-    <img src="images/block-mussorgsky-handful.png" alt="Mighty Handful" style="width:100%; display:block;">
+    <img src="images/block-mussorgsky-handful.webp" alt="Mighty Handful" style="width:100%; display:block;">
   </div>
   <div class="divider"></div>
 
@@ -1162,7 +1210,7 @@ nav a,
 
 <!-- =================== Final Section =================== -->
   <section class="special1">
-      <img src="images/block-outro.png" alt="phones & thanks" style="width:100%; display:block;">
+      <img src="images/block-outro.webp" alt="phones & thanks" style="width:100%; display:block;">
 
 <!-- Donation buttons -->
 <div class="donate-buttons">
@@ -1174,10 +1222,16 @@ nav a,
     DONATE<br>WITH<br>ZEFFY
   </button>
 </div>
+
+<div class="photo-credit-note">
+  .
+  <br>
+  <a href="credits.html">Full image credits</a>
+</div>
+
 </section>
 
 </div>
-
 
 
 
@@ -1228,19 +1282,19 @@ window.addEventListener('DOMContentLoaded', updateNUYS);
 <!-- Olympics Carousel Script -->
 <script>
 window.carouselImages = [
-  "images/olympics-carousel-1.png",
-  "images/olympics-carousel-2.png",
-  "images/olympics-carousel-3.png",
-  "images/olympics-carousel-4.png",
-  "images/olympics-carousel-5.png",
-  "images/olympics-carousel-6.png",
-  "images/olympics-carousel-7.png",
-  "images/olympics-carousel-8.png",
-  "images/olympics-carousel-9.png",
-  "images/olympics-carousel-10.png",
-  "images/olympics-carousel-11.png",
-  "images/olympics-carousel-12.png",
-  "images/olympics-carousel-13.png"
+  "images/olympics-carousel-1.webp",
+  "images/olympics-carousel-2.webp",
+  "images/olympics-carousel-3.webp",
+  "images/olympics-carousel-4.webp",
+  "images/olympics-carousel-5.webp",
+  "images/olympics-carousel-6.webp",
+  "images/olympics-carousel-7.webp",
+  "images/olympics-carousel-8.webp",
+  "images/olympics-carousel-9.webp",
+  "images/olympics-carousel-10.webp",
+  "images/olympics-carousel-11.webp",
+  "images/olympics-carousel-12.webp",
+  "images/olympics-carousel-13.webp"
 ];
 
 let currentIndex = 0;
@@ -1269,7 +1323,7 @@ window.addEventListener("load", renderImage);
 <!-- toggle to turn the draftbanner on as needed (default is off) -->
 <script>
   // Uncomment the line below to show the draft banner
-  document.getElementById('draftbanner').style.display = 'block';
+  //document.getElementById('draftbanner').style.display = 'block';//
 </script>
 
 </body>
