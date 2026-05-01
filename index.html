@@ -1,6 +1,6 @@
 <!--
 NUYE Digital Program Notes
-BUILD: 05 February 2026 DRAFT VERSION
+BUILD: 15 April 2026 DRAFT VERSION
 (this must be updated manually as a version check
 to combat some browsers caching too aggressively. If they have, use CTRL+SHIFT+R to hard reset.
 -->
@@ -14,7 +14,7 @@ to combat some browsers caching too aggressively. If they have, use CTRL+SHIFT+R
 
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Asul:wght@300;400&family=EB+Garamond&family=Marcellus+SC&display=swap&family=Montserrat:wght@500;700&family=Noto+Sans:wght@300;400;500;700&Italianno&family=Pirata+One&family=Parisienne&family=Allura&family=Josefin+Sans&family=Orbitron&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Asul:wght@300;400&family=EB+Garamond&family=Marcellus+SC&display=swap&family=Nothing+You+Could+Do&display=swap&family=Special+Elite&display=swap&family=Montserrat:wght@500;700&family=Noto+Sans:wght@300;400;500;700&Italianno&family=Pirata+One&family=Parisienne&family=Allura&family=Josefin+Sans&family=Orbitron&display=swap" rel="stylesheet">
 
 
 
@@ -221,7 +221,7 @@ nav a,
 
 /* 5.1 Draft banner */
 .draftbanner {
-  background: #FF8C00;
+  background: #B22234;
   color: white;
   text-align: center;
   padding: 0.8rem;
@@ -229,11 +229,20 @@ nav a,
   font-size: 0.9rem;
 }
 
+.draftbanner img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  box-sizing: border-box;
+}
+
 /* 5.2 Background colors per ensemble */
-.prep      { background: #cdb9c3; }
-.chamber   { background: #b89caa; }
+.prep      { background: #F5D8DB; }
+.chamber   { background: #E8B6BC; }
 .co-we     { background: #925e78; }
-.winds     { background: #925e78;  }  /* old: #825e2e with white text */
+.winds     { background: #D88F98;  }  /* old: #825e2e with white text */
 .symphony  { background: #214478; color: #acedff; position: relative; }
 .special1  { background: #000;    color: #fff; }
 
@@ -344,7 +353,7 @@ nav a,
 .piece-composer {
   font-family: 'Noto Sans', sans-serif;
   font-size: 0.9rem;
-  color: #333;
+  color: #222;
   font-weight: 400;
   margin-left: auto;
   white-space: nowrap;   /* stays on one line when possible */
@@ -494,14 +503,14 @@ nav a,
   font-family: "Italianno", serif;
   font-style: italic;
   font-size: 2.2rem;
-  color: #d9f3ff;
+  color: #E8F1F8;
 }
 
 /* 9.4.3 Baroque era */
 .symphony-composer-name-baroque {
   font-family: "Pirata One", serif;
   font-size: 2.4rem;
-  color: #f2f2f2;
+  color: #E8F1F8;
   letter-spacing: 1px;
 }
 
@@ -510,7 +519,7 @@ nav a,
   font-family: "Parisienne", cursive;
   font-size: 2.3rem;
   font-weight: 600;
-  color: #e8f6ff;
+  color: #E8F1F8;
   letter-spacing: 0.5px;
 }
 
@@ -518,7 +527,7 @@ nav a,
 .symphony-composer-name-romantic {
   font-family: "Allura", cursive;
   font-size: 2.8rem;
-  color: #fff;
+  color: #E8F1F8;
 }
 
 /* 9.4.6 Modern era */
@@ -526,7 +535,7 @@ nav a,
   font-family: "Josefin Sans", sans-serif;
   font-size: 2.6rem;
   font-weight: 700;
-  color: #bce9ff;
+  color: #E8F1F8;
   letter-spacing: 0.8px;
 }
 
@@ -535,7 +544,7 @@ nav a,
   font-family: "Orbitron", sans-serif;
   font-size: 2.1rem;
   font-weight: 700;
-  color: #bce9ff;
+  color: #E8F1F8;
   letter-spacing: 0.8px;
 }
 
@@ -724,18 +733,21 @@ nav a,
 <header id="top">
   <img src="images/logo-nuye-intro.png" alt="NUYE Logo">
   <div class="concert-info">
-    <h2>Winter Concert</h2>
-	<h3> Bear River HS</h3>
-    <p class="concert-details">3:00 pm&nbsp;&nbsp;February 21,&nbsp;2026</p>
+    <h2>Spring Concert</h2>
+	<h3> Ridgeline HS</h3>
+    <p class="concert-details">7:00 pm&nbsp;&nbsp;May 11,&nbsp;2026</p>
   </div>
 </header>
 
 <!-- Draft Banner, to mark when the program notes are up, but not yet complete -->
 
 <section id="draftbanner" class="draftbanner" style="display:none;">
-  <p><strong>⚠️ DRAFT VERSION:</strong> If you are seeing this, you are looking at a draft of the program notes. 
-  <p>For final program notes, please check back closer to our next concert.</p> 
-  <p>Winter Concert is at 3pm Saturday February 21 2025. Admission is FREE!</p>
+  <p><strong>⚠️ DRAFT VERSION:</strong> For final program notes, please check back closer to our next concert.</p> 
+  <p>Come see NUYS play at the Golden Spike National Historic Park on Saturday May 9. Concerts at 11:00 and 1:30. Park admission is FREE on this day.</p>
+  <img class="piece-image" src="images/250th_playbill2.png" alt="">
+  <p> </p>
+  
+  <p>Regular Spring Concert is at 7pm Monday May 11 2026. Admission is FREE!</p>
 </section>
 
 
@@ -755,7 +767,7 @@ nav a,
   <!-- Prep piece 1 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">Rustic Dance</span>
+      <span class="piece-title">Fiddles on Fire</span>
       <span class="piece-composer">Mark Williams</span>
     </div>
 
@@ -766,17 +778,15 @@ nav a,
 
     <div class="piece-separator"></div>
 
-    <p class="piece-description">
-      <em>Rustic Dance</em> draws inspiration from folk-style music, featuring simple melodies and rhythms. The piece has a light, energetic character that suggests a joyful village dance. Its straightforward style and strong pulse make it engaging and fun to listen to.
-    </p>
-    <img class="piece-image" src="images/image-prep-rustic.png" alt="Rustic artwork">
+    <p class="piece-description"></p>
+    <img class="piece-image" src="images/image-prep-fiddles.webp" alt="">
   </div>
 
   <!-- Prep piece 2 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">Bits of Stardust</span>
-      <span class="piece-composer">Bruce W. Tippette</span>
+      <span class="piece-title">Renaissance Canzona</span>
+      <span class="piece-composer">Adriano Banchieri arr. Carl Strommen</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -787,16 +797,16 @@ nav a,
     <div class="piece-separator"></div>
 
     <p class="piece-description">
-      <em>Bits of Stardust</em> has a dark, mysterious sound, with a steady drum beat that gives the music a strong, serious feel. The piece builds tension as different parts come together, creating a sense of the unknown. It feels like a journey through something powerful and unexplained.
+      <em>Renaissance Canzona</em> is a piece originally written during the Renaissance. It reflects the elegant and balanced style of early instrumental music. The contrasting sections highlight different voices within the orchestra creating a rich texture. This piece helps our students learn about fugues and other important Renaissance aspects.
     </p>
-    <img class="piece-image" src="images/image-prep-stardust.png" alt="Stardust artwork">
+    <img class="piece-image" src="" alt="">
   </div>
 
   <!-- Prep piece 3 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">Canon Power</span>
-      <span class="piece-composer">Bob Lipton</span>
+      <span class="piece-title">Cripple Creek</span>
+      <span class="piece-composer">Traditional arr. Edmond Sienniki</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -807,9 +817,9 @@ nav a,
     <div class="piece-separator"></div>
 
     <p class="piece-description">
-      <em>Canon Power</em> is built around the musical form of a canon, where melodies enter in succession and overlap with one another. Bob Lipton combines this traditional technique with a modern, energetic sound. The result is a lively and clever piece that highlights teamwork and musical independence within the ensemble. You'll hear some familiar folk melodies as well.
+      <em>Cripple Creek</em> is a beloved American folk tune and has been played and passed down for generations. This arrangement features playful rhythms and a catchy melody that showcases the fun and storytelling of folk music. It's a lively piece that gives a glimpse into early American musical traditions.
     </p>
-    <img class="piece-image" src="images/image-prep-canon.png" alt="Canon artwork">
+    <img class="piece-image" src="images/image-prep-creek.webp" alt="">
   </div>
 </section>
 
@@ -823,8 +833,8 @@ nav a,
   <!-- Chamber piece 1 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">Terra Nova</span>
-      <span class="piece-composer">Richard Meyer</span>
+      <span class="piece-title">John Henry</span>
+      <span class="piece-composer">Traditional arr. Carrie Lane Gruselle</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -834,18 +844,18 @@ nav a,
 
     <div class="piece-separator"></div>
 
-    <img class="piece-image" src="images/image-chamber-terra.png" alt="Terra artwork">
+    <img class="piece-image" src="images/image-chamber-johnhenry.webp" alt="">
 
     <p class="piece-description">
-      <em>Terra Nova</em> means “new land,” and the music is about exploring somewhere unknown. Strong rhythms and bold melodies give the piece a feeling of adventure and movement. Quieter sections help show the mystery and challenge of discovering something new. The music often grows in volume and energy, showing confidence as the journey continues.
+      <em>John Henry</em> is a piece based on the legendary American folk hero. This piece tells the story of John Henry's strength and determination. Driving rhythms and bold melodies reflect the intensity of the famous steel driving contest. The music captures both the power and humanity of this iconic tale. 
     </p>
   </div>
 
   <!-- Chamber piece 2 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">The Cherry Tree Carol</span>
-      <span class="piece-composer">Traditional arr. Robert W. Smith</span>
+      <span class="piece-title">Perpetual Fiddle Motion</span>
+      <span class="piece-composer">Brian Balmages</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -855,17 +865,17 @@ nav a,
 
     <div class="piece-separator"></div>
 
-	<img class="piece-image" src="images/image-chamber-cherry.png" alt="Cherry artwork">
+	<img class="piece-image" src="" alt="">
 	
     <p class="piece-description">
-      <em>The Cherry Tree Carol</em> is based on a traditional English carol that tells a gentle, symbolic story. The melody is calm and simple, while the harmonies add warmth and feeling. Robert W. Smith’s arrangement focuses on clear musical lines and expressive phrasing. Soft dynamics and smooth playing help create a peaceful mood. 
+      <em>Perpetual Fiddle Motion</em> lives up to its name with continuous motion and flowing energy from start to finish. Inspired by fiddle styles, it features repeating patterns that pass between sections of the orchestra. The result is a vibrant and engaging work that keeps both the performers and listeners on their toes. 
     </p>
 	
   <!-- Chamber piece 3 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">Ukrainian Dance (Hopak)</span>
-      <span class="piece-composer">Modest Mussorgsky arr. Deborah Baker Monday</span>
+      <span class="piece-title"></span>
+      <span class="piece-composer"></span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -875,10 +885,10 @@ nav a,
 
     <div class="piece-separator"></div>
 
-    <img class="piece-image" src="images/image-chamber-ukrainian.png" alt="Ukrainian artwork">
+    <img class="piece-image" src="" alt="">
 	
     <p class="piece-description">
-      <em>Ukrainian Dance</em> is fast and energetic, inspired by traditional folk dancing. Strong rhythms and repeating melodies give the music a lively feel. The arrangement highlights excitement and movement throughout the piece. Sudden changes and accents make the dance feel playful and bold. 
+      NUYCO will appear again in collaboration with NUYS. Watch for them at the end of the program! 
     </p>
 
     <!-- Optional image could go here -->
@@ -921,12 +931,16 @@ nav a,
   <div class="section-logo">
     <img src="images/logo-nuywe.png" alt="NUYWE Logo">
   </div>
+  
+  <div class="piece-description">
+     For the upcoming semiquincentennial celebration, NUWE showcases pieces by American composers.  
+    </div>
 
   <!-- Winds piece 1 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">Tripwire</span>
-      <span class="piece-composer">JaRod Hall</span>
+      <span class="piece-title">Flashpoint</span>
+      <span class="piece-composer">Tyler Arcari</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -937,17 +951,17 @@ nav a,
     <div class="piece-separator"></div>
 
     <p class="piece-description">
-      This clever work offers some extraordinary colors as a spy attempts to inflitrate enemy defenses. Accompanied by stunning percussion.
+      This high-energy rhythmic work uses meter changes, syncopation, dotted quarter notes, and tied rhythms to create excitement. Excellent use of unison scoring reinforces the rhythms and adds power to the sound. Other effects such as horn rips and handclaps add an extra layer of color. 
     </p>
-    <img class="piece-image" src="images/image-winds-tripwire.png" alt="Tripwire artwork">
+    <img class="piece-image" src="" alt="">
   </div>
 
 
   <!-- Winds piece 2 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">Our Kingsland Spring</span>
-      <span class="piece-composer">Samuel R. Hazo</span>
+      <span class="piece-title">Celebration and Song</span>
+      <span class="piece-composer">Robert Sheldon</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -958,16 +972,16 @@ nav a,
     <div class="piece-separator"></div>
 
     <p class="piece-description">
-      This is the first movement of the <em>Georgian Suite</em>, commissioned for the state of Georgia's Music Educators Association. It celebrates their festival concert...that was actually held on the first day of spring.    
+      Robert Sheldon created a rhythmic driven and fast paced celebratory overture. The perfect addition to our 250 year celebrations!  
     </p>
-    <img class="piece-image" src="images/image-winds-kingsland.png" alt="Kingsland artwork">
+    <img class="piece-image" src="" alt="">
   </div>
   
     <!-- Winds piece 3 -->
   <div class="piece-entry">
     <div class="piece-header">
-      <span class="piece-title">The Mandalorian</span>
-      <span class="piece-composer">Ludwig Goransson arr. Paul Murtha</span>
+      <span class="piece-title">How to Train Your Dragon</span>
+      <span class="piece-composer">John Powell arr. Sean O'Loughlin</span>
     </div>
 
     <div class="piece-pronunciation-line">
@@ -978,9 +992,9 @@ nav a,
     <div class="piece-separator"></div>
     <!-- Optional image could go here -->
     <p class="piece-description">
-      This incredibly popular <em>Star Wars</em> series follows the daring exploits of a bounty hunter in the post-<em>Return of the Jedi</em> era. The iconic main theme is featured here in a powerful setting for wind ensemble.
+      This exciting and emotionally powerful music from the DreamWorks film has taken on a life of its own. Here is an adaptation for bands that features the well-known tender lyricism as well as the dramatic heroic moments of the original score.
     </p>
-	<img class="piece-image" src="images/image-winds-mandalorian.png" alt="Mandalorian artwork">
+	<img class="piece-image" src="images/image-winds-dragon.webp" alt="">
   </div>
   
 </section>
@@ -989,228 +1003,188 @@ nav a,
 <!-- =================== Symphony =================== -->
 <section id="symphony" class="symphony">
   <div class="section-logo">
-    <img src="images/logo-nuys.png" alt="NUYS Logo" class="fullwidth">
+    <img src="images/logo-nuys-paleblue.webp" alt="NUYS Logo" class="fullwidth">
   </div>
     <div class="overview">
-     NUYS presents five works: two Romantic, one Modern (sort of), and two Postmodern.  
+     In honor of the 250th anniversary of the Declaration of Independence, NUYS presents a patriotic program.  
     </div>
 	
-		<img src="images/timeline-overall.png" alt="Timeline of Eras"
+		<img src="images/timeline-overall.webp" alt="Timeline of Eras"
 		style="width:100%; display:block; margin:1rem 0;">
 	
 	<div class="overview">
-     Today's composers are (or were) a devoted court musician, a Romantic Russian nationalist, an antique instrument collector, a mid-century Broadway symphonist, and a successful film scorer.  
+     Today's composers, with one exception, were Americans who put their love of country and their admiration for the new American traditions into their music.  
     </div>
 
   <!-- Symphony Sub-menu -->
   <nav class="sub-toc">
-	<a href="#champions" class="toc-stack">
-      <span class="toc-line-main">Call</span>
-      <span class="toc-line-small">of the</span>
-      <span class="toc-line-main">Champions</span>
+	<a href="#salute" class="toc-stack">
+      <span class="toc-line-main">American<br>Salute</span></a>
+    <a href="#rococo" class="toc-stack">
+      <span class="toc-line-main">Variations</span>
+      <span class="toc-line-small">on a</span>
+      <span class="toc-line-main">Rococo Theme</span>
     </a>
-    <a href="#oboe">Oboe<br>Concertino</a>
-    <a href="#westside">West Side<br>Story</a>
-    <a href="#viola">Viola<br>Concerto</a>
-	<a href="#pictures" class="toc-stack">
-      <span class="toc-line-main">Pictures</span>
-      <span class="toc-line-small">at an</span>
-      <span class="toc-line-main">Exhibition</span>
-    </a>
+    <a href="#shaker">Shaker<br>Melody</a>
+    <a href="#hoedown">Hoedown<br> </a>
+	<a href="#forever" class="toc-stack">
+      <span class="toc-line-main">Stars and Stripes<br>Forever</span></a>
   </nav>
 
-  <!-- Piece 1: John Williams -->
-  <div id="champions" class="text-wrap">
+  <!-- Piece 1: Morton Gould -->
+  <div id="salute" class="text-wrap">
     <div class="symphony-header-block">
-      <p class="symphony-piece-title">Call of the Champions</p>
-      <div class="symphony-composer-name-base symphony-composer-name-postmodern">John Williams</div>
+      <p class="symphony-piece-title">American Salute</p>
+      <div class="symphony-composer-name-base symphony-composer-name-modern">Morton Gould</div>
       <span class="symphony-pronunciation"></span>
       <div class="timeline-rect">
-		  <img src="images/timeline-williams.png" alt="Timeline Williams">
+		  <img src="images/timeline-gould.webp" alt="Timeline Gould">
 	  </div>
 	  <div class="overview">
-      John Williams, the most successful film music composer ever, wrote this anthem for the 2002 Winter Games in Salt Lake City.
+      Morton Gould dashed off this piece overnight, and it remains his best-known work.
       </div>
 	</div>
   </div>
   <div class="divider"></div>
   
-    <!-- Block: Williams -->
+    <!-- Block: Gould -->
     <div>
-    <img src="images/block-williams.webp" alt="Williams Info" style="width:100%; display:block;">
+    <img src="images/block-gould.webp" alt="Gould Info" style="width:100%; display:block;">
     </div>
   <div class="divider"></div>
   
-    <!-- Block: Williams -->
+    <!-- Block: Salute -->
     <div>
-      <img src="images/block-williams-champions.webp" alt="Champions Info" style="width:100%; display:block;">
-    </div>
-  <div class="divider"></div>
-  
-<!-- 2002 Olympic Buildings Image Carousel has css, html, and javascript sections-->
-<div class="carousel">
-  <div class="carousel-frame">
-    <div class="carousel-caption">Memories of 2002
-	</div>
-
-    <div class="carousel-image-area">
-      <img id="carousel-image"
-           src="images/olympics-carousel-1.webp"
-           alt="Faust image">
+      <img src="images/block-gould-salute.webp" alt="Salute Info" style="width:100%; display:block;">
     </div>
 
-    <button class="carousel-btn left" onclick="prevImage()">&#10094;</button>
-    <button class="carousel-btn right" onclick="nextImage()">&#10095;</button>
-  </div>
-</div>
-
-  
   <div class="divider"></div>
   <div class="divider"></div>
   
-  <!-- Piece 2: Kalliwoda -->
-  <div id="oboe" class="text-wrap">
+  <!-- Piece 2: Tchaikovsky -->
+  <div id="rococo" class="text-wrap">
     <div class="symphony-header-block">
-      <p class="symphony-piece-title">Concertino for Oboe and Orchestra - Vivace</p>
-      <div class="symphony-composer-name-base symphony-composer-name-romantic">Johann Kalliwoda</div>
-      <span class="symphony-pronunciation">(kah-lih-VOH-dah)</span>
+      <p class="symphony-piece-title">Variations on a Rococo Theme</p>
+      <div class="symphony-composer-name-base symphony-composer-name-romantic">Pyotr Ilych Tchaikovsky</div>
+      <span class="symphony-pronunciation">(chai-KAAF-skee)</span>
       <div class="timeline-rect">
-		  <img src="images/timeline-kalliwoda.png" alt="Timeline Kalliwoda">
+		  <img src="images/timeline-tchaikovsky.webp" alt="Timeline Tchaikovsky"> 
 	  </div>
       <div class="overview">
-      Kalliwoda was probably one of the last full-time court-musicians employed by the German princely houses. This concertino is a lively example of his style. 
+      Despite tensions and outright wars between the USA and Russia, this composer and his works have been beloved in America for over 130 years. 
       </div>
 	</div>
   </div>
     <div class="divider"></div>
-	    <!-- Block:Kalliwoda -->
+	    <!-- Block:Tchaikovsky -->
   <div>
-     <img src="images/block-kalliwoda.webp" alt="Kalliwoda Info" style="width:100%; display:block;">
+     <img src="images/block-tchaikovsky.webp" alt="Tchaikovsky Info" style="width:100%; display:block;">
   </div>
   <div class="divider"></div>
-    <!-- Block: Oboe Concertino -->
+    <!-- Block: Rococo -->
     <div>
-      <img src="images/block-kalliwoda-opus110.webp" alt="Concertino" style="width:100%; display:block;">
+      <img src="images/block-tchaikovsky-rococo.webp" alt="Rococo" style="width:100%; display:block;">
+    </div>
+	  <div class="divider"></div>
+	<!-- Block: Variations -->
+    <div>
+      <img src="images/block-tchaikovsky-variations.webp" alt="Variations" style="width:100%; display:block;">
     </div>
   <div class="divider"></div>
-    <!-- Block: Oboe Instrument Showcase -->
+    <!-- Block: Cello Instrument Showcase -->
     <div>
-      <img src="images/block-kalliwoda-oboe.webp" alt="Oboe" style="width:100%; display:block;">
+      <img src="images/block-tchaikovsky-cello.webp" alt="Cello" style="width:100%; display:block;">
     </div>
   <div class="divider"></div>
   <div class="divider"></div>
   
   
   <!-- Piece 3 -->
-<div id="westside" class="text-wrap">
+<div id="shaker" class="text-wrap">
     <div class="symphony-header-block">
-        <p class="symphony-piece-title">West Side Story: Selections for Orchestra</p>
-        <div class="symphony-composer-name-base symphony-composer-name-postmodern">Leonard Bernstein
+        <p class="symphony-piece-title">Variations on a Shaker Melody <span style="font-size: 0.7em;">from <em>Appalachian Spring</em></span></p>
+		<p class="symphony-piece-title">Hoedown <span style="font-size: 0.7em;">from <em>Rodeo</em></span></p>
+        <div class="symphony-composer-name-base symphony-composer-name-postmodern">Aaron Copland
 		</div>
-        <span class="symphony-pronunciation">[BURN-stine]</span>
+        <span class="symphony-pronunciation">[KOPE-lund]</span>
     </div>
     <div class="timeline-rect">
-        <img src="images/timeline-bernstein.png" alt="Timeline Bernstein">
+        <img src="images/timeline-copland.webp" alt="Timeline Copland">
     </div>
     <div class="overview">
-        Bernstein's best-known composition is probably <em>West Side Story</em>, a 1950's re-imagining of Shakespeare's tragic <em>Romeo and Juliet</em>.
-        This time, the feud is between two rival NYC gangs: the Jets and the Sharks.
+        Copland intended his music to represent American ideals of optimism and democracy. Listeners often describe his pieces as "open" and "spacious."
     </div>
 </div>
   
     <div class="divider"></div>
   
-    <!-- Block: Bernstein -->
+    <!-- Block: Copland -->
   <div>
-    <img src="images/block-bernstein.webp" alt="Bernstein Info" style="width:100%; display:block;">
+    <img src="images/block-copland.webp" alt="Copland Info" style="width:100%; display:block;">
   </div>
   
   <div class="divider"></div>
   
-    <!-- Block: Piece = WSS -->
+    <!-- Block: Piece = Shaker -->
   <div>
-    <img src="images/block-bernstein-westside.webp" alt="West Side Story Info" style="width:100%; display:block;">
+    <img src="images/block-copland-shaker.webp" alt="Shaker Info" style="width:100%; display:block;">
   </div>
   
+  <div class="divider"></div>
+  
+    <!-- Block: Piece = Hoedown -->
+  <div>
+    <img src="images/block-copland-hoedown.webp" alt="Hoedown Info" style="width:100%; display:block;">
+  </div>
 
+  <div class="divider"></div>
+  
+    <!-- Block: Boulanger -->
+  <div>
+    <img src="images/block-boulanger-hoedown.webp" alt="Boulanger Info" style="width:100%; display:block;">
+  </div>
+  
   <div class="divider"></div>
   <div class="divider"></div>
 
-  <!-- Piece 4: Casadesus Viola Concerto in the style of J.C. Bach-->
-  <div id="viola" class="text-wrap">
+  <!-- Piece 4: Stars&Stripes-->
+  <div id="forever" class="text-wrap">
       <div class="symphony-header-block">
-        <p class="symphony-piece-title">Concerto in C minor for Viola and Orchestra<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in the style of J.C. Bach - Mvts 1 & 3</p>
-	    <div class="symphony-composer-name-base symphony-composer-name-modern">Henri Casadesus
+        <p class="symphony-piece-title">Stars and Stripes Forever&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 0.7em;">in collaboration with NUYCO</span></p>
+	    <div class="symphony-composer-name-base symphony-composer-name-romantic">John Philip Sousa
 	    </div>
-        <span class="symphony-pronunciation">[AHN-ree kah-sah-DAY-su(s)]</span>
+        <span class="symphony-pronunciation">[SOO-zah]</span>
         <div class="timeline-rect">
-		  <img src="images/timeline-casadesus.png" alt="Timeline Casadesus">
+		  <img src="images/timeline-sousa.webp" alt="Timeline Sousa">
 	    </div>
         <div class="overview">
-        This concerto, a staple of the viola repertoire, has a fascinating backstory. Enjoy the Romantic melodies peeking out from under its Classical shell. 
+        Enjoy the exuberant, the patriotic, the official . . . <br>
+		march of the United States of America! 
+		<p><span style="font-size: 0.7em;">(By order of Congress, December 11, 1987.)</span></p>
         </div>
 	  </div>
   </div>
   <div class="divider"></div>
-    <!-- Block: Casadesus -->  
+    <!-- Block: Sousa -->  
   <div>
-    <img src="images/block-casadesus.webp" alt="Casadesus Info" style="width:100%; display:block;">
+    <img src="images/block-sousa.webp" alt="Sousa Info" style="width:100%; display:block;">
   </div>
   <div class="divider"></div>
-    <!-- Block: Spurious Compositions -->  
+    <!-- Block: Stars&Stripes -->  
   <div>
-    <img src="images/block-casadesus-spurious.webp" alt="Viola Info" style="width:100%; display:block;">
+    <img src="images/block-sousa-forever.webp" alt="Stars & Stripes Forever Info" style="width:100%; display:block;">
   </div>
-  <div class="divider"></div>
-    <!-- Block: Viola Concerto -->  
-  <div>
-    <img src="images/block-casadesus-concerto.webp" alt="Concerto Info" style="width:100%; display:block;">
-  </div>
-  <div class="divider"></div>
-    <!-- Block: Viola Instrument Showcase -->
-  <div>
-    <img src="images/block-casadesus-viola.webp" alt="Viola Info" style="width:100%; display:block;">
-  </div>
-  
+
     <div class="divider"></div>
 	<div class="divider"></div>
 
 
-  <!-- Piece 5: Pictures -->
-  <div id="pictures" class="text-wrap">
-    <div class="symphony-header-block">
-      <p class="symphony-piece-title">Pictures at an Exhibition:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IX. The Hut on Hen's Legs<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X. The Great Gate of Kiev</p>
-      <div class="symphony-composer-name-base symphony-composer-name-romantic">Modest Mussorgsky</div>
-      <span class="symphony-pronunciation">(muss-ORG-skee)</span>
-      <div class="timeline-rect">
-		  <img src="images/timeline-mussorgsky.png" alt="Timeline Mussorgsky">
-	  </div>
-      <div class="overview">
-      Mussorgsky composed these pieces for solo piano in 1874. His original version is dynamic and evocative, but Ravel's powerful 1922 orchestration will sweep you away! 
-      </div>
-	</div>
-  </div>
-    <!-- Block:Mussorgsky -->
-  <div>
-    <img src="images/block-mussorgsky.webp" alt="Mussorgsky Info" style="width:100%; display:block;">
-  </div>
-  <div class="divider"></div>
-    <!-- Block: Pictures -->
-  <div>
-    <img src="images/block-mussorgsky-pictures.webp" alt="Pictures" style="width:100%; display:block;">
-  </div>
-  <div class="divider"></div>
-   <!-- Block:Mighty Handful -->
-  <div>
-    <img src="images/block-mussorgsky-handful.webp" alt="Mighty Handful" style="width:100%; display:block;">
-  </div>
-  <div class="divider"></div>
 
 </section>
 
 <!-- =================== Final Section =================== -->
   <section class="special1">
-      <img src="images/block-outro.webp" alt="phones & thanks" style="width:100%; display:block;">
+      <img src="images/block-outro-spring26.webp" alt="phones & thanks" style="width:100%; display:block;">
 
 <!-- Donation buttons -->
 <div class="donate-buttons">
@@ -1325,7 +1299,7 @@ window.addEventListener("load", renderImage);
 <!-- toggle to turn the draftbanner on as needed (default is off) -->
 <script>
   // Uncomment the line below to show the draft banner
-  //document.getElementById('draftbanner').style.display = 'block';//
+  document.getElementById('draftbanner').style.display = 'block';//
 </script>
 
 </body>
