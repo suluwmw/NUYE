@@ -246,6 +246,20 @@ nav a,
 .perc      { background: #B66576; }
 .symphony  { background: #214478; color: #acedff; position: relative; }
 .special1  { background: #000;    color: #fff; }
+}
+
+/* 5.2.1 Pale borders + bottom breathing room for small ensemble sections */
+.prep,
+.chamber,
+.winds,
+.perc {
+  border-top: 2px solid rgba(255,255,255,0.8);
+  padding-bottom: 1rem;
+}
+
+.prep {
+  border-top: none;
+}
 
 /* 5.3 NUYS fade into black at end of Symphony section */
 .symphony::after {
@@ -254,6 +268,9 @@ nav a,
   height: 80px;
   background: linear-gradient(to bottom, rgba(33,68,120,1) 0%, rgba(0,0,0,1) 100%);
 }
+
+
+
 
 /* 5.4 Last black section extends to bottom of container visually */
 .container > .special1:last-of-type {
@@ -411,9 +428,7 @@ nav a,
 }
 
 /* Add bottom space if a piece ends with text (no image after it) */
-.piece-entry:last-child > .section-end {
-  padding-bottom: 1rem;   /* use padding to avoid margin-collapse */
-}
+.section-end {height: 1rem;}
 
 /* ---------------------------------------------------------------
    7.5 IMAGES within piece blocks
@@ -872,6 +887,7 @@ nav a,
     <p class="piece-description">
       <em>Perpetual Fiddle Motion</em> lives up to its name with continuous motion and flowing energy from start to finish. Inspired by fiddle styles, it features repeating patterns that pass between sections of the orchestra. The result is a vibrant and engaging work that keeps both the performers and listeners on their toes. 
     </p>
+  </div>
 	
   <!-- Chamber piece 3 -->
   <div class="piece-entry">
@@ -894,9 +910,10 @@ nav a,
     </p>
 
     <!-- Optional image could go here -->
-    <div class="section-end"></div>
   </div>
+
 </section>
+
 
 <!-- THIS SECTION SHOULD BE COMMENTED OUT IF CHAMBER & WINDS DON'T SHARE A PIECE -->
 <!-- =================== CO-WE =================== -->
@@ -1008,7 +1025,7 @@ nav a,
   </div>
 
   <div class="piece-description">
-     The percussion section of NUYE presents a piece composed by one of our student members.  
+     The percussion section of NUYE showcases a piece composed by one of our students.  
   </div>
 	
   <!-- Perc piece 1 -->
@@ -1029,9 +1046,11 @@ nav a,
 	This is where the description of the piece will go. 
 	</p>
     <img class="piece-image" src="" alt="">
-  </div>
-
+	
+  </div> 
+ 
 </section>
+
 
 
 <!-- =================== Symphony =================== -->
