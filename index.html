@@ -3,6 +3,8 @@ NUYE Digital Program Notes
 BUILD: 15 April 2026 DRAFT VERSION
 (this must be updated manually as a version check
 to combat some browsers caching too aggressively. If they have, use CTRL+SHIFT+R to hard reset.
+
+Safety notice: never comment out blocks that have nested comments already (like Co-WE or Percussion), that confuses html. Use the <template> and </template> markers to do that.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -246,11 +248,12 @@ nav a,
 .perc      { background: #B66576; }
 .symphony  { background: #214478; color: #acedff; position: relative; }
 .special1  { background: #000;    color: #fff; }
-}
+
 
 /* 5.2.1 Pale borders + bottom breathing room for small ensemble sections */
 .prep,
 .chamber,
+.co-we,
 .winds,
 .perc {
   border-top: 2px solid rgba(255,255,255,0.8);
@@ -265,7 +268,7 @@ nav a,
 .symphony::after {
   content: "";
   display: block;
-  height: 80px;
+  height: 120px;
   background: linear-gradient(to bottom, rgba(33,68,120,1) 0%, rgba(0,0,0,1) 100%);
 }
 
@@ -335,7 +338,11 @@ nav a,
 
 /* 7.0 Each piece container */
 .piece-entry {
-  margin: 1.5rem 0;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.piece-entry > :last-child {
+  margin-bottom: 0;
 }
 
 /* ---------------------------------------------------------------
@@ -440,9 +447,8 @@ nav a,
   margin-bottom: 1rem;
 }
 
-/* Future-friendly: hide deliberate empty images if you ever use class="piece-image" */
-.piece-image[src=""] {
-  display: none;
+/* Hide optional images when src is empty */
+.optional-image[src=""] { display: none; }
 }
 
 
@@ -453,7 +459,8 @@ nav a,
 .prep p,
 .chamber p,
 .co-we p,
-.winds p {
+.winds p, 
+.perc p {
   font-size: 1.2rem;
   line-height: 1.55;
 }
@@ -758,7 +765,7 @@ nav a,
 <!-- Draft Banner, to mark when the program notes are up, but not yet complete -->
 
 <section id="draftbanner" class="draftbanner" style="display:none;">
-  <p><strong>⚠️ DRAFT VERSION:</strong> For final program notes, please check back closer to our next concert.</p> 
+  <p><strong>⚠️ DRAFT VERSION:</strong> For final program notes, please check back on concert day.</p> 
   
   
   </section>
@@ -793,7 +800,7 @@ nav a,
     <div class="piece-separator"></div>
 
     <p class="piece-description"></p>
-    <img class="piece-image" src="images/image-prep-fiddles.webp" alt="">
+    <img class="piece-image optional-image" src="images/image-prep-fiddles.webp" alt="fiddles">
   </div>
 
   <!-- Prep piece 2 -->
@@ -813,7 +820,7 @@ nav a,
     <p class="piece-description">
       <em>Renaissance Canzona</em> is a piece originally written during the Renaissance. It reflects the elegant and balanced style of early instrumental music. The contrasting sections highlight different voices within the orchestra creating a rich texture. This piece helps our students learn about fugues and other important Renaissance aspects.
     </p>
-    <img class="piece-image" src="" alt="">
+    <img class="piece-image optional-image" src="" alt="">
   </div>
 
   <!-- Prep piece 3 -->
@@ -833,7 +840,7 @@ nav a,
     <p class="piece-description">
       <em>Cripple Creek</em> is a beloved American folk tune and has been played and passed down for generations. This arrangement features playful rhythms and a catchy melody that showcases the fun and storytelling of folk music. It's a lively piece that gives a glimpse into early American musical traditions.
     </p>
-    <img class="piece-image" src="images/image-prep-creek.webp" alt="">
+<img class="piece-image optional-image" src="images/image-prep-creek.webp" alt="Creek">
   </div>
 </section>
 
@@ -857,8 +864,8 @@ nav a,
     </div>
 
     <div class="piece-separator"></div>
-
-    <img class="piece-image" src="images/image-chamber-johnhenry.webp" alt="">
+	
+    <img class="piece-image optional-image" src="images/image-chamber-johnhenry.webp" alt="">
 
     <p class="piece-description">
       <em>John Henry</em> is a piece based on the legendary American folk hero. This piece tells the story of John Henry's strength and determination. Driving rhythms and bold melodies reflect the intensity of the famous steel driving contest. The music captures both the power and humanity of this iconic tale. 
@@ -879,7 +886,7 @@ nav a,
 
     <div class="piece-separator"></div>
 
-	<img class="piece-image" src="" alt="">
+    <img class="piece-image optional-image" src="" alt="">
 	
     <p class="piece-description">
       <em>Perpetual Fiddle Motion</em> lives up to its name with continuous motion and flowing energy from start to finish. Inspired by fiddle styles, it features repeating patterns that pass between sections of the orchestra. The result is a vibrant and engaging work that keeps both the performers and listeners on their toes. 
@@ -899,19 +906,19 @@ nav a,
     </div>
 
     <div class="piece-separator"></div>
-
-    <img class="piece-image" src="" alt="">
+	
+    <img class="piece-image optional-image" src="" alt="">
 	
     <p class="piece-description">
       NUYCO will appear again in collaboration with NUYS. Watch for them at the end of the program! 
     </p>
 
-    <!-- Optional image could go here -->
+
   </div>
 
 </section>
 
-
+<template id="co-we-template">
 <!-- THIS SECTION SHOULD BE COMMENTED OUT IF CHAMBER & WINDS DON'T SHARE A PIECE -->
 <!-- =================== CO-WE =================== -->
 <!-- <section id="co-we" class="co-we">
@@ -937,9 +944,11 @@ nav a,
     <p class="piece-description">
       This is some placeholder text. This is some placeholder text. This is some placeholder text. This is some placeholder text.
     </p>
-    <img class="piece-image" src="images/image-placeholder.png" alt="Shackelford Banks artwork">
+    <img class="piece-image optional-image" src="" alt="">
   </div>
 </section> -->
+
+</template>
 
 
 <!-- =================== Winds =================== -->
@@ -969,7 +978,7 @@ nav a,
     <p class="piece-description">
       This high-energy rhythmic work uses meter changes, syncopation, dotted quarter notes, and tied rhythms to create excitement. Excellent use of unison scoring reinforces the rhythms and adds power to the sound. Other effects such as horn rips and handclaps add an extra layer of color. 
     </p>
-    <img class="piece-image" src="" alt="">
+    <img class="piece-image optional-image" src="" alt="">
   </div>
 
 
@@ -990,7 +999,7 @@ nav a,
     <p class="piece-description">
       Robert Sheldon created a rhythmic driven and fast paced celebratory overture. The perfect addition to our 250 year celebrations!  
     </p>
-    <img class="piece-image" src="" alt="">
+    <img class="piece-image optional-image" src="" alt="">
   </div>
   
     <!-- Winds piece 3 -->
@@ -1006,11 +1015,11 @@ nav a,
     </div>
 
     <div class="piece-separator"></div>
-    <!-- Optional image could go here -->
+  
     <p class="piece-description">
       This exciting and emotionally powerful music from the DreamWorks film has taken on a life of its own. Here is an adaptation for bands that features the well-known tender lyricism as well as the dramatic heroic moments of the original score.
     </p>
-	<img class="piece-image" src="images/image-winds-dragon.webp" alt="">
+	<img class="piece-image optional-image" src="images/image-winds-dragon.webp" alt="dragons">
   </div>
   
 </section>
@@ -1043,13 +1052,13 @@ nav a,
 	Gabriel Hurd, NUYS's trumpet player and sometimes Wind Ensemble percussionist, volunteered to compose this piece that features polyrhythms and interweaving melodies. </p>
 	<p class="piece-description">	"I wrote this piece because I always though percussion was really cool. I had never composed anything with percussion before, and I thought it would be fun! As you can probably guess by the name, the piece is supposed to represeent an epic final battle and the internal struggle that comes with it. I hope you like it!" 
 	</p>
-    <img class="piece-image" src="images/image-percussion.png" alt="">
+    <img class="piece-image optional-image" src="images/image-percussion.png" alt="percussion-mallets">
 	
   </div> 
  
 </section>
 
-
+  <div class="divider"></div>
 
 <!-- =================== Symphony =================== -->
 <section id="symphony" class="symphony">
@@ -1224,9 +1233,6 @@ nav a,
   <div>
     <img src="images/block-sousa-forever.webp" alt="Stars & Stripes Forever Info" style="width:100%; display:block;">
   </div>
-
-    <div class="divider"></div>
-	<div class="divider"></div>
 
 
 
